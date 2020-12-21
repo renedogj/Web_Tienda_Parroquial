@@ -1,0 +1,283 @@
+.contactar{
+	/*background-color: brown;*/
+	position: relative;
+	width: 100%;
+	height: auto;
+	bottom: auto;
+	overflow: auto;
+	font-family: Raleway;
+}
+.como-comprar{
+	/*background-color: yellow;*/
+	position: relative;
+	width: 98%;
+	height: auto;
+	margin: 0px 1%;
+}
+
+.como-comprar .instrucciones{
+	/*background-color: pink;*/
+	position: relative;
+	width: 92%;
+	margin: 0px 4%;
+}
+
+.instrucciones h1{
+	background-color: rgba(50, 120, 190, 0.7);
+	text-align: center;
+	font-size: 35px;
+	-webkit-border-top-left-radius: 15px;
+	-moz-border-radius-topleft: 15px;
+	border-top-left-radius: 15px;
+	-webkit-border-top-right-radius: 15px;
+	-moz-border-radius-topright: 15px;
+	border-top-right-radius: 15px;
+	-webkit-border-bottom-right-radius: 15px;
+	-moz-border-radius-bottomright: 15px;
+	border-bottom-right-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-moz-border-radius-bottomleft: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+.instrucciones p, .instrucciones ul{
+	/*background-color: red;*/
+	width: 80%;
+	margin: 0px 10%;
+	line-height: 25px;
+	font-size: 19px;
+}
+
+.instrucciones p .intro-instrucciones,.instrucciones p b{
+	font-size: 20px;
+}
+
+.como-contactar{
+	/*background-color: blue;*/
+	position: relative;
+	width: 98%;
+	margin: 0px 1%;
+	margin-top: 10px;
+	display: flex;
+}
+
+.correo{
+	/*background-color: green;*/
+	position: relative;
+	width: 100%;
+	margin: 1%;
+}
+
+.correo h2{
+	background-color: rgba(50, 120, 190, 0.7);
+	width: 70%;
+	margin: 5px 15%;
+	text-align: center;
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-right-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	-moz-border-radius-bottomright: 10px;
+	border-bottom-right-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.correo form{
+	/*background-color: purple;*/
+	position: relative;
+	width: 90%;
+	margin: 0px 5%;
+}
+
+.label{
+	/*background-color: green;*/2
+	width: 75%;
+	margin: 0px 12.5%;
+	font-size: 18px;
+}
+
+.error{
+	color: red;
+}
+
+.obligatorio{
+	color: red;
+	font-size: 30px;
+	vertical-align: sub;
+} 
+
+.correo label input{
+	position: relative;
+	width: 100%;
+	height: 30px;
+}
+
+.boton-solicitar-pedido{
+	width: 20%;
+	height: 45px;
+	margin: 20px 40%;
+	font-size: 20px;
+	line-height: 25px;
+}
+
+.boton-solicitar-pedido:hover {
+	background:-webkit-gradient(
+		linear, left top, left bottom, color-stop(0.05, #378de5), color-stop(1, #79bbff)
+	);
+	background:-moz-linear-gradient(
+		center top, #378de5 5%, #79bbff 100% 
+	);
+	filter:progid:DXImageTransform.Microsoft.gradient(
+		startColorstr='#378de5', endColorstr='#79bbff'
+	);
+	background-color:#378de5;
+}
+.boton-solicitar-pedido:active {
+	position:relative;
+	top:2px;
+}
+
+@media(max-width: 1000px){
+	.instrucciones h1{
+		font-size: 30px;
+	}
+	.instrucciones p, .instrucciones ul{
+		width: 90%;
+		margin: 0px 5%;
+		font-size: 17px;
+	}
+	.instrucciones p .intro-instrucciones,.instrucciones p b,.instrucciones p .opcion{
+		font-size: 19px;
+	}
+	.label{
+		width: 80%;
+		margin: 0px 10%;
+		font-size: 17px;
+	}
+	.obligatorio{
+		font-size: 25px;
+	}
+	.boton-solicitar-pedido{
+		width: 30%;
+		margin: 20px 35%;
+	}
+	.correo h2{
+		width: 80%;
+		margin: 5px 10%;
+	}
+}
+
+@media(max-width: 550px){
+	.como-comprar .instrucciones{
+		width: 95%;
+		margin: 0px 2.5%;
+	}
+	.instrucciones h1{
+		font-size: 28px;
+	}
+	.instrucciones p, .instrucciones ul{
+		width: 95%;
+		margin: 0px 2.5%;
+		font-size: 15px;
+	}
+	.instrucciones p .intro-instrucciones,.instrucciones p b,.instrucciones p .opcion{
+		font-size: 18px;
+	}
+	.correo h2{
+		font-size: 20px;
+		width: 90%;
+		margin: 5px 5%;
+	}
+	.label{
+		width: 85%;
+		margin: 0px 7.5%;
+		font-size: 15px;
+	}
+	.obligatorio{
+		font-size: 22px;
+	}
+	.boton-solicitar-pedido{
+		width: 40%;
+		margin: 15px 30%;
+		/*height: auto;*/
+	}
+}
+
+@media(max-width: 450px){
+	.como-comprar .instrucciones{
+		width: 97%;
+		margin: 0px 1.5%;
+	}
+	.instrucciones h1{
+		font-size: 25px;
+	}
+	.instrucciones p, .instrucciones ul{
+		width: 100%;
+		margin: 0;
+		font-size: 14px;
+	}
+	.instrucciones p .intro-instrucciones,.instrucciones p b,.instrucciones p .opcion{
+		font-size: 16px;
+	}
+	.correo h2{
+		font-size: 18px;
+		width: 95%;
+		margin: 3px 2.5%;
+	}
+	.label{
+		width: 90%;
+		margin: 0px 5%;
+		font-size: 13px;
+	}
+	.obligatorio{
+		font-size: 20px;
+	}
+	.boton-solicitar-pedido{
+		width: 60%;
+		margin: 10px 20%;
+		/*height: auto;*/
+	}
+}
+
+@media(max-width: 300px){
+	.como-comprar .instrucciones{
+		width: 98%;
+		margin: 0px 1%;
+	}
+	.instrucciones h1{
+		font-size: 20px;
+	}
+	.instrucciones p, .instrucciones ul{
+		width: 100%;
+		margin: 0;
+		font-size: 13px;
+	}
+	.instrucciones p .intro-instrucciones,.instrucciones p b,.instrucciones p .opcion{
+		font-size: 14px;
+	}
+	.correo h2{
+		font-size: 15px;
+		width: 100%;
+		margin: 3px 0;
+	}
+	.label{
+		width: 93%;
+		margin: 0px 3.5%;
+		font-size: 12px;
+	}
+	.obligatorio{
+		font-size: 18px;
+	}
+	.correo label input{
+		height: 25px;
+	}
+	.boton-solicitar-pedido{
+		margin: 7px 20%;
+		height: auto;
+	}
+}
