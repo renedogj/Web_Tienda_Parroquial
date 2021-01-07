@@ -4,6 +4,10 @@
 	src: url("../fuentes/MarcellusSC-Regular.ttf");
 }
 
+body{
+    background-color: #FAFAFA;
+}
+
 header{
 	width: 100%;
     position: relative;

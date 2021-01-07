@@ -16,7 +16,7 @@
 	text-align: center;
 	position: relative;
 	padding: 10px 2px 10px 2px;
-	font-size: 31px;
+	font-size: 35px;
 }
 
 @media(max-width: 1470px){
@@ -63,13 +63,13 @@
 
 @media(max-width: 860px){
 	.banda_agotado h1{
-		font-size: 19px;
+		font-size: 32px;
 	}
 }
 
 @media(max-width: 810px){
 	.banda_agotado h1{
-		font-size: 18px;
+		font-size: 30px;
 	}
 }
 
@@ -103,33 +103,39 @@
 	}
 }
 
-@media(max-width: 478px){
+@media(max-width: 480px){
     .banda_agotado h1{
-		font-size: 24px;
+		font-size: 33px;
 	}
 }
 
 @media(max-width: 390px){
 	.banda_agotado h1{
-		font-size: 22px;
+		font-size: 28px;
 	}
 }
 
 @media(max-width: 353px){
     .banda_agotado h1{
-		font-size: 21px;
+		font-size: 27px;
 	}
 }
 
 @media(max-width: 330px){
 	.banda_agotado h1{
-		font-size: 20px;
+		font-size: 26px;
 	}
 }
 
 
 @media(max-width: 280px){
     .banda_agotado h1{
-		font-size: 19px;
+		font-size: 25px;
+	}
+}
+
+@media(max-width: 215px){
+    .banda_agotado h1{
+		font-size: 16px;
 	}
 }

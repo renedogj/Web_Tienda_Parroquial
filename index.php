@@ -151,21 +151,43 @@
 				<h1>PRODUCTOS SOLIDARIOS</h1>
 			</div>
 			<div class="margenes" id="margenes">
+				<script type="text/javascript">
+					var categorias = new Array();
+				<?php
+					include("conexion.php");
+					$con=mysqli_connect($servidor,$usuario,$contrasena);
+					$conectado=mysqli_select_db($con,$baseDeDatos);
+					if(!$conectado){
+						echo 'alert("Se ha producido un error al conectarse con la base datos por favor intentelo más tarde");';
+					}
+					$sql = "SELECT COUNT(ID) from categorias";
+					$result=mysqli_query($con,$sql);
+					$row = mysqli_fetch_array($result);
+					$numCategorias = $row[0];
+					$categorias = array();
+					$sql="SELECT nombre_categoria from categorias";
+					$result = $con->query($sql);
+					$j = 1;
+					if ($result->num_rows > 0) {
+						while($row = $result->fetch_assoc()){
+							$categorias[$j] = $row["nombre_categoria"];
+							echo "categorias[$j]='$categorias[$j]';";
+							$j++;
+						}
+					}
+				?>
+					var numCategorias = <?php echo $numCategorias; ?>;
+				</script>
 			<div class="formulario-filtrar">
 				<form id="formulario-selecion" method="post" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
 					<div class="select">
 						<select name="seleccion_Categoria">
-				        	<option value="0">Todos</option>
-				        	<option value="1">Bolsas</option>
-				        	<option value="2">Cojines</option>
-				        	<option value="3">Cuellos</option>
-				        	<option value="4">Bolsos</option>
-				        	<option value="5">Diademas</option>
-				        	<option value="6">Neceser</option>
-				        	<option value="7">Llaveros</option>
-				        	<option value="8">Pulseras y gargantillas</option>
-				        	<option value="9">Navidad</option>
-				        	<option value="10">Carpetas</option>
+							<option value="0">Todos</option>
+							<script type="text/javascript">
+								for(i=1; i<numCategorias;i++){
+									document.write('<option value="'+i+'">'+categorias[i]+'</option>');
+								}
+							</script>
 				        </select>
 				    </div>
 				    <div class="select">
@@ -183,33 +205,28 @@
 			</div>
 			
 			<script type="text/javascript">
-				<?php
-					$categoriaSql = seleccionCategoria($categoria);
-					$ordenSql = seleccionOrden($orden);
-					include("conexion.php");
-					$con=mysqli_connect($servidor,$usuario,$contrasena);
-					$conectado=mysqli_select_db($con,$baseDeDatos);
-					if(!$conectado){
-						echo 'alert("Se ha producido un error al conectarse con la base datos por favor intentelo más tarde");';
+			<?php
+
+				$categoriaSql = seleccionCategoria($categoria);
+				$ordenSql = seleccionOrden($orden);
+				$sql="SELECT COUNT(ID) from productos".$categoriaSql;
+				$result=mysqli_query($con,$sql);
+				$row = mysqli_fetch_array($result);
+				$numArticulos = $row[0];
+			?>
+				var numArticulos= <?php echo $numArticulos; ?>;
+				var numMaxArticulosPorLinea = 4;
+				function calcularNumLineas (numArticulos) {
+					let numLineasExactas = numArticulos/numMaxArticulosPorLinea;
+					let numLineasCompletas =Math.floor(numLineasExactas);
+					if(numLineasExactas>numLineasCompletas){
+						numLineasCompletas++;
 					}
-					$sql="SELECT COUNT(ID) from productos".$categoriaSql;
-					$result=mysqli_query($con,$sql);
-					$row = mysqli_fetch_array($result);
-					$numArticulos = $row[0];
-				?>
-			var numArticulos= <?php echo $numArticulos; ?>;
-			var numMaxArticulosPorLinea = 4;
-			function calcularNumLineas (numArticulos) {
-				let numLineasExactas = numArticulos/numMaxArticulosPorLinea;
-				let numLineasCompletas =Math.floor(numLineasExactas);
-				if(numLineasExactas>numLineasCompletas){
-					numLineasCompletas++;
+					return numLineasCompletas;
 				}
-				return numLineasCompletas;
-			}
-			var numLineas = calcularNumLineas(numArticulos);
-			var articulos = new Array();
-			var ids = new Array();
+				var numLineas = calcularNumLineas(numArticulos);
+				var articulos = new Array();
+				var ids = new Array();
 			<?php
 				$sql="SELECT id from productos".$categoriaSql.$ordenSql;
 				$result = $con->query($sql);
@@ -281,6 +298,9 @@
 					articulosPorLinea = numArticulos-contadorArticulos;
 				}
 				for(j=0;j<articulosPorLinea;j++){//Bucle Articulos de cada linea
+					if(j==0 || j==2){
+						document.write('<div class="semiLinea">');
+					}
 					if(articulos[contadorArticulos].disponibilidad != 2){
 						document.write('<div class="articulo"><div class="slideshow-container">');
 						document.write('<div class="mySlides  fade"><img class="'+articulos[contadorArticulos].claseImagenesArticulo+'" src="imagenes/'+articulos[contadorArticulos].fotos[1]+'"></div>');
@@ -294,6 +314,9 @@
 						document.write('<div class="div_info_articulo"><h1 class="nombre_articulo">'+articulos[contadorArticulos].nombreArticulo+'</h1><p>art: '+articulos[contadorArticulos].IDArticulo+' - Precio: '+articulos[contadorArticulos].precio+'€</p><p class="descripcion_articulo">'+articulos[contadorArticulos].descripcion+'</p></div></div>');	
 					}else{
 						j--;
+					}
+					if(j==1 || j==(articulosPorLinea-1)){
+						document.write('</div>');
 					}
 					contadorArticulos++;
 				}
