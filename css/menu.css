@@ -127,41 +127,68 @@
     }
 }
 
-@media(max-width: 485px){ 
-    .menu .div-mercadillo-letras h1{
-        font-size: 15px;
-        margin-top: 3%;
+@media(max-width: 525px){
+    .menu{
+        display: inline;
+        float: left;
     }
-    .liA{
-        font-size: 13px;
+    .div-mercadillo-letras{
+        width: 100%;
+        text-align: center;
+    }
+    .div-mercadillo-letras h1{
+        font-size: 20px;
         margin: 0;
-        display: flex;
+    }
+    .div-menu{
+        width: 100%;
+        z-index: 1;
     }
     .ulA{
+        margin: 0;
         padding-inline-start: 0;
+    }
+    .div-liA{
+        margin: 0;
+    }
+    .liA{
+        font-size: 15px;
+        margin: 2% 0;
+    }
+}
+
+@media(max-width: 485px){ 
+    .menu .div-mercadillo-letras h1{
+        font-size: 18px;
+    }
+    .liA{
+        font-size: 14px;
     }
 }
 
 @media(max-width: 300px){
     .menu .div-mercadillo-letras h1{
-        font-size: 14px;
-        margin-top: 2%;
+        font-size: 16px;
     }
     .liA{
         font-size: 12px;
-        margin-top: 2%;
-        margin-bottom: 2%;
     }
 }
 
 @media(max-width: 300px){
     .menu .div-mercadillo-letras h1{
-        font-size: 12px;
-        margin-top: 1%;
+        font-size: 15px;
     }
     .liA{
         font-size: 10px;
-        margin-top: 1%;
-        margin-bottom: 1%;
+    }
+}
+
+@media(max-width: 250px){
+    .menu .div-mercadillo-letras h1{
+        font-size: 13px;
+    }
+    .liA{
+        font-size: 9px;
     }
 }
