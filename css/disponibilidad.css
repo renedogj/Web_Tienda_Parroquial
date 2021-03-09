@@ -19,6 +19,21 @@
 	font-size: 35px;
 }
 
+.unidadesLimitadas{
+	background-color: rgba(67,67,67,0.8);
+	background-color: rgba(60,20,60,0.8);
+	position: absolute;
+	top: 0;
+}
+
+.unidadesLimitadas h2{
+	padding: 7px 10px 7px 10px;
+	margin: 0;
+	font-size: 1.2em;
+	color: #F2F2F2;
+	font-family: "Helvetica";
+}
+
 @media(max-width: 1470px){
 	.banda_agotado h1{
 		font-size: 29px;

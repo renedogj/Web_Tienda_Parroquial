@@ -14,7 +14,7 @@
 		<link rel="stylesheet" type="text/css" href="css/tienda.css">
 		<link rel="stylesheet" type="text/css" href="css/animacionImagenes.css">
 		<link rel="stylesheet" type="text/css" href="css/contactar.css">
-		<link rel="stylesheet" type="text/css" href="css/agotado.css">
+		<link rel="stylesheet" type="text/css" href="css/disponibilidad.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 	</head>
@@ -29,10 +29,14 @@
 			}
 
 			$correoEnviado;
-    	    $correoEnviado=$_GET['enviado'];
-    	    if(!$correoEnviado){
-    	        $correoEnviado=0;
-    	    }
+			if(isset($_GET['enviado'])){
+	    	    $correoEnviado=$_GET['enviado'];
+	    	    if(!$correoEnviado){
+	    	        $correoEnviado=0;
+	    	    }
+			}else{
+				$correoEnviado=0;
+			}
     	?>
 		<header>
 			<div class="header-imagen-superior">
@@ -153,6 +157,7 @@
 			<div class="margenes" id="margenes">
 				<script type="text/javascript">
 					var categorias = new Array();
+					var mostrar_categoria = new Array();
 				<?php
 					include("conexion.php");
 					$con=mysqli_connect($servidor,$usuario,$contrasena);
@@ -165,13 +170,15 @@
 					$row = mysqli_fetch_array($result);
 					$numCategorias = $row[0];
 					$categorias = array();
-					$sql="SELECT nombre_categoria from categorias";
+					$sql="SELECT nombre_categoria,mostrar_categoria from categorias";
 					$result = $con->query($sql);
 					$j = 1;
 					if ($result->num_rows > 0) {
 						while($row = $result->fetch_assoc()){
 							$categorias[$j] = $row["nombre_categoria"];
 							echo "categorias[$j]='$categorias[$j]';";
+							$mostrar_categoria[$j] = $row["mostrar_categoria"];
+							echo "mostrar_categoria[$j]='$mostrar_categoria[$j]';";
 							$j++;
 						}
 					}
@@ -184,8 +191,10 @@
 						<select name="seleccion_Categoria">
 							<option value="0">Todos</option>
 							<script type="text/javascript">
-								for(i=1; i<numCategorias;i++){
-									document.write('<option value="'+i+'">'+categorias[i]+'</option>');
+								for(i=1; i<=numCategorias;i++){
+									if(mostrar_categoria[i] == 1){
+										document.write('<option value="'+i+'">'+categorias[i]+'</option>');
+									}
 								}
 							</script>
 				        </select>
@@ -209,7 +218,8 @@
 
 				$categoriaSql = seleccionCategoria($categoria);
 				$ordenSql = seleccionOrden($orden);
-				$sql="SELECT COUNT(ID) from productos".$categoriaSql;
+				$sql="SELECT COUNT(ID) from productos where disponibilidad in (0,1,3)".$categoriaSql;
+				echo "console.log('$sql');";
 				$result=mysqli_query($con,$sql);
 				$row = mysqli_fetch_array($result);
 				$numArticulos = $row[0];
@@ -228,7 +238,7 @@
 				var articulos = new Array();
 				var ids = new Array();
 			<?php
-				$sql="SELECT id from productos".$categoriaSql.$ordenSql;
+				$sql="SELECT id from productos where disponibilidad in (0,1,3)".$categoriaSql.$ordenSql;
 				$result = $con->query($sql);
 				if ($result->num_rows > 0) {
 					$i = 0;
@@ -311,6 +321,10 @@
 						if(articulos[contadorArticulos].disponibilidad == 1){
 							document.write('<div class="agotado"><div class="banda_agotado"><h1>PRODUCTO AGOTADO</h1></div></div>');
 						}
+						if(articulos[contadorArticulos].disponibilidad == 3){
+							console.log('3');
+							document.write('<div class="unidadesLimitadas"><h2>Unidades limitadas</h2></div>');
+						}
 						document.write('<div class="div_info_articulo"><h1 class="nombre_articulo">'+articulos[contadorArticulos].nombreArticulo+'</h1><p>art: '+articulos[contadorArticulos].IDArticulo+' - Precio: '+articulos[contadorArticulos].precio+'€</p><p class="descripcion_articulo">'+articulos[contadorArticulos].descripcion+'</p></div></div>');	
 					}else{
 						j--;
@@ -373,7 +387,7 @@
 						<div class="label">
 							<label for=correoElectronico>
 								Correo: <span class="obligatorio">*</span><br>
-								<input type="mail" name="correoElectronico" id="correoElectronico"><br>
+								<input type="email" name="correoElectronico" id="correoElectronico"><br>
 							</label>
 						</div>
 						<div class="label">
@@ -468,42 +482,10 @@
 		</script>
 		<?php
 			function seleccionCategoria($numCategoriaSelecionada){
-				switch($numCategoriaSelecionada) {
-					case 0:
-						$categoriaSql="";
-						break;
-					case 1:
-						$categoriaSql=" where Categoria='Bolsas'";
-						break;
-					case 2:
-						$categoriaSql=" where Categoria='Cojines'";
-						break;
-					case 3:
-						$categoriaSql=" where Categoria='Cuellos'";
-						break;
-					case 4:
-						$categoriaSql=" where Categoria='Bolsos'";
-						break;
-					case 5:
-						$categoriaSql=" where Categoria='Diademas'";
-						break;
-					case 6:
-						$categoriaSql=" where Categoria='Neceser'";
-						break;
-					case 7:
-						$categoriaSql=" where Categoria='Llaveros'";
-						break;
-					case 8:
-						$categoriaSql=" where Categoria='Pulseras y Gargantillas'";
-						break;
-					case 9:
-						$categoriaSql=" where Categoria='Navidad'";
-						break;
-					case 10:
-						$categoriaSql=" where Categoria='Carpetas'";
-						break;
-					default:
-						$categoriaSql="";
+				if($numCategoriaSelecionada != 0){
+					$categoriaSql =" and ID in (select ID_producto from relacion_producto_categoria where ID_categoria=$numCategoriaSelecionada)";
+				}else{
+					$categoriaSql="";
 				}
 				return $categoriaSql;
 			}

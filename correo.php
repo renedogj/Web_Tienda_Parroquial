@@ -11,7 +11,9 @@
 			$pedido = $_POST['articulosPedidos'];
 			$asunto = $nombre . " " . $apellido;
 			$contenido = "Nombre: " . $nombre . "\nApellido: " . $apellido . "\nCorreo: " . $email . "\nArticulos pedidos: " . $pedido;
-			$mail=mail("esther.florin@gmail.com",$asunto,$contenido);
+			//$mail=mail("esther.florin@gmail.com",$asunto,$contenido);
+			//$mail=mail("renedogj@gmail.com",$asunto,$contenido);
+			$mail=mail("mercadillosanleandro@gmail.com",$asunto,$contenido);
 			if($mail){
 				echo "<meta HTTP-EQUIV =refresh content='0;index.php?enviado=1'>";
 			}else{
