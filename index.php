@@ -7,6 +7,10 @@
 		<meta name=author content="Javier Renedo">
 		<meta name="descripcion" content="Mercadillo parroquia San Leandro, Mercadillo, Parroquia San Leandro, Mercadillo San Leandro, Mercadillo solidario parroquia San Leandro"/>
 		<meta name="keywords" content="Mercadillo parroquia San Leandro, Mercadillo, Parroquia San Leandro, Mercadillo San Leandro, Mercadillo solidario parroquia San Leandro"/>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
 		<link rel="shortcut icon" type="png" href="imagenes/parroquia_200x200.jpg">
 		<link rel="stylesheet" type="text/css" href="css/header.css">
 		<link rel="stylesheet" type="text/css" href="css/menu.css">
@@ -15,8 +19,6 @@
 		<link rel="stylesheet" type="text/css" href="css/animacionImagenes.css">
 		<link rel="stylesheet" type="text/css" href="css/contactar.css">
 		<link rel="stylesheet" type="text/css" href="css/disponibilidad.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 	</head>
 	<body onresize="ajustarTamañoImagenes()">
 		<?php
@@ -123,32 +125,6 @@
 					<img class="imagenesTalleres" src="imagenes/Foto talleres 1.jpg">
 				</div>
 			</div>
-			<script type="text/javascript">
-				var fotosSahara = new Array();
-				fotosSahara[0] = "imagenes/CartelSahara.jpg";
-				fotosSahara[1] = "imagenes/MapaSahara.png";
-				fotosSahara[2] = "imagenes/MisionSahara_1.png";
-				var fotosTalleres = new Array();
-				fotosTalleres[0] = "imagenes/Foto talleres 1.jpg";
-				fotosTalleres[1] = "imagenes/Foto talleres 2.jpg";
-				slideSaharaTalleres();
-				function slideSaharaTalleres() {
-					if($("#imagenesSahara").attr("src")==fotosSahara[0]){
-						$("#imagenesSahara").attr("src",fotosSahara[1]);
-					}else if($("#imagenesSahara").attr("src")==fotosSahara[1]){
-						$("#imagenesSahara").attr("src",fotosSahara[2]);
-					}else{
-						$("#imagenesSahara").attr("src",fotosSahara[0]);
-					}
-
-					if($(".imagenesTalleres").attr("src")==fotosTalleres[0]){
-						$(".imagenesTalleres").attr("src",fotosTalleres[1]);
-					}else{
-						$(".imagenesTalleres").attr("src",fotosTalleres[0]);
-					}
-					setTimeout(slideSaharaTalleres, 7000);
-				}
-			</script>
 		</div>
 		<div class="tienda" id="tienda">
 			<div class="titulo-tienda">
@@ -159,7 +135,7 @@
 					var categorias = new Array();
 					var mostrar_categoria = new Array();
 				<?php
-					include("conexion.php");
+					include("archivos/conexion.php");
 					$con=mysqli_connect($servidor,$usuario,$contrasena);
 					$conectado=mysqli_select_db($con,$baseDeDatos);
 					if(!$conectado){
@@ -339,23 +315,6 @@
 			</script>
 			</div>
 		</div>
-		<script type="text/javascript">
-			ajustarTamañoImagenes();
-			function ajustarTamañoImagenes(){
-				anchoFotosSaharaTalleres = $(".SaharaTalleres").width();
-				alturaFotosSaharaTalleres = anchoFotosSaharaTalleres*0.6;
-				$(".SaharaTalleres").css("height",alturaFotosSaharaTalleres);
-			
-				anchoArticulos = $(".articulo").width();
-				alturaArticulos = anchoArticulos*1.45;
-				$(".articulo").css("height",alturaArticulos);
-				$(".tienda").css("height",$(".margenes").height());
-
-				anchoLogo = $(".div-imagen-logo img").width();
-				alturaLogo = anchoLogo;
-				$(".div-imagen-logo img").css("height",alturaLogo);
-			}
-		</script>
 		<div class="contactar" id="formulario-comprar">
 			<div class="como-comprar" id="comprar">
 				<div class="instrucciones" id="instrucciones">
@@ -371,7 +330,7 @@
 			<div class="como-contactar">
 				<div class="correo">
 					<h2>PEDIR UN ARTICULO POR CORREO</h2>
-					<form id="formularioPedirArticulos" action="correo.php" method="post">
+					<form id="formularioPedirArticulos" action="archivos/correo.php" method="post">
 						<div class="label">
 							<label for="nombre">
 								Nombre: <span class="obligatorio">*</span><br>
@@ -402,46 +361,6 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-			$(document).ready(function(){
-				$("#formularioPedirArticulos").validate({
-					rules:{
-						nombre:{
-							required: true,
-							minlength: 3,
-						},
-						apellido:{
-							required: true,
-							minlength: 3,
-						},
-						correoElectronico:{
-							required: true,
-							email: true,
-						},
-						articulosPedidos:{
-							required: true,
-						},
-					},
-					messages: {
-						nombre:{
-							required: "Es necesario rellenar este campo",
-							minlength: "El campo nombre debe tener al menos 3 caracteres",
-						},
-						apellido:{
-							required: "Es necesario rellenar este campo",
-							minlength: "El campo apellido debe tener al menos 3 caracteres",
-						},
-						correoElectronico:{
-							required: "Es necesario rellenar este campo",
-							email: "El campo correo debe tener formato de corrreo electrónico",
-						},
-						articulosPedidos:{
-							required: "Es necesario rellenar este campo",
-						},
-					},
-				});
-			});
-		</script>
-		<script type="text/javascript">
 			var correoEnviado;
 			correoEnviado = <?php echo $correoEnviado; ?>;
 			if(correoEnviado > 0 && correoEnviado < 3){
@@ -452,33 +371,6 @@
 					window.location.assign("#formulario-comprar");
 				}
 			}   	    
-		</script>
-		<script type="text/javascript">
-			function plusSlides(num,articulo) {
-				articulos[articulo].indexarticulo += num;
-				mostrarSlide(articulo);
-			}
-			function mostrarSlide(indiceArticulo) {
-				puntoClaseImagenesArticulo = "."+articulos[indiceArticulo].claseImagenesArticulo;
-				if(articulos[indiceArticulo].indexarticulo > articulos[indiceArticulo].numFotos){
-					articulos[indiceArticulo].indexarticulo = 1;
-				}
-				if(articulos[indiceArticulo].indexarticulo < 1){
-					articulos[indiceArticulo].indexarticulo = articulos[indiceArticulo].numFotos;
-				}
-				imagenAMostrar = "imagenes/"+articulos[indiceArticulo].fotos[articulos[indiceArticulo].indexarticulo];
-				$(puntoClaseImagenesArticulo).attr("src",imagenAMostrar);
-			}
-			function autoPlusSlide() {
-				for(i=0;i<numArticulos;i++){
-					if(articulos[i].numFotos>1){
-						plusSlides(1,i);
-					}
-					
-				}
-				setTimeout(autoPlusSlide, 7000);
-			}
-			autoPlusSlide();
 		</script>
 		<?php
 			function seleccionCategoria($numCategoriaSelecionada){
@@ -510,5 +402,7 @@
 				return $ordenSql;
 			}
 		?>
+		<script type="text/javascript" src="archivos/validarFormulario.js"></script>
+		<script type="text/javascript" src="archivos/ajustarImagenes.js"></script>
 	</body>
 </html>
