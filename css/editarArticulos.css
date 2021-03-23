@@ -1,0 +1,206 @@
+.articulo{
+	/*background-color: red;*/
+	position: relative;
+	width: 80%;
+	margin: 0 10%;
+}
+
+.div-contenedora-info-articulo{
+	/*background-color: blue;*/
+	background-color: #F2F2F2;
+	position: relative;
+	width: 90%;
+	margin: 5% 5% 4% 5%;
+	padding: 1%;
+	box-shadow: 0 10px 10px 0 grey;
+}
+
+.div-contenedora-info-articulo h3{
+	width: 85%;
+	margin: 1% 7.5%;
+	font-size: 1.5em;
+}
+
+.div-input{
+	/*background-color: green;*/
+	position: relative;
+	width: 90%;
+	margin: 1% 5%;
+	padding: 1%;
+}
+
+.div-text label{
+	/*background-color: yellow;*/
+	position: relative;
+	width: 100%;
+	height: 30px;
+	padding: 0;
+	font-size: 1.1em;
+}
+
+.div-text input{
+	position: relative;
+	width: 100%;
+	height: 25px;
+	padding: 1.5% 0.7%;
+	margin: 0.8% 0;
+	font-size: 1em;
+}
+
+.div-precio-check{
+	/*background-color: green;*/
+	position: relative;
+	width: 90%;
+	margin: 1% 5%;
+	padding: 1%;
+	display: flex;
+}
+
+.div-precio, .div-check{
+	/*background-color: pink;*/
+	position: relative;
+	width: 50%;
+	padding: 1%;
+}
+
+.div-precio label, .div-check label{
+	/*background-color: yellow;*/
+	padding: 0 1%;
+	font-size: 1.1em;
+}
+
+.div-precio input{
+	position: relative;
+	width: 15%;
+	height: 30px;
+	padding: 1% 0.5%;
+	font-size: 1em;
+}
+
+.div-check input{
+	position: relative;
+	width: 18px;
+	height: 18px;
+}
+
+.div-input-radio{
+	/*background-color: orange;*/
+	position: relative;
+	width: 90%;
+	margin: 1% 5%;
+	padding: 1%;
+}
+
+.div-input-radio input{
+	margin: 0.8%;
+}
+
+.div-input-radio label{
+	font-size: 1.15em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type=number] {
+	-moz-appearance: textfield;
+}
+.modificar-categorias-articulo{
+	position: relative;
+	width: 80%;
+	margin: 0 10% 4% 10%;
+	min-height: 100px;
+}
+
+.modificar-categorias-articulo h3{
+	margin: 0 1% 1% 1%;
+}
+
+.div-input-categoria{
+	/*background-color: blue;*/
+	width: 25%;
+	float: left;
+	height: 30px;
+}
+
+.div-input-categoria input{
+	width: 14px;
+	height: 14px;
+	margin: 1% 2%;
+}
+
+.div-input-categoria label{
+	font-size: 1.1em;
+}
+
+.div-añadirImagen{
+	/*background-color: green;*/
+	position: relative;
+	width: 90%;
+	margin: 0 5%;
+	min-height: 30px;
+	display: flex;
+}
+
+.div-añadirImagen label{
+	font-size: 1.1em;
+	margin: 1%;
+}
+
+.div-añadirImagen-id{
+	/*background-color: orange;*/
+	position: relative;
+	width: 30%;
+}
+
+.div-añadirImagen-nombre{
+	/*background-color: red;*/
+	position: relative;
+	width: 50%;
+}
+
+.div-añadirImagen-boton{
+	width: 20%;
+}
+
+.div-contenedora-imagenes-articulo{
+	/*background-color: blue;*/
+	position: relative;
+	width: 110%;
+	margin: 1% 0 1% -5%;
+	height: 100px;
+}
+
+.contenedora-imagen{
+	width: 23%;
+	margin: 1%;
+	float:left;
+}
+
+.cerrar {
+  position: absolute;
+  top: -5px;
+  right: 5px;
+  color: #1C1C1C;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+  color: #6E6E6E;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.div-boton-editar{
+	background-color: red;
+	position: relative;
+	width: 80%;
+	margin: 1% 10%;
+	padding: 1%;
+}

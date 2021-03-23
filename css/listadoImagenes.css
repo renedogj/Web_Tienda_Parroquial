@@ -1,0 +1,52 @@
+.imagenes{
+	/*background-color: red;*/
+	position: relative;
+	width: 100%;
+}
+
+.linea{
+	/*background-color: blue;*/
+	position: relative;
+	width: 99%;
+	margin: 0 0.5%;
+	padding: 1% 0;
+	display: flex;
+}
+
+.semiLinea{
+	/*background-color: green;*/
+	position: relative;
+	width: 50%;
+	display: flex;
+}
+
+.contenedora-imagen{
+	/*background-color: orange;*/
+	background-color: rgba(0,0,0,1);
+	position: relative;
+	width: 32%;
+	margin: 0 1%;
+	border: solid;
+	border-radius: 5px;
+}
+
+.imagen{
+	background-color: rgba(255,255,255,0.7);
+	position: relative;
+	width: 100%;
+}
+
+.imagen img{
+	position: relative;
+	width: 100%;
+}
+
+.info-imagen{
+	/*background-color: yellow;*/
+	background-color: rgba(56,17,30,0.5);
+	background-color: rgba(0,0,255,0.5);
+	color: #E6E6E6;
+	position: relative;
+	width: 100%;
+	padding: 2% 5%;
+}

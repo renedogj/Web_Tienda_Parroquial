@@ -1,0 +1,13 @@
+* {
+	box-sizing:border-box
+}
+
+/*Fuente personalizada*/
+@font-face{
+	font-family:Marcellus SC;
+	src: url("../fuentes/MarcellusSC-Regular.ttf");
+}
+
+body{
+    background-color: #FAFAFA;
+}

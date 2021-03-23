@@ -1,0 +1,36 @@
+.categorias{
+	/*background-color: red;*/
+	position: relative;
+	padding: 1%;
+}
+
+.categorias table{
+	background-color: #A4A4A4;
+	position: relative;
+	width: 80%;
+	margin: 0 10%;
+	font-family: Arial, Helvetica, sans-serif;
+  	border-collapse: collapse;
+}
+
+.categorias table td, th{
+	border: 1px solid #D8D8D8;
+	padding: 8px;
+}
+
+.categorias table th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: rgba(50, 120, 190, 1);
+	color: white;
+}
+
+tr:nth-child(even) {
+	background-color: #A9A9F5;
+}
+
+.categorias table td button{
+	padding: 2px 5px;
+	margin: 0 5%;
+}

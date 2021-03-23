@@ -7,11 +7,13 @@
 		<meta name=author content="Javier Renedo">
 		<meta name="descripcion" content="Mercadillo parroquia San Leandro, Mercadillo, Parroquia San Leandro, Mercadillo San Leandro, Mercadillo solidario parroquia San Leandro"/>
 		<meta name="keywords" content="Mercadillo parroquia San Leandro, Mercadillo, Parroquia San Leandro, Mercadillo San Leandro, Mercadillo solidario parroquia San Leandro"/>
-		
+
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 
 		<link rel="shortcut icon" type="png" href="imagenes/parroquia_200x200.jpg">
+
+		<link rel="stylesheet" type="text/css" href="css/body.css">
 		<link rel="stylesheet" type="text/css" href="css/header.css">
 		<link rel="stylesheet" type="text/css" href="css/menu.css">
 		<link rel="stylesheet" type="text/css" href="css/informacion.css">
@@ -24,7 +26,7 @@
 		<?php
 			$categoria = 0;
 			$orden = 0;
-			if(isset($_POST['submit'])){ 
+			if(isset($_POST['submit'])){
 			   	$categoria = $_POST['seleccion_Categoria'];
 			   	$orden = $_POST['seleccion_Orden'];
 			   	echo '<script>window.location.assign("#tienda");</script>';
@@ -60,25 +62,25 @@
 							<div class="div-facebook">
 								<a class="a-facebook" href="https://www.facebook.com/parroquiasanleandro" target="_blank">
 									<span class="span-facebook">Facebook</span>
-									<i class="i-facebook"></i>					
+									<i class="i-facebook"></i>
 								</a>
 							</div>
 							<div class="div-twitter">
 								<a class="a-twitter" href="https://twitter.com/psanleandro" target="_blank">
 									<span class="span-twitter">Twitter</span>
-									<i class="i-twitter"></i>					
+									<i class="i-twitter"></i>
 								</a>
 							</div>
 							<div class="div-youtube">
 								<a class="a-youtube" href="https://www.youtube.com/c/ParroquiaSanLeandro/featured?view_as=subscriber" target="_blank">
 									<span class="span-youtube">Youtube</span>
-									<i class="i-youtube"></i>					
+									<i class="i-youtube"></i>
 								</a>
 							</div>
 							<div class="div-instagram">
 								<a class="a-instagram" href="https://www.instagram.com/psanleandro/?hl=es" target="_blank">
 									<span class="span-instagram">Instagram</span>
-									<i class="i-instagram"></i>			
+									<i class="i-instagram"></i>
 								</a>
 							</div>
 						</div>
@@ -119,7 +121,7 @@
 			</div>
 			<div class="info-fotos">
 				<div class="info-fotos-proyecto SaharaTalleres">
-					<img class="imagenesSahara" id="imagenesSahara" src="imagenes/MisionSahara_1.png">	
+					<img class="imagenesSahara" id="imagenesSahara" src="imagenes/MisionSahara_1.png">
 				</div>
 				<div class="info-fotos-talleres SaharaTalleres">
 					<img class="imagenesTalleres" src="imagenes/Foto talleres 1.jpg">
@@ -136,13 +138,13 @@
 					var mostrar_categoria = new Array();
 				<?php
 					include("archivos/conexion.php");
-					$con=mysqli_connect($servidor,$usuario,$contrasena);
-					$conectado=mysqli_select_db($con,$baseDeDatos);
+					$con = mysqli_connect($servidor,$usuario,$contrasena);
+					$conectado = mysqli_select_db($con,$baseDeDatos);
 					if(!$conectado){
 						echo 'alert("Se ha producido un error al conectarse con la base datos por favor intentelo más tarde");';
 					}
 					$sql = "SELECT COUNT(ID) from categorias";
-					$result=mysqli_query($con,$sql);
+					$result = mysqli_query($con,$sql);
 					$row = mysqli_fetch_array($result);
 					$numCategorias = $row[0];
 					$categorias = array();
@@ -188,14 +190,12 @@
 			        </div>
 				</form>
 			</div>
-			
+
 			<script type="text/javascript">
 			<?php
-
 				$categoriaSql = seleccionCategoria($categoria);
 				$ordenSql = seleccionOrden($orden);
-				$sql="SELECT COUNT(ID) from productos where disponibilidad in (0,1,3)".$categoriaSql;
-				echo "console.log('$sql');";
+				$sql="SELECT COUNT(ID) from productos where mostrar = 1".$categoriaSql;
 				$result=mysqli_query($con,$sql);
 				$row = mysqli_fetch_array($result);
 				$numArticulos = $row[0];
@@ -204,7 +204,7 @@
 				var numMaxArticulosPorLinea = 4;
 				function calcularNumLineas (numArticulos) {
 					let numLineasExactas = numArticulos/numMaxArticulosPorLinea;
-					let numLineasCompletas =Math.floor(numLineasExactas);
+					let numLineasCompletas = Math.floor(numLineasExactas);
 					if(numLineasExactas>numLineasCompletas){
 						numLineasCompletas++;
 					}
@@ -213,70 +213,54 @@
 				var numLineas = calcularNumLineas(numArticulos);
 				var articulos = new Array();
 				var ids = new Array();
+				var k = 0;
 			<?php
-				$sql="SELECT id from productos where disponibilidad in (0,1,3)".$categoriaSql.$ordenSql;
+				$sql="SELECT id,nombre,descripcion,precio,disponibilidad from productos where mostrar = 1".$categoriaSql.$ordenSql;
 				$result = $con->query($sql);
 				if ($result->num_rows > 0) {
-					$i = 0;
-					$ids = array();
 					while($row = $result->fetch_assoc()){
-						$ids[$i] = $row ["id"];
-						echo "ids[".$i."]=".$row["id"].";";
-						$i++;
-					}
-				}else {
-					echo "alert(No hay articulos en la tienda!!!);";
-				}
-				for($i=0;$i<$numArticulos;$i++){
-					$IDArticulo = $ids[$i];
-					$nombreArticulo;
-					$descripcion;
-					$precio;
-					$numFotos = 0;
-					$fotos = array();
+						$IDArticulo = $row["id"];
+						$nombreArticulo = $row["nombre"];
+						$descripcion = $row["descripcion"];
+						$precio = $row["precio"];
+						$disponibilidad = $row["disponibilidad"];
 
-					$sql="SELECT nombre,descripcion,precio,disponibilidad from productos where id='$ids[$i]'";
-					$result = $con->query($sql);
-					if ($result->num_rows > 0) {
-						while($row = $result->fetch_assoc()){
-							$nombreArticulo = $row["nombre"];
-							$descripcion = $row["descripcion"];
-							$precio = $row["precio"];
-							$disponibilidad = $row["disponibilidad"];
+						$numFotos = 0;
+						$fotos = array();
+						$sqlImagenes="SELECT nombre_foto FROM imagenes where imagenes.ID in (SELECT ID_imagen from relacion_producto_imagen where ID_producto = '$IDArticulo')";
+						$resultImagenes = $con->query($sqlImagenes);
+						$j = 1;
+						if ($resultImagenes->num_rows > 0) {
+							while($row = $resultImagenes->fetch_assoc()){
+								$fotos[$j] = $row["nombre_foto"];
+								$numFotos++;
+								$j++;
+							}
 						}
+			?>
+						var IDArticulo = <?php echo "$IDArticulo"; ?>;
+						var nombreArticulo = <?php echo "'$nombreArticulo'"; ?>;
+						var descripcion = <?php echo "'$descripcion'"; ?>;
+						var precio = <?php echo "$precio"; ?>;
+						var numFotos = <?php echo "$numFotos"; ?>;
+						var fotos = new Array();
+						var disponibilidad = <?php echo "$disponibilidad"; ?>;
+			<?php
+						for($j=1;$j<=$numFotos;$j++){
+							echo "fotos[$j]='$fotos[$j]';";
+						}
+			?>
+						var indexarticulo = 1;
+						var claseImagenesArticulo = 'imagenesArticulo'+ IDArticulo;
+						articulos[k] = {IDArticulo,nombreArticulo,precio,descripcion,numFotos,fotos,disponibilidad,indexarticulo,claseImagenesArticulo};
+						k++;
+			<?php
 					}
+				}
+			?>
 
-					$sql="SELECT nombre_foto FROM imagenes where imagenes.ID in (SELECT ID_imagen from relacion_producto_imagen where ID_producto = '$ids[$i]')";
-					$result = $con->query($sql);
-					$j = 1;
-					if ($result->num_rows > 0) {
-						while($row = $result->fetch_assoc()){
-							$fotos[$j] = $row["nombre_foto"];
-							$numFotos++;
-							$j++;
-						}
-					}
-			?>
-				var IDArticulo = <?php echo "$IDArticulo"; ?>;
-				var nombreArticulo = <?php echo "'$nombreArticulo'"; ?>;
-				var descripcion = <?php echo "'$descripcion'"; ?>;
-				var precio = <?php echo "$precio"; ?>;
-				var numFotos = <?php echo "$numFotos"; ?>;
-				var fotos = new Array();
-				var disponibilidad = <?php echo "$disponibilidad"; ?>;
-			<?php
-				for($j=1;$j<=$numFotos;$j++){
-					echo "fotos[$j]='$fotos[$j]';";
-				}
-			?>
-				var indexarticulo = 1;
-				var claseImagenesArticulo = 'imagenesArticulo'+ IDArticulo;
-				articulos[<?php echo "$i"; ?>] = {IDArticulo,nombreArticulo,precio,descripcion,numFotos,fotos,disponibilidad,indexarticulo,claseImagenesArticulo};
-			<?php
-				}
-			?>
-			var contadorArticulos=0;
-			for(i=0;i<=numLineas+1;i++){//Bucle linea
+			var contadorArticulos = 0;
+			for(i=0;i<numLineas;i++){//Bucle linea
 				document.write('<div class="linea">');
 				if(numArticulos-contadorArticulos>=numMaxArticulosPorLinea){
 					articulosPorLinea = numMaxArticulosPorLinea;
@@ -284,28 +268,23 @@
 					articulosPorLinea = numArticulos-contadorArticulos;
 				}
 				for(j=0;j<articulosPorLinea;j++){//Bucle Articulos de cada linea
-					if(j==0 || j==2){
+					if(j==0 || j==(numMaxArticulosPorLinea/2)){
 						document.write('<div class="semiLinea">');
 					}
-					if(articulos[contadorArticulos].disponibilidad != 2){
-						document.write('<div class="articulo"><div class="slideshow-container">');
-						document.write('<div class="mySlides  fade"><img class="'+articulos[contadorArticulos].claseImagenesArticulo+'" src="imagenes/'+articulos[contadorArticulos].fotos[1]+'"></div>');
-						if(articulos[contadorArticulos].numFotos > 1 && articulos[contadorArticulos].disponibilidad != 1){
-							document.write('<a class="prev" onclick="plusSlides(-1,'+contadorArticulos+')">&#10094;</a><a class="next" onclick="plusSlides(1,'+contadorArticulos+')">&#10095;</a>');
-						}
-						document.write('</div>');
-						if(articulos[contadorArticulos].disponibilidad == 1){
-							document.write('<div class="agotado"><div class="banda_agotado"><h1>PRODUCTO AGOTADO</h1></div></div>');
-						}
-						if(articulos[contadorArticulos].disponibilidad == 3){
-							console.log('3');
-							document.write('<div class="unidadesLimitadas"><h2>Unidades limitadas</h2></div>');
-						}
-						document.write('<div class="div_info_articulo"><h1 class="nombre_articulo">'+articulos[contadorArticulos].nombreArticulo+'</h1><p>art: '+articulos[contadorArticulos].IDArticulo+' - Precio: '+articulos[contadorArticulos].precio+'€</p><p class="descripcion_articulo">'+articulos[contadorArticulos].descripcion+'</p></div></div>');	
-					}else{
-						j--;
+					document.write('<div class="articulo"><div class="slideshow-container">');
+					document.write('<div class="mySlides  fade"><img class="'+articulos[contadorArticulos].claseImagenesArticulo+'" src="imagenes/'+articulos[contadorArticulos].fotos[1]+'"></div>');
+					if(articulos[contadorArticulos].numFotos > 1 && articulos[contadorArticulos].disponibilidad != 2){
+						document.write('<a class="prev" onclick="plusSlides(-1,'+contadorArticulos+')">&#10094;</a><a class="next" onclick="plusSlides(1,'+contadorArticulos+')">&#10095;</a>');
 					}
-					if(j==1 || j==(articulosPorLinea-1)){
+					document.write('</div>');
+					if(articulos[contadorArticulos].disponibilidad == 2){
+						document.write('<div class="agotado"><div class="banda_agotado"><h1>PRODUCTO AGOTADO</h1></div></div>');
+					}
+					if(articulos[contadorArticulos].disponibilidad == 3){
+						document.write('<div class="unidadesLimitadas"><h2>Unidades limitadas</h2></div>');
+					}
+					document.write('<div class="div_info_articulo"><h1 class="nombre_articulo">'+articulos[contadorArticulos].nombreArticulo+'</h1><p>art: '+articulos[contadorArticulos].IDArticulo+' - Precio: '+articulos[contadorArticulos].precio+'€</p><p class="descripcion_articulo">'+articulos[contadorArticulos].descripcion+'</p></div></div>');
+					if(j==((numMaxArticulosPorLinea/2)-1) || j==(numMaxArticulosPorLinea-1)){
 						document.write('</div>');
 					}
 					contadorArticulos++;
@@ -322,7 +301,7 @@
 					<p><span class="intro-instrucciones">Ponte en contacto con nosotros por uno de estos medios:</span><br>
 						<ul>
 							<li>Envía un <b>WhatsApp</b> al número <b>609 64 30 36</b> indicando tu nombre, qué artículo te interesa y la cantidad.</li>
-							<li>O a través del formulario que aparece a continuación.</li>	
+							<li>O a través del formulario que aparece a continuación.</li>
 						</ul>
 					</p>
 				</div>
@@ -370,7 +349,7 @@
 					alert("Se ha producido un error al enviar el correo, por favor, revise todos los campos y vuelva a intentarlo más tarde");
 					window.location.assign("#formulario-comprar");
 				}
-			}   	    
+			}
 		</script>
 		<?php
 			function seleccionCategoria($numCategoriaSelecionada){
@@ -381,7 +360,7 @@
 				}
 				return $categoriaSql;
 			}
-			
+
 			function seleccionOrden($numOrdenSelecionado){
 				switch ($numOrdenSelecionado) {
 					case 0:

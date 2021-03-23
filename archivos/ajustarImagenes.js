@@ -48,7 +48,7 @@ function autoPlusSlide() {
 	for(i=0;i<numArticulos;i++){
 		if(articulos[i].numFotos>1){
 			plusSlides(1,i);
-		}	
+		}
 	}
 	setTimeout(autoPlusSlide, 7000);
 }
@@ -59,7 +59,7 @@ function ajustarTamañoImagenes(){
 	$(".SaharaTalleres").css("height",alturaFotosSaharaTalleres);
 
 	anchoArticulos = $(".articulo").width();
-	alturaArticulos = anchoArticulos*1.45;
+	alturaArticulos = anchoArticulos*1.5;
 	$(".articulo").css("height",alturaArticulos);
 	$(".tienda").css("height",$(".margenes").height());
 
