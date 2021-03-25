@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>listadoImagenes</title>
+		<link rel="shortcut icon" type="png" href="../imagenes/parroquia_200x200.jpg">
 	</head>
 	<body>
 		<?php
