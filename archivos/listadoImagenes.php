@@ -48,14 +48,6 @@
                 firebase.auth().signOut();
             }
 		</script>
-		<?php
-			include("conexion.php");
-			$con=mysqli_connect($servidor,$usuario,$contrasena);
-			$conectado=mysqli_select_db($con,$baseDeDatos);
-			if(!$conectado){
-				echo '<script>alert("ERROR");</script>';
-			}
-		?>
 		<nav class="navbar">
 			<div class="container-fluid">
 				<div class="div-menu-izquierda">
@@ -71,7 +63,7 @@
 				<div class="div-menu-derecha">
 					<div class="div-añadir">
 	                    <div class="div-contenedor-añadir">
-	                        <a href="#">Añadir Imagen</a>
+	                        <a onclick="mostrarAñadirImagen()">Añadir Imagen</a>
 	                    </div>
 	                </div>
 	                <div class="div-usuario dropdown">
@@ -81,66 +73,41 @@
 				</div>
 			</div>
 		</nav>
+		<div class="form-añadir-imagen">
+			<form action="procesarAñadirImagen.php" method="post" enctype="multipart/form-data">
+				<p>Añadir una imagen nueva:</p>
+				<input type="file" name="foto" id="foto" required />
+				<input type="submit" name="submit" id="submit"/>
+			</form>
+		</div>
 		<div class="imagenes">
-			<div class="linea">
-				<div class="semiLinea">
-				<?php
-					$sql="SELECT COUNT(ID) from imagenes";
-					$result=mysqli_query($con,$sql);
-					$row = mysqli_fetch_array($result);
-					$numImagenes = $row[0];
-					define("numMaxImagenesPorLinea",6);
-					define("numMaxImagenesPorSemiLinea",3);
-					function calcularNumLineas ($numImagenes) {
-						$numLineasExactas = $numImagenes/numMaxImagenesPorLinea;
-						$numLineasCompletas = round($numLineasExactas);
-						if($numLineasExactas>$numLineasCompletas){
-							$numLineasCompletas++;
-						}
-						return $numLineasCompletas;
-					}
-					$numLineas = calcularNumLineas($numImagenes);
-					$contadorLineas = 1;
-					$contadorSemilineas = 1;
-					$contadorImagenesSemilinea = 1;
+			<?php
+				include("conexion.php");
+				$con=mysqli_connect($servidor,$usuario,$contrasena);
+				$conectado=mysqli_select_db($con,$baseDeDatos);
+				if(!$conectado){
+					echo '<script>alert("ERROR");</script>';
+				}
 
-					$sql="SELECT id,nombre_foto from imagenes";
-					$result = $con->query($sql);
-					if ($result->num_rows > 0) {
-						while($row = $result->fetch_assoc()){
-							$idFoto = $row["id"];
-							$nombreFoto = $row["nombre_foto"];
-							echo '
-							<div class="contenedora-imagen">
-						<div class="imagen">
-							<img src="../imagenes/'.$nombreFoto.'">
-						</div>
-						<div class="info-imagen">
-							<p><b>ID:</b> '.$idFoto.'</p>
-							<p><b>Nombre:</b> '.$nombreFoto.'</p>
-						</div>
-					</div>';
-							if($contadorImagenesSemilinea==numMaxImagenesPorSemiLinea){
-								echo '
-								</div>';//Cierra semiLinea
-								$contadorImagenesSemilinea=1;
-								if($contadorSemilineas==2){
-									echo '</div>
-									<div class="linea">
-										<div class="semiLinea">';
-									$contadorSemilineas=1;
-								}else{
-									echo '<div class="semiLinea">';
-									$contadorSemilineas++;
-								}
-							}else{
-								$contadorImagenesSemilinea++;
-							}
-						}
+				$sql="SELECT id,nombre_foto from imagenes order by ID DESC";
+				$result = $con->query($sql);
+				if ($result->num_rows > 0) {
+					while($row = $result->fetch_assoc()){
+						$idFoto = $row["id"];
+						$nombreFoto = $row["nombre_foto"];
+						echo '
+						<div class="contenedora-imagen">
+					<div class="imagen">
+						<img src="../imagenes/'.$nombreFoto.'">
+					</div>
+					<div class="info-imagen">
+						<p><b>ID:</b> '.$idFoto.'</p>
+						<p><b>Nombre:</b> '.$nombreFoto.'</p>
+					</div>
+				</div>';
 					}
-				?>
-				</div>
-			</div>
+				}
+			?>
 		</div>
 		<script type="text/javascript">
 			ajustarTamaño();
@@ -149,10 +116,29 @@
 				$(".dropdown-content").css("top",$(".div-usuario").height()-7);
 				$(".dropdown-content").css("left",-($(".div-usuario").width()+130));
 				$(".imagenes").css("margin-top",$("nav").height());
+				if($(".form-añadir-imagen").css("display") == "none"){
+					$(".form-añadir-imagen").css("margin-top",0);
+					$(".imagenes").css("margin-top",$("nav").height());
+				}else{
+					$(".form-añadir-imagen").css("margin-top",$("nav").height());
+					$(".imagenes").css("margin-top",0);
+				}
 
 				anchoImagen = $(".imagen").width();
 				alturaImagen = anchoImagen*1.5;
 				$(".imagen").css("height",alturaImagen);
+			}
+
+			function mostrarAñadirImagen(){
+				if($(".form-añadir-imagen").css("display") == "none"){
+					$(".imagenes").css("margin-top",0);
+					$(".form-añadir-imagen").css("margin-top",$("nav").height());
+					$(".form-añadir-imagen").css("display","block");
+				}else{
+					$(".imagenes").css("margin-top",$("nav").height());
+					$(".form-añadir-imagen").css("margin-top",0);
+					$(".form-añadir-imagen").css("display","none");
+				}
 			}
 		</script>
 	</body>

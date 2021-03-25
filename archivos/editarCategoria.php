@@ -10,7 +10,7 @@
 
 		<link rel="stylesheet" type="text/css" href="../css/body.css">
 		<link rel="stylesheet" type="text/css" href="../css/menuAdministracion.css">
-		<link rel="stylesheet" type="text/css" href="../css/editarArticulos.css">
+		<link rel="stylesheet" type="text/css" href="../css/editar.css">
 	</head>
 	<body onresize="ajustarTamaño()">
 		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
@@ -63,7 +63,7 @@
 				<div class="div-menu-derecha">
 					<div class="div-añadir">
 	                    <div class="div-contenedor-añadir">
-	                        <a href="#">Añadir Categoria</a>
+	                        <a href="añadirCategoria.php">Añadir Categoria</a>
 	                    </div>
 	                </div>
 	                <div class="div-usuario dropdown">
@@ -109,8 +109,9 @@
 						<label for="mostrar">La categoria se muestra</label><br>
 					</div>
 				</div>
-				<div class="div-boton-editar">
-					<button>EDITAR</button>
+				<div class="div-boton">
+					<p onclick="deshacer()"> Deshacer cambios</p>
+					<button>Editar</button>
 				</div>
 			</form>
 		</div>
@@ -155,6 +156,10 @@
 				$(".dropdown-content").css("top",$(".div-usuario").height()-7);
 				$(".dropdown-content").css("left",-($(".div-usuario").width()+130));
 				$(".categoria").css("margin-top",$("nav").height());
+			}
+
+			function deshacer() {
+				document.location.reload();
 			}
 		</script>
 	</body>

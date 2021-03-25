@@ -120,6 +120,7 @@ li a{
     text-decoration: none;
     background-color: transparent;
     color: #BDBDBD;
+    cursor: pointer;
     /*background-color: white;*/
 }
 

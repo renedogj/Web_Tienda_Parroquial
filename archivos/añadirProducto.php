@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/body.css">
 		<link rel="stylesheet" type="text/css" href="../css/menuAdministracion.css">
 		<link rel="stylesheet" type="text/css" href="../css/listadoImagenes.css">
-		<link rel="stylesheet" type="text/css" href="../css/editarArticulos.css">
+		<link rel="stylesheet" type="text/css" href="../css/editar.css">
 	</head>
 	<body onresize="ajustarTamaño()">
 		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
@@ -143,11 +143,11 @@
 						<input type="radio" id="dispoAgotado" name="disponibilidad" value="2">
 						<label for="dispoAgotado">El articulo se muestra como agotado</label><br>
 						<input type="radio" id="dispoUnidadesLimitadas" name="disponibilidad" value="3">
-						<label for="dispoUnidadesLimitadas">El articulo se muestra con disponible con unidades limitadas</label>
+						<label for="dispoUnidadesLimitadas">El articulo se muestra como disponible con unidades limitadas</label>
 					</div>
 				</div>
 				<div class="modificar-categorias-articulo">
-					<h3>Selecione categoria(s)</h3>
+					<h3>Selecciona categoría(s)</h3>
 					<input type="hidden" name="numCategorias" id="numCategorias">
 					<script type="text/javascript">
 						for(var i=0;i<categorias.length;i++){
@@ -159,8 +159,9 @@
 					</script>
 				</div>
 				<div class="div-añadirImagen">
+					<h3>Selecciona imágenes</h3>
 					<div class="div-añadirImagen-id">
-						<label class="label-select-imagen-id" for="select-imagen-id">Seleciona ID de imagen: </label>
+						<label class="label-select-imagen-id" for="select-imagen-id">Selecciona ID de imagen: </label>
 	                    <select name="select-imagen-id" id="select-imagen-id" onchange="ajustarIDNombreImagen(this.value)">
 	                    	<option value="">--</option>
 	                    	<script type="text/javascript">
@@ -171,7 +172,7 @@
 						</select>
 					</div>
 					<div class="div-añadirImagen-nombre">
-						<label class="label-select-imagen-nombre" for="select-imagen-nombre">Seleciona nombre de imagen: </label>
+						<label class="label-select-imagen-nombre" for="select-imagen-nombre">Selecciona nombre de imagen: </label>
 	                    <select name="select-imagen-nombre" id="select-imagen-nombre" onchange="ajustarIDNombreImagen(this.value)">
 	                    	<option value="">--</option>
 	                    	<script type="text/javascript">
@@ -181,14 +182,13 @@
 	                        </script>         
 						</select>
 					</div>
-					<div class="div-añadirImagen-boton">	
-						<a onclick="sumImagen()">Añadir foto</a>
-					</div>
+					<p onclick="sumImagen()"> Añadir foto</p>
 				</div>
 				<div class="div-contenedora-imagenes-articulo"></div>
 				<input type="hidden" name="hiddenContadorImagenes" id="hiddenContadorImagenes">
-				<div class="div-boton-editar">
-					<button>AÑADIR PRODUCTO</button>
+				<div class="div-boton">
+					<p onclick="deshacer()"> Deshacer cambios</p>
+					<button>Añadir producto</button>
 				</div>
 			</form>
 		</div>
@@ -258,6 +258,10 @@
 				$(".imagen").css("height",alturaImagen);
 				alturaContenedorImagen = alturaImagen + 100;
 			    $(".div-contenedora-imagenes-articulo").css("height",(alturaContenedorImagen*Math.ceil((contadorImagenesReales)/4)));
+			}
+
+			function deshacer() {
+				document.location.reload();
 			}
 		</script>
 	</body>

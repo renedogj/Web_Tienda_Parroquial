@@ -1,33 +1,65 @@
-.imagenes{
+.form-añadir-imagen{
 	/*background-color: red;*/
 	position: relative;
+	width: 80%;
+	margin: 0 10%;
+	padding: 1%;
+	display: none;
+}
+
+.form-añadir-imagen p{
+	/*background-color: green;*/
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 0.5%;
+}
+
+.form-añadir-imagen #foto{
+	/*background-color: blue;*/
+	width: 40%;
+	font-size: 1em;
+	padding: 0.5%;
+}
+
+.form-añadir-imagen #submit{
+	/*background-color: blue;*/
+	width: 10%;
+	font-size: 1.1em;
+	padding: 0.5%;
+}
+
+.imagenes{
+	/*background-color: red;*/
+	/*position: relative;*/
 	width: 100%;
+	/*display: flex;*/
 }
 
 .linea{
 	/*background-color: blue;*/
-	position: relative;
+	/*position: relative;
 	width: 99%;
 	margin: 0 0.5%;
 	padding: 1% 0;
-	display: flex;
+	display: flex;*/
 }
 
 .semiLinea{
 	/*background-color: green;*/
-	position: relative;
+	/*position: relative;
 	width: 50%;
-	display: flex;
+	display: flex;*/
 }
 
 .contenedora-imagen{
 	/*background-color: orange;*/
 	background-color: rgba(0,0,0,1);
 	position: relative;
-	width: 32%;
-	margin: 0 1%;
+	width: 16%;
+	margin: 1% 0.33%;
 	border: solid;
 	border-radius: 5px;
+	float: left;
 }
 
 .imagen{
@@ -49,4 +81,67 @@
 	position: relative;
 	width: 100%;
 	padding: 2% 5%;
+	height: 3.9em;
+}
+
+@media(max-width: 1100px){
+	.contenedora-imagen{
+		width: 19%;
+		margin: 1% 0.5%;
+	}
+}
+
+@media(max-width: 850px){
+	.contenedora-imagen{
+		width: 23.6%;
+		margin: 1% 0.7%;
+	}
+	.info-imagen p{
+		font-size: 0.95em;
+	}
+}
+
+@media(max-width: 750px){
+	.info-imagen p{
+		font-size: 0.9em;
+	}
+}
+
+@media(max-width: 650px){
+	.contenedora-imagen{
+		width: 32%;
+		margin: 1% 0.65%;
+	}
+	.info-imagen{
+		height: 3.5em;
+	}
+	.info-imagen p{
+		font-size: 0.85em;
+	}
+}
+
+@media(max-width: 550px){
+	.contenedora-imagen{
+		width: 47%;
+		margin: 2% 1.5%;
+	}
+	.info-imagen{
+		height: 3.2em;
+	}
+	.info-imagen p{
+		font-size: 0.85em;
+	}
+}
+
+@media(max-width: 400px){
+	.contenedora-imagen{
+		width: 94%;
+		margin: 4% 2%;
+	}
+	.info-imagen{
+		height: 4em;
+	}
+	.info-imagen p{
+		font-size: 0.9em;
+	}
 }

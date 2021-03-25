@@ -10,7 +10,7 @@
 
 		<link rel="stylesheet" type="text/css" href="../css/body.css">
 		<link rel="stylesheet" type="text/css" href="../css/menuAdministracion.css">
-		<link rel="stylesheet" type="text/css" href="../css/editarArticulos.css">
+		<link rel="stylesheet" type="text/css" href="../css/editar.css">
 	</head>
 	<body onresize="ajustarTamaño()">
 		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
@@ -63,7 +63,7 @@
 				<div class="div-menu-derecha">
 					<div class="div-añadir">
 	                    <div class="div-contenedor-añadir">
-	                        <a href="#">Añadir Categoria</a>
+	                        <a href="añadirCategoria.php">Añadir Categoria</a>
 	                    </div>
 	                </div>
 	                <div class="div-usuario dropdown">
@@ -73,28 +73,6 @@
 				</div>
 			</div>
 		</nav>
-		<script type="text/javascript">
-			<?php
-				/*include("conexion.php");
-				$con=mysqli_connect($servidor,$usuario,$contrasena);
-				$conectado=mysqli_select_db($con,$baseDeDatos);
-				if(!$conectado){
-					echo 'alert("ERROR")';
-				}*/
-				/*$IDCategoria = $_GET["id"];
-				$sql="SELECT nombre_categoria,mostrar_categoria from categorias where id = $IDCategoria";
-				$result = $con->query($sql);
-				if ($result->num_rows > 0) {
-					while($row = $result->fetch_assoc()){
-						$nombreCategoria = $row["nombre_categoria"];
-						$mostrarCategoria = $row["mostrar_categoria"];					
-					}
-				}*/
-			?>
-			/*var IDCategoria = <?php echo "$IDCategoria"; ?>;
-			var nombreCategoria = <?php echo "'$nombreCategoria'"; ?>;
-			var mostrarCategoria = <?php echo "'$mostrarCategoria'"; ?>;*/
-		</script>
 		<div class="categoria">
 			<form action="listadoCategorias.php" method="post">
 				<div class="div-contenedora-info-articulo">
@@ -109,27 +87,13 @@
 						<label for="mostrar">Los articulos de esta categoria se muestran</label><br>
 					</div>
 				</div>
-				<div class="div-boton-editar">
-					<button>AÑADIR CATEGORIA</button>
+				<div class="div-boton">
+					<p onclick="deshacer()"> Deshacer cambios</p>
+					<button>Añadir categoria</button>
 				</div>
 			</form>
 		</div>
 		<script type="text/javascript">
-			/*$("#idCategoriaTxt").text("ID: "+IDCategoria);
-			$("#idCategoria").val(IDCategoria);
-			nombreCategoria = cambiarATilde(nombreCategoria);
-			$("#nombre").val(nombreCategoria);
-
-			if(mostrarCategoria==1){
-				$("#mostrar").attr("checked","checked");
-				$("[for='mostrar']").empty();
-				$("[for='mostrar']").text("Los articulos de esta categoria se muestran");
-			}else{
-				$("#mostrar").removeAttr("checked");
-				$("[for='mostrar']").empty();
-				$("[for='mostrar']").text("Los articulos de esta categoria no se muestran");
-			}*/
-
 			function cambioMostrar() {
 				if($("#mostrar").prop("checked")){
 					$("[for='mostrar']").empty();
@@ -140,21 +104,16 @@
 				}
 			}
 
-			/*function cambiarATilde(string) {
-				string = string.replace("&aacute","á");
-				string = string.replace("&eacute","é");
-				string = string.replace("&iacute","í");
-				string = string.replace("&oacute","ó");
-				string = string.replace("&uacute","ú");
-				return string;
-			}*/
-
 			ajustarTamaño();
 			function ajustarTamaño(){
 				$(".div-icono-usuario").css("height",$(".div-icono-usuario").width());
 				$(".dropdown-content").css("top",$(".div-usuario").height()-7);
 				$(".dropdown-content").css("left",-($(".div-usuario").width()+130));
 				$(".categoria").css("margin-top",$("nav").height());
+			}
+
+			function deshacer() {
+				document.location.reload();
 			}
 		</script>
 	</body>

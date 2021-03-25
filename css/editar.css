@@ -140,9 +140,18 @@ input[type=number] {
 	/*background-color: green;*/
 	position: relative;
 	width: 90%;
-	margin: 0 5%;
+	margin: 5% 5% 0 5%;
+	padding: 0.5%;
 	min-height: 30px;
 	display: flex;
+	border: solid;
+	border-radius: 10px;
+}
+
+.div-añadirImagen h3{
+	position: absolute;
+	top: -30px;
+	margin: 0 1% 1% 1%;
 }
 
 .div-añadirImagen label{
@@ -153,17 +162,49 @@ input[type=number] {
 .div-añadirImagen-id{
 	/*background-color: orange;*/
 	position: relative;
-	width: 30%;
+	width: 35%;
+	padding: 0.5%;
+}
+
+.div-añadirImagen-id select{
+	padding: 0.8% 0.5%;
+	min-width: 65px;
 }
 
 .div-añadirImagen-nombre{
 	/*background-color: red;*/
 	position: relative;
-	width: 50%;
+	width: 52%;
+	padding: 0.5%;
 }
 
-.div-añadirImagen-boton{
-	width: 20%;
+.div-añadirImagen-nombre select{
+	padding: 0.8% 0.5%;
+	min-width: 230px;
+}
+
+.div-añadirImagen p{
+	/*background-color: blue;*/
+	background-color: rgba(215,215,215,1);
+	width: 10%;
+	position: relative;
+	/*top: 0;*/
+	padding: 0.6% 1%;
+	text-align: center;
+	font-size: 1.1em;
+	border-radius: 5px;
+	border: solid 1px;
+	box-shadow: 1px 1px 1px 1px #2E2E2E;
+	cursor: pointer;
+}
+
+.div-añadirImagen p:hover{
+	background-color: rgba(150,150,150,0.5);
+}
+
+.div-añadirImagen p:active{
+	top: 2px;
+	box-shadow: 0 0 0 0 #585858;
 }
 
 .div-contenedora-imagenes-articulo{
@@ -177,17 +218,17 @@ input[type=number] {
 .contenedora-imagen{
 	width: 23%;
 	margin: 1%;
-	float:left;
+	float: left;
 }
 
 .cerrar {
-  position: absolute;
-  top: -5px;
-  right: 5px;
-  color: #1C1C1C;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
+	position: absolute;
+	top: -5px;
+	right: 5px;
+	color: #1C1C1C;
+	font-size: 40px;
+	font-weight: bold;
+	transition: 0.3s;
 }
 
 .cerrar:hover,
@@ -197,10 +238,40 @@ input[type=number] {
   cursor: pointer;
 }
 
-.div-boton-editar{
-	background-color: red;
+.div-boton{
+	/*background-color: red;*/
 	position: relative;
 	width: 80%;
 	margin: 1% 10%;
-	padding: 1%;
+	padding: 0.5%;
+	display: flex;
+}
+
+.div-boton p{
+	/*background-color: blue;*/
+	background-color: rgba(215,215,215,1);
+	width: 20%;
+	position: relative;
+	padding: 0.5% 1%;
+	text-align: center;
+	font-size: 1.1em;
+	border-radius: 5px;
+	border: solid 1px;
+	box-shadow: 1px 1px 1px 1px #2E2E2E;
+	cursor: pointer;
+	margin: 0.5% 1% 0.5% 29%;
+}
+
+.div-boton button{
+	background-color: rgba(215,215,215,1);
+	width: 20%;
+	position: relative;
+	padding: 0.5% 1%;
+	text-align: center;
+	font-size: 1.1em;
+	border-radius: 5px;
+	border: solid 1px;
+	box-shadow: 1px 1px 1px 1px #2E2E2E;
+	cursor: pointer;
+	margin: 0.5% 29% 0.5% 1%;
 }

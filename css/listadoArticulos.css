@@ -2,7 +2,7 @@
 	position: relative;
 	width: 48.7%;
 	max-width: 600px;
-	height: 500px;
+	/*height: 500px;*/
 	margin: 1.5% 0.65%;
 	-webkit-box-shadow: 1px 1px 23px 1px rgba(0,0,0,0.8);
 	-moz-box-shadow: 1px 1px 23px 1px rgba(0,0,0,0.8);
@@ -12,7 +12,7 @@
 .articulo{
     width: 75%;
 	height: 400px;
-	max-height: 500px;
+	/*max-height: 500px;*/
 	margin: 1% 12.5%;
 }
 
