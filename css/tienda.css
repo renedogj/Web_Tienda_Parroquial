@@ -1,12 +1,10 @@
 .tienda{
-	/*background-color: blue;*/
 	position: relative;
 	width: 100%;
 	height: auto;
 }
 
 .titulo-tienda{
-	/*background-color: red;*/
 	background-color: rgba(50, 120, 190, 0.7);
 	position: relative;
 	width: 84%;
@@ -30,7 +28,6 @@
 }
 
 .titulo-tienda h1{
-	/*background-color: green;*/
 	position: relative;
 	font-size: 40px;
 	margin: 15px;
@@ -38,7 +35,6 @@
 }
 
 .margenes{
-	/*background-color: yellow;*/
 	position: relative;
 	width: 92%;
 	margin: 0 4% 50px 4%;
@@ -47,7 +43,6 @@
 }
 
 .formulario-filtrar{
-	/*background-color: brown;*/
 	position: relative;
 	width: 95%;
 	margin: 5px 2.5%;
@@ -55,7 +50,6 @@
 }
 
 .formulario-filtrar form{
-	/*background-color: red;*/
 	position: relative;
 	width: 98%;
 	margin: 0 1%;
@@ -78,7 +72,6 @@
 }
 
 .formulario-filtrar .enviar-filtrar{
-	/*background-color: green;*/
 	position: relative;
 	margin: 7px 0 7px 15px;
 	min-width: 60px;
@@ -95,7 +88,6 @@
 }
 
 .linea{
-	/*background-color: pink;*/
 	position: relative;
 	width: 98%;
 	margin: 1px 1%;
@@ -103,7 +95,6 @@
 }
 
 .semiLinea{
-	/*background-color: yellow;*/
 	position: relative;
 	width: 50%;
 	margin: 0 0 0 0;
@@ -111,7 +102,6 @@
 }
 
 .articulo{
-	/*background-color: green;*/
 	position: relative;
 	width: 48%;
 	max-width: 600px;
@@ -140,7 +130,6 @@
 }
 
 .div_info_articulo h1{
-	/*background-color: orange;*/
 	color: #e6e6e6;
 	position: relative;
 	margin: 10px 2px 0 2px;
@@ -150,7 +139,6 @@
 }
 
 .div_info_articulo p{
-	/*background-color: cyan;*/
 	color: #e6e6e6;
 	position: relative;
 	line-height: 0;

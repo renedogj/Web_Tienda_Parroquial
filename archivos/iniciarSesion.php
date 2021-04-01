@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Form_altaUsuario</title>
+		<title>Iniciar Sesión</title>
 		<meta name=author content="Javier Renedo">
 		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -79,9 +79,6 @@
 							<p id="p-fallo-inicio"></p>
 						</div>
 						<button onclick="acceder()" class="boton-iniciarsesion" id="boton" type="submit">Iniciar Sesión</button>
-						<!--<div class="div-contraseñaOlvidada">
-							<a href="contraseñaOlvidada.php">He olvidado mi contraseña</a>
-						</div>-->
 					</div>
 				</div>
 			</div>

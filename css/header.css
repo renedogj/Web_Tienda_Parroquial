@@ -32,7 +32,6 @@ header{
 }
 
 .div-contenedor{
-    /*background-color: green;*/
 	width: 100%;
 	display: flex;
 	font-size: 1rem;
@@ -43,12 +42,10 @@ header{
 }
 
 .div-imagen-logo{
-    /*background-color: red;*/
     height: auto;
 }
 
 .div-imagen-logo img{
-    /*background-color: blue;*/
     height: 100%;
     max-width: 100%;
     width: 187px;

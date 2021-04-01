@@ -18,7 +18,6 @@
 }
 
 .container-fluid{
-    /*background-color: black;*/
     width: 100%;
 	padding-right: 15px;
     padding-left: 15px;
@@ -26,14 +25,12 @@
 }
 
 .div-menu-izquierda{
-    /*background-color: pink;*/
     position: relative;
     display: flex;
     width: 80%;
 }
 
 .navbar-header{
-    /*background-color: red;*/
 	width: 18%;
     width: 25%;
 	padding: 1px;
@@ -52,7 +49,6 @@
 }
 
 .ul-navbar{
-    /*background-color: blue;*/
 	float: left;
     margin: 0;
     display: flex;
@@ -95,20 +91,17 @@ li a{
 }
 
 .div-menu-derecha{
-    /*background-color: purple;*/
     position: relative;
     display: flex;
     width: 20%;
 }
 
 .div-añadir{
-    /*background-color: green;*/
     position: relative;
     width: 70%;
 }
 
 .div-contenedor-añadir{
-    /*background-color: cyan;*/
     padding-block-start: 1em;
     padding-block-end: 1em;
 }
@@ -121,7 +114,6 @@ li a{
     background-color: transparent;
     color: #BDBDBD;
     cursor: pointer;
-    /*background-color: white;*/
 }
 
 .div-contenedor-añadir a:hover{
@@ -129,7 +121,6 @@ li a{
 }
 
 .div-usuario{
-    /*background-color: yellow;*/
     position: relative;
     width: 30%;
 }
@@ -146,7 +137,6 @@ li a{
 }
 
 .div-icono-usuario i{
-    /*background-color: blue;*/
     position: relative;
     top: 25%;
     font-size: 1.3em;

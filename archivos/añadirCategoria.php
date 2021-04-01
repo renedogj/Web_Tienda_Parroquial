@@ -79,7 +79,6 @@
 			<form action="listadoCategorias.php" method="post">
 				<div class="div-contenedora-info-articulo">
 					<h3>Nueva Categoria</h3>
-					<!--<input type="hidden" name="idCategoria" id="idCategoria">-->
 					<div class="div-input div-text">
 						<label for="nombreCategoria">Nombre de la categoria: </label><br>
 						<input type="text" id="nombreCategoria" name="nombreCategoria"><br>

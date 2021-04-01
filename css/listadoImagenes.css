@@ -1,5 +1,4 @@
 .form-añadir-imagen{
-	/*background-color: red;*/
 	position: relative;
 	width: 80%;
 	margin: 0 10%;
@@ -8,51 +7,28 @@
 }
 
 .form-añadir-imagen p{
-	/*background-color: green;*/
 	font-size: 1.2em;
 	font-weight: bold;
 	padding: 0.5%;
 }
 
 .form-añadir-imagen #foto{
-	/*background-color: blue;*/
 	width: 40%;
 	font-size: 1em;
 	padding: 0.5%;
 }
 
 .form-añadir-imagen #submit{
-	/*background-color: blue;*/
 	width: 10%;
 	font-size: 1.1em;
 	padding: 0.5%;
 }
 
 .imagenes{
-	/*background-color: red;*/
-	/*position: relative;*/
 	width: 100%;
-	/*display: flex;*/
-}
-
-.linea{
-	/*background-color: blue;*/
-	/*position: relative;
-	width: 99%;
-	margin: 0 0.5%;
-	padding: 1% 0;
-	display: flex;*/
-}
-
-.semiLinea{
-	/*background-color: green;*/
-	/*position: relative;
-	width: 50%;
-	display: flex;*/
 }
 
 .contenedora-imagen{
-	/*background-color: orange;*/
 	background-color: rgba(0,0,0,1);
 	position: relative;
 	width: 16%;
@@ -74,7 +50,6 @@
 }
 
 .info-imagen{
-	/*background-color: yellow;*/
 	background-color: rgba(56,17,30,0.5);
 	background-color: rgba(0,0,255,0.5);
 	color: #E6E6E6;
