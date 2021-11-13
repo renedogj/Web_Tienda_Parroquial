@@ -22,6 +22,8 @@
 .info-contenedora h1{
 	margin: 0;
 	line-height: 2em;
+	width: 80%;
+    margin: auto;
 }
 
 .info-contenedora ul{

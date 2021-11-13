@@ -104,15 +104,15 @@
 		</header>
 		<div class="info">
 			<div class="info-contenedora">
-				<h1>PROYECTO MIGRANTES DAKHLA</h1>
+				<h1>PROYECTO MISIONERO CONSTRUCCION DE UNA VALLA PARA MUJERES Y JOVENES EN SATCHOUM</h1>
 				<h1>¡¡Bienvenido a nuestro catálogo de Productos Solidarios!!</h1>
-				<p>Como todos los años, desde la parroquia vamos a colaborar con un proyecto misionero, en esta ocasión el proyecto Migrantes Dakhla, en la  <b>Misión del Sahara</b>.</p>
-				<ul>El proyecto MIGRANTES DAKHLA  tiene como principales objetivos:
-					<li>Apoyo psicológico y acompañamiento a mujeres vulnerables y niños, proporcionando formación a las mujeres para favorecer su autonomía y guardería para los niños.</li>
-					<li>Organización de campañas de sensibilización y formación para migrantes, según sus necesidades.</li>
-					<li>Ayudas mediante micro-financiación para la puesta en marcha de proyectos y pequeños puestos de trabajo.</li>
+				<p>Como todos los años, desde la parroquia vamos a colaborar con un proyecto misionero, en esta ocasión con el proyecto solicitado desde la misión de<b>Temento (Senegal)</b>.</p>
+				<ul>El proyecto tiene como principales objetivos:
+					<li><b>Asegurar</b> que los cultivos no estén a merced de los animales que pastan mediante la construcción de una valla.</li>
+					<li><b>Contribuir al desarrollo de la aldea</b>, facilitando el comercio de productos agrícolas en los mercados cercanos.</li>
+					<li><b>Frenar la migración de jóvenes a las ciudades y ayuda a las familias de la aldea en los gastos escolares</b> mediante los ingresos obtenidos por la venta de productos agrícolas.</li>
 				</ul>
-				<p>Puedes encontrar información más detallada sobre el proyecto Migrantes Dakhla en la página web de la <a href="http://www.parroquiasanleandro.es/">parroquia de San Leandro</a></p>
+				<p>Puedes encontrar información más detallada sobre el proyecto MISIONERO en la página web de la parroquia <a href="http://www.parroquiasanleandro.es/">parroquia de San Leandro</a></p>
 				<p>Necesitamos tu colaboración para sacar adelante estos objetivos.</p>
 				<p>DONATIVOS: <b>ES47 0075 0321 3506 0044 1971</b>&nbsp;&nbsp;&nbsp;&nbsp;Indicar: PROYECTO SOLIDARIO + NOMBRE Y APELLIDOS</p>
 				<h2>¡CON LA AYUDA DE TODOS CONTRIBUÍMOS A FINANCIAR ESTE MARAVILLOSO PROYECTO!</h2>
@@ -121,7 +121,7 @@
 			</div>
 			<div class="info-fotos">
 				<div class="info-fotos-proyecto SaharaTalleres">
-					<img class="imagenesSahara" id="imagenesSahara" src="imagenes/MisionSahara_1.png">
+					<img class="imagenesSahara" id="imagenesSahara" src="imagenes/proyecto misionero presentación_Página_1.jpg">
 				</div>
 				<div class="info-fotos-talleres SaharaTalleres">
 					<img class="imagenesTalleres" src="imagenes/Foto talleres 1.jpg">

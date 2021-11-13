@@ -1,7 +1,7 @@
 var fotosSahara = new Array();
-fotosSahara[0] = "imagenes/CartelSahara.jpg";
-fotosSahara[1] = "imagenes/MapaSahara.png";
-fotosSahara[2] = "imagenes/MisionSahara_1.png";
+fotosSahara[0] = "imagenes/IMG-20211019-WA0007 (2).jpg";
+fotosSahara[1] = "imagenes/mapaSenegal.png";
+fotosSahara[2] = "imagenes/proyecto misionero presentación_Página_1.jpg";
 var fotosTalleres = new Array();
 fotosTalleres[0] = "imagenes/Foto talleres 1.jpg";
 fotosTalleres[1] = "imagenes/Foto talleres 2.jpg";
