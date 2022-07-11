@@ -79,7 +79,7 @@
 			<form action="procesarAñadirImagen.php" method="post" enctype="multipart/form-data">
 				<p>Añadir una imagen nueva:</p>
 				<input type="file" name="foto" id="foto" required />
-				<input type="submit" name="submit" id="submit"/>
+				<input type="submit" name="submit" id="submit" value="Añadir imagen"/>
 			</form>
 		</div>
 		<div class="imagenes">

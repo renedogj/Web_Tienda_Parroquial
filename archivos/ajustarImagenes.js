@@ -27,26 +27,26 @@ function slideSaharaTalleres() {
 	setTimeout(slideSaharaTalleres, 7000);
 }
 
-function plusSlides(num,articulo) {
-	articulos[articulo].indexarticulo += num;
-	mostrarSlide(articulo);
+function plusSlides(num,countArticulo) {
+	articulos[countArticulo].indexImagenesArticulo += num;
+	mostrarSlide(countArticulo);
 }
 
-function mostrarSlide(indiceArticulo) {
+/*function mostrarSlide(indiceArticulo) {
 	puntoClaseImagenesArticulo = "."+articulos[indiceArticulo].claseImagenesArticulo;
-	if(articulos[indiceArticulo].indexarticulo > articulos[indiceArticulo].numFotos){
-		articulos[indiceArticulo].indexarticulo = 1;
+	if(articulos[indiceArticulo].indexImagenesArticulo > articulos[indiceArticulo].imagenes.length){
+		articulos[indiceArticulo].indexImagenesArticulo = 1;
 	}
-	if(articulos[indiceArticulo].indexarticulo < 1){
-		articulos[indiceArticulo].indexarticulo = articulos[indiceArticulo].numFotos;
+	if(articulos[indiceArticulo].indexImagenesArticulo < 1){
+		articulos[indiceArticulo].indexImagenesArticulo = articulos[indiceArticulo].imagenes.length;
 	}
 	imagenAMostrar = "imagenes/"+articulos[indiceArticulo].fotos[articulos[indiceArticulo].indexarticulo];
-	$(puntoClaseImagenesArticulo).attr("src",imagenAMostrar);
-}
+	$("puntoClaseImagenesArticulo").attr("src",imagenAMostrar);
+}*/
 
 function autoPlusSlide() {
 	for(i=0;i<numArticulos;i++){
-		if(articulos[i].numFotos>1){
+		if(articulos[i].imagenes.length>1){
 			plusSlides(1,i);
 		}
 	}
