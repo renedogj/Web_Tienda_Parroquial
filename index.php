@@ -38,7 +38,7 @@
 	include_once "views/info.html";
 	include_once "views/tienda.html";
 	?>
-	<script type="text/javascript" src="archivos/ajustarImagenes.js"></script>
+	<script type="text/javascript" src="controllers/ajustarImagenes.js"></script>
 	<script type="text/javascript" src="controllers/tienda.js"></script>
 	<?php
 	include_once "views/contactar.html";
@@ -56,6 +56,6 @@
 			}
 		}
 	</script>
-	<script type="text/javascript" src="archivos/validarFormulario.js"></script>
+	<script type="text/javascript" src="controllers/validarFormulario.js"></script>
 </body>
 </html>
