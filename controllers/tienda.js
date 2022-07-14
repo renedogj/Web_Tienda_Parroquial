@@ -1,7 +1,6 @@
 $.ajax({
 	method: "POST",
 	url: "models/obtenerCategorias.php",
-	//data: {},
 	success: function(categorias){
 		for(let i in categorias){
 			$("#seleccionCategoria").append(
@@ -34,7 +33,6 @@ function cargarArticulos(){
 }
 
 function mostrarArticulos(articulos){
-	console.log(articulos);
 	$("#articulosTienda").empty();
 	for(let i in articulos){
 		articulos[i].indexImagenesArticulo = 0;
@@ -70,6 +68,7 @@ function mostrarArticulos(articulos){
 			)
 		}		
 	}
+	ajustarTamañoImagenes();
 }
 
 function mostrarImagen(articulo) {

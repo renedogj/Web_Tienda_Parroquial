@@ -22,16 +22,8 @@
 	<link rel="stylesheet" type="text/css" href="css/contactar.css">
 	<link rel="stylesheet" type="text/css" href="css/disponibilidad.css">
 </head>
-<body onresize="ajustarTamañoImagenes()">
+<body>
 	<?php
-	/*$categoria = 0;
-	$orden = 0;
-	if(isset($_POST['submit'])){
-		$categoria = $_POST['seleccion_Categoria'];
-		$orden = $_POST['seleccion_Orden'];
-		echo '<script>window.location.assign("#tienda");</script>';
-	}*/
-
 	$correoEnviado;
 	if(isset($_GET['enviado'])){
 		$correoEnviado=$_GET['enviado'];
@@ -44,40 +36,13 @@
 
 	include_once "views/header.html";
 	include_once "views/info.html";
+	include_once "views/tienda.html";
 	?>
-	<div class="tienda" id="tienda">
-		<div class="titulo-tienda">
-			<h1>PRODUCTOS SOLIDARIOS</h1>
-		</div>
-		<div class="formulario-filtrar">
-			<form id="formulario-selecion" method="post" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
-				<div class="select">
-					<select name="seleccionCategoria" id="seleccionCategoria">
-						<option value="0">Todos</option>
-					</select>
-				</div>
-				<div class="select">
-					<select name="seleccionOrden" id="seleccionOrden">
-						<option value="0">Novedades</option>
-						<option value="1">Nombre</option>
-						<option value="2">Precio menor a mayor</option>
-						<option value="3">Precio mayor a menor</option>
-					</select>
-				</div>
-				<div class="enviar-filtrar">
-					<input type="submit" name="submit" value="Filtrar">
-				</div>
-			</form>
-		</div>
-		<div class="margenes" id="articulosTienda">
-			
-		</div>
-	</div>
+	<script type="text/javascript" src="archivos/ajustarImagenes.js"></script>
 	<script type="text/javascript" src="controllers/tienda.js"></script>
 	<?php
 	include_once "views/contactar.html";
 	?>
-
 
 	<script type="text/javascript">
 		var correoEnviado;
@@ -91,37 +56,6 @@
 			}
 		}
 	</script>
-	<?php
-	/*function seleccionCategoria($numCategoriaSelecionada){
-		if($numCategoriaSelecionada != 0){
-			$categoriaSql =" and ID in (select ID_producto from relacion_producto_categoria where ID_categoria=$numCategoriaSelecionada)";
-		}else{
-			$categoriaSql="";
-		}
-		return $categoriaSql;
-	}
-
-	function seleccionOrden($numOrdenSelecionado){
-		switch ($numOrdenSelecionado) {
-			case 0:
-			$ordenSql=" order by ID DESC";
-			break;
-			case 1:
-			$ordenSql=" order by nombre";
-			break;
-			case 2:
-			$ordenSql=" order by precio ASC";
-			break;
-			case 3:
-			$ordenSql=" order by precio DESC";
-			break;
-			default:
-			$ordenSql=" order by ID DESC";
-		}
-		return $ordenSql;
-	}*/
-	?>
 	<script type="text/javascript" src="archivos/validarFormulario.js"></script>
-	<script type="text/javascript" src="archivos/ajustarImagenes.js"></script>
 </body>
 </html>

@@ -32,7 +32,7 @@ $sql = "SELECT articulos.id,nombre_foto
 	FROM articulos
 	INNER JOIN relacion_producto_imagen on relacion_producto_imagen.ID_producto = articulos.id
 	LEFT JOIN imagenes on relacion_producto_imagen.ID_imagen = imagenes.ID
-	WHERE articulos.mostrar=1".$categoriaSql/*.$ordenSql*/;
+	WHERE articulos.mostrar=1".$categoriaSql;
 
 
 $stmt = $conexion->prepare($sql);

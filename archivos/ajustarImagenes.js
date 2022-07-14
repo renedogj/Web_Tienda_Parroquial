@@ -6,9 +6,13 @@ var fotosTalleres = new Array();
 fotosTalleres[0] = "imagenes/Foto talleres 1.jpg";
 fotosTalleres[1] = "imagenes/Foto talleres 2.jpg";
 
-autoPlusSlide();
+//autoPlusSlide();
 ajustarTamañoImagenes();
 slideSaharaTalleres();
+
+$(window).resize(() => {
+	ajustarTamañoImagenes();
+});
 
 function slideSaharaTalleres() {
 	if($("#imagenesSahara").attr("src")==fotosSahara[0]){
@@ -27,22 +31,10 @@ function slideSaharaTalleres() {
 	setTimeout(slideSaharaTalleres, 7000);
 }
 
-function plusSlides(num,countArticulo) {
+/*function plusSlides(num,countArticulo) {
 	articulos[countArticulo].indexImagenesArticulo += num;
 	mostrarSlide(countArticulo);
 }
-
-/*function mostrarSlide(indiceArticulo) {
-	puntoClaseImagenesArticulo = "."+articulos[indiceArticulo].claseImagenesArticulo;
-	if(articulos[indiceArticulo].indexImagenesArticulo > articulos[indiceArticulo].imagenes.length){
-		articulos[indiceArticulo].indexImagenesArticulo = 1;
-	}
-	if(articulos[indiceArticulo].indexImagenesArticulo < 1){
-		articulos[indiceArticulo].indexImagenesArticulo = articulos[indiceArticulo].imagenes.length;
-	}
-	imagenAMostrar = "imagenes/"+articulos[indiceArticulo].fotos[articulos[indiceArticulo].indexarticulo];
-	$("puntoClaseImagenesArticulo").attr("src",imagenAMostrar);
-}*/
 
 function autoPlusSlide() {
 	for(i=0;i<numArticulos;i++){
@@ -51,17 +43,14 @@ function autoPlusSlide() {
 		}
 	}
 	setTimeout(autoPlusSlide, 7000);
-}
+}*/
 
 function ajustarTamañoImagenes(){
 	anchoFotosSaharaTalleres = $(".SaharaTalleres").width();
 	alturaFotosSaharaTalleres = anchoFotosSaharaTalleres*0.6;
 	$(".SaharaTalleres").css("height",alturaFotosSaharaTalleres);
 
-	anchoArticulos = $(".articulo").width();
-	alturaArticulos = anchoArticulos*1.5;
-	$(".articulo").css("height",alturaArticulos);
-	$(".tienda").css("height",$(".margenes").height());
+	$(".articulo").css("height",$(".articulo").width()*1.5);
 
 	anchoLogo = $(".div-imagen-logo img").width();
 	alturaLogo = anchoLogo;
