@@ -4,7 +4,7 @@ $seleccionCategoria = $_POST['seleccionCategoria'];
 $seleccionOrden = $_POST['seleccionOrden'];
 
 if($seleccionCategoria != 0){
-	$categoriaSql =" and articulos.ID in (select ID_producto from relacion_producto_categoria where ID_categoria=$seleccionCategoria)";
+	$categoriaSql ="WHERE articulos.ID in (select ID_producto from relacion_producto_categoria where ID_categoria=$seleccionCategoria)";
 }else{
 	$categoriaSql="";
 }
@@ -26,13 +26,13 @@ switch ($seleccionOrden) {
 	$ordenSql=" order by ID DESC";
 }
 
-include_once "../db/db.php";
+include_once "../../db/db.php";
 
 $sql = "SELECT articulos.id, nombre_foto
 	FROM articulos
 	INNER JOIN relacion_producto_imagen on relacion_producto_imagen.ID_producto = articulos.id
 	LEFT JOIN imagenes on relacion_producto_imagen.ID_imagen = imagenes.ID
-	WHERE articulos.mostrar=1".$categoriaSql;
+	".$categoriaSql;
 
 
 $stmt = $conexion->prepare($sql);
@@ -46,7 +46,7 @@ while($result = $stmt->fetch()){
     array_push($imagenes[$result['id']],$result["nombre_foto"]);
 }
 
-$sql="SELECT id,nombre,descripcion,precio,disponibilidad from articulos where mostrar = 1".$categoriaSql.$ordenSql;
+$sql="SELECT id,nombre,descripcion,precio,disponibilidad from articulos ".$categoriaSql.$ordenSql;
 
 $stmt = $conexion->prepare($sql);
 $stmt->execute();

@@ -3,18 +3,17 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta charset="utf-8">
 		<title>Listado Categorias</title>
-
+		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-		<link rel="shortcut icon" type="png" href="../imagenes/parroquia_200x200.jpg">
+		<link rel="shortcut icon" type="png" href="../../imagenes/parroquia_200x200.jpg">
 		
-		<link rel="stylesheet" type="text/css" href="../css/body.css">
-		<link rel="stylesheet" type="text/css" href="../css/menuAdministracion.css">
-		<link rel="stylesheet" type="text/css" href="../css/tienda.css">
-		<link rel="stylesheet" type="text/css" href="../css/animacionImagenes.css">
-		<link rel="stylesheet" type="text/css" href="../css/listadoCategorias.css">
+		<link rel="stylesheet" type="text/css" href="../../css/body.css">
+		<link rel="stylesheet" type="text/css" href="../../css/menuAdministracion.css">
+		<link rel="stylesheet" type="text/css" href="../../css/tienda.css">
+		<link rel="stylesheet" type="text/css" href="../../css/animacionImagenes.css">
+		<link rel="stylesheet" type="text/css" href="../../css/listadoCategorias.css">
 	</head>
 	<body onresize="ajustarTamaño()">
 		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
@@ -44,7 +43,7 @@
                     		"<a class='logout' onclick='cerrarSesion()'>Cerrar Sesión</a>"+
                     	"</div>");
                 }else{
-                	window.location.assign("iniciarSesion.php");
+                	//window.location.assign("iniciarSesion.php");
                 }
             });
 
@@ -53,14 +52,15 @@
             }
 		</script>
 		<?php
-			include("conexion.php");
-			$con=mysqli_connect($servidor,$usuario,$contrasena);
+			include_once "../../db/db.php";
+			//include("conexion.php");
+			/*$con=mysqli_connect($servidor,$usuario,$contrasena);
 			$conectado=mysqli_select_db($con,$baseDeDatos);
 			if(!$conectado){
 				echo '<script>alert("ERROR");</script>';
-			}
+			}*/
 
-			if(isset($_POST["idCategoria"])){
+			/*if(isset($_POST["idCategoria"])){
 				$idCategoria = $_POST["idCategoria"];
 				$nombre = trim($_POST["nombre"]);
 				$nombre = cambiarAcute(ucfirst(strtolower($nombre)));
@@ -85,7 +85,7 @@
 				}
 				$sql = "INSERT into categorias (nombre_categoria, mostrar_categoria) values ('$nombre','$mostrar')";
 	            mysqli_query($con,$sql);
-			}
+			}*/
 
 			function cambiarAcute($string){
 				$string = str_replace("á", "&aacute", $string);
@@ -105,64 +105,72 @@
 			<div class="container-fluid">
 				<div class="div-menu-izquierda">
 					<div class="navbar-header">
-			    	<a class="navbar-brand" href="../index.php">Mercadillo Parroquial</a>
-				    </div>
-				    <ul class="ul-navbar">
-					    <li><a href="listadoProductos.php">Productos</a></li>
-					    <li class="selecionado"><a href="listadoCategorias.php">Categorias</a></li>
-					    <li><a href="listadoImagenes.php">Imagenes</a></li>
-				    </ul>
+						<a class="navbar-brand" href="../index.php">Mercadillo Parroquial</a>
+					</div>
+					<ul class="ul-navbar">
+						<li><a href="listadoProductos.php">Productos</a></li>
+						<li class="selecionado"><a href="listadoCategorias.php">Categorias</a></li>
+						<li><a href="listadoImagenes.php">Imagenes</a></li>
+					</ul>
 				</div>
 				<div class="div-menu-derecha">
 					<div class="div-añadir">
-	                    <div class="div-contenedor-añadir">
-	                        <a href="añadirCategoria.php">Añadir Categoria</a>
-	                    </div>
-	                </div>
-	                <div class="div-usuario dropdown">
-	                    <div class="div-icono-usuario"><i></i></a>
-	                    <div class="dropdown-content"></div>
-	                </div>
+						<div class="div-contenedor-añadir">
+							<a href="añadirCategoria.php">Añadir Categoria</a>
+						</div>
+					</div>
+					<div class="div-usuario dropdown">
+						<div class="div-icono-usuario">
+							<i></i>
+							<div class="dropdown-content"></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</nav>
 		<div class="categorias">
-			<table>
+			<table id="tablaCategorias">
 				<tr>
 					<th colspan=3>CATEGORIAS</th>
 				</tr>
-			<?php
-				$sql="SELECT id,nombre_categoria,mostrar_categoria from categorias";
-				$result = $con->query($sql);
-				if ($result->num_rows > 0) {
-					while($row = $result->fetch_assoc()){
-						$idCategoria = $row["id"];
-						$nombreCategoria = $row["nombre_categoria"];
-						$mostrarCategoria = $row["mostrar_categoria"];
-						echo "<tr>
-							<td><button onclick='editarCategoria($idCategoria)'>Editar</button></td>
-							<td>$nombreCategoria</td>";
-						if($mostrarCategoria != 0){
-							echo "<td>Si se muestran los articulos de esta categoria</td>";
-						}else{
-							echo "<td>No se muestran los articulos de esta categoria</td>";
-						}						
-					}
-				}
-			?>
 			</table>
 		</div>
 		<script type="text/javascript">
+			$.ajax({
+				method: "POST",
+				url: "../../models/obtenerCategorias.php",
+				success: function(categorias){
+					console.log(categorias);
+					let textoMostrarCategoria;
+					for(let i in categorias){
+						if(categorias[i].mostrar_categoria != 0){
+							textoMostrarCategoria = "Si se muestran los articulos de esta categoria";
+						}else{
+							textoMostrarCategoria = "No se muestran los articulos de esta categoria";
+						}
+
+						$("#tablaCategorias").append(
+							$("<tr>").append(
+								$("<td>").append(
+									$("<button>").text("Editar").click(() => {
+										window.location.assign("editarCategoria.php?id="+categorias[i].Id);
+									})
+								),
+								$("<td>").text(categorias[i].nombre_categoria),
+								$("<td>").text(textoMostrarCategoria)
+							)
+						)
+					}
+				},
+				dataType: "json"
+			});
+
 			ajustarTamaño();
 			function ajustarTamaño(){
 				$(".div-icono-usuario").css("height",$(".div-icono-usuario").width());
 				$(".dropdown-content").css("top",$(".div-usuario").height()-7);
 				$(".dropdown-content").css("left",-($(".div-usuario").width()+130));
 				$(".categorias").css("margin-top",$("nav").height());
-			}
-
-			function editarCategoria(idCategoria) {
-				window.location.assign("editarCategoria.php?id="+idCategoria);
 			}
 		</script>
 	</body>

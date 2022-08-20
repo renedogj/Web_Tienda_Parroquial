@@ -1,3 +1,11 @@
+<?php
+if(isset($_GET["id"])){
+	$IdCategoria = $_GET["id"];
+}else{
+	header("Location: ../");
+	die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -8,11 +16,11 @@
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-		<link rel="shortcut icon" type="png" href="../imagenes/parroquia_200x200.jpg">
+		<link rel="shortcut icon" type="png" href="../../imagenes/parroquia_200x200.jpg">
 		
-		<link rel="stylesheet" type="text/css" href="../css/body.css">
-		<link rel="stylesheet" type="text/css" href="../css/menuAdministracion.css">
-		<link rel="stylesheet" type="text/css" href="../css/editar.css">
+		<link rel="stylesheet" type="text/css" href="../../css/body.css">
+		<link rel="stylesheet" type="text/css" href="../../css/menuAdministracion.css">
+		<link rel="stylesheet" type="text/css" href="../../css/editar.css">
 	</head>
 	<body onresize="ajustarTamaño()">
 		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
@@ -42,7 +50,7 @@
                     		"<a class='logout' onclick='cerrarSesion()'>Cerrar Sesión</a>"+
                     	"</div>");
                 }else{
-                	window.location.assign("iniciarSesion.php");
+                	//window.location.assign("iniciarSesion.php");
                 }
             });
 
@@ -75,28 +83,6 @@
 				</div>
 			</div>
 		</nav>
-		<script type="text/javascript">
-			<?php
-				include("conexion.php");
-				$con=mysqli_connect($servidor,$usuario,$contrasena);
-				$conectado=mysqli_select_db($con,$baseDeDatos);
-				if(!$conectado){
-					echo 'alert("ERROR")';
-				}
-				$IDCategoria = $_GET["id"];
-				$sql="SELECT nombre_categoria,mostrar_categoria from categorias where id = $IDCategoria";
-				$result = $con->query($sql);
-				if ($result->num_rows > 0) {
-					while($row = $result->fetch_assoc()){
-						$nombreCategoria = $row["nombre_categoria"];
-						$mostrarCategoria = $row["mostrar_categoria"];					
-					}
-				}
-			?>
-			var IDCategoria = <?php echo "$IDCategoria"; ?>;
-			var nombreCategoria = <?php echo "'$nombreCategoria'"; ?>;
-			var mostrarCategoria = <?php echo "'$mostrarCategoria'"; ?>;
-		</script>
 		<div class="categoria">
 			<form action="listadoCategorias.php" method="post">
 				<div class="div-contenedora-info-articulo">
@@ -118,8 +104,38 @@
 			</form>
 		</div>
 		<script type="text/javascript">
-			$("#idCategoriaTxt").text("ID: "+IDCategoria);
-			$("#idCategoria").val(IDCategoria);
+			var IdCategoria = <?php echo $IdCategoria; ?>;
+			$.ajax({
+				method: "POST",
+				url: "../../models/obtenerCategoria.php",
+				data : {
+					"IdCategoria" : IdCategoria
+				},
+				success: function(categoria){
+					console.log(categoria);
+
+					$("#idCategoriaTxt").text("ID: "+IdCategoria);
+					$("#idCategoria").val(IdCategoria);
+					categoria.nombre_categoria = cambiarATilde(categoria.nombre_categoria);
+					$("#nombre").val(categoria.nombre_categoria);
+
+					if(categoria.mostrar_categoria==1){
+						$("#mostrar").attr("checked","checked");
+						$("[for='mostrar']").empty();
+						$("[for='mostrar']").text("Los articulos de esta categoria se muestran");
+					}else{
+						$("#mostrar").removeAttr("checked");
+						$("[for='mostrar']").empty();
+						$("[for='mostrar']").text("Los articulos de esta categoria no se muestran");
+					}
+				},
+				dataType: "json"
+			});
+			//var nombreCategoria = <?php //echo $nombreCategoria; ?>;
+			//var mostrarCategoria = <?php //echo $mostrarCategoria; ?>;
+
+			/*$("#idCategoriaTxt").text("ID: "+IdCategoria);
+			$("#idCategoria").val(IdCategoria);
 			nombreCategoria = cambiarATilde(nombreCategoria);
 			$("#nombre").val(nombreCategoria);
 
@@ -131,7 +147,7 @@
 				$("#mostrar").removeAttr("checked");
 				$("[for='mostrar']").empty();
 				$("[for='mostrar']").text("Los articulos de esta categoria no se muestran");
-			}
+			}*/
 
 			function cambioMostrar() {
 				if($("#mostrar").prop("checked")){

@@ -24,8 +24,8 @@ function cargarArticulos(){
 		method: "POST",
 		url: "models/obtenerArticulos.php",
 		data: {
-			seleccionCategoria: $("#seleccionCategoria").val(),
-			seleccionOrden: $("#seleccionOrden").val()
+			"seleccionCategoria": $("#seleccionCategoria").val(),
+			"seleccionOrden": $("#seleccionOrden").val()
 		},
 		success: mostrarArticulos,
 		dataType: "json"
