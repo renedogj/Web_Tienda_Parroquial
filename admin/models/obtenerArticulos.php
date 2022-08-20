@@ -34,7 +34,6 @@ $sql = "SELECT articulos.id, nombre_foto
 	LEFT JOIN imagenes on relacion_producto_imagen.ID_imagen = imagenes.ID
 	".$categoriaSql;
 
-
 $stmt = $conexion->prepare($sql);
 $stmt->execute();
 $stmt->setFetchMode(PDO::FETCH_ASSOC);

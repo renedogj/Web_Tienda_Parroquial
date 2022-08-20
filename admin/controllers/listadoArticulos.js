@@ -1,16 +1,38 @@
 $.ajax({
 	method: "POST",
-	url: "../models/obtenerArticulos.php",
-	data: {
-		"seleccionCategoria": $("#seleccionCategoria").val(),
-		"seleccionOrden": $("#seleccionOrden").val()
+	url: "../../models/obtenerCategorias.php",
+	success: function(categorias){
+		for(let i in categorias){
+			$("#seleccionCategoria").append(
+				$("<option>").attr("value",categorias[i].Id).text(categorias[i].nombre_categoria)
+			);
+		}
+		$("#seleccionCategoria").change(() => {
+			cargarArticulos();
+		});
+		$("#seleccionOrden").change(() => {
+			cargarArticulos();
+		});
 	},
-	success: mostrarArticulos,
 	dataType: "json"
 });
 
+cargarArticulos();
+
+function cargarArticulos(){
+	$.ajax({
+		method: "POST",
+		url: "../models/obtenerArticulos.php",
+		data: {
+			"seleccionCategoria": $("#seleccionCategoria").val(),
+			"seleccionOrden": $("#seleccionOrden").val()
+		},
+		success: mostrarArticulos,
+		dataType: "json"
+	});
+}
+
 function mostrarArticulos(articulos){
-	console.log(articulos)
 	$("#listadoArticulos").empty();
 	for(let i in articulos){
 		articulos[i].indexImagenesArticulo = 0;

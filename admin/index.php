@@ -44,7 +44,7 @@
 		        firebase.auth().signInWithEmailAndPassword(email, pass)
 		        .then((user) => {
 		        	$("#p-fallo-inicio").empty();
-		        	window.location.href = "controllers/listadoProductos.php";
+		        	window.location.href = "controllers/listadoArticulos.php";
 				})
 		        .catch(function(error) {
 		            $("#p-fallo-inicio").html("Usuario o Contraseña incorrecto");

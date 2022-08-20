@@ -1,3 +1,12 @@
+.listadoArticulos{
+	position: relative;
+	width: 98%;
+	margin: 0 1% 50px;
+	height: auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
 .contenedor-de-articulo{
 	width: 95%;
 	justify-self: center;

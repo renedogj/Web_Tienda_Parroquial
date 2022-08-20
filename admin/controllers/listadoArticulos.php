@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
-	<title>Listado Productos</title>
+	<title>Listado Articulos</title>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
@@ -36,7 +36,7 @@
 		firebase.auth().onAuthStateChanged(function(user) {
 			if(user){
 				var email = user.email;
-				/*$(".div-icono-usuario i").empty();
+				$(".div-icono-usuario i").empty();
 				$(".div-icono-usuario i").html(email.substr(0,1).toUpperCase());
 				$(".dropdown-content").empty();
 				$(".dropdown-content").append(
@@ -44,7 +44,7 @@
 						$("<a>").addClass("cambiar-pwd").text("Cambiar contraseña").click(() => {cambiarContraseña()}),
 						$("<a>").addClass("logout").text("Cerrar Sesión").click(() => {cerrarSesion()})
 						)
-					);*/
+					);
 			}else{
 				window.location.assign("iniciarSesion.php");
 			}
@@ -55,9 +55,9 @@
 		}
 	</script>
 	<?php
-	//include "../views/barraNavegacion.html";
-	include_once "../views/listadoProductos.html";
+	include "../views/barraNavegacion.html";
+	include_once "../views/listadoArticulos.html";
 	?>
-	<script type="text/javascript" src="listadoProductos.js"></script>
+	<script type="text/javascript" src="listadoArticulos.js"></script>
 </body>
 </html>

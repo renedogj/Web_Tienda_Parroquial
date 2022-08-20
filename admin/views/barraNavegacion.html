@@ -5,7 +5,7 @@
 				<a class="navbar-brand" href="../index.php">Mercadillo Parroquial</a>
 			</div>
 			<ul class="ul-navbar">
-				<li class="selecionado"><a href="listadoProductos.php">Productos</a></li>
+				<li class="selecionado"><a href="listadoProductos.php">Articulos</a></li>
 				<li><a href="listadoCategorias.php">Categorias</a></li>
 				<li><a href="listadoImagenes.php">Imagenes</a></li>
 			</ul>
@@ -25,3 +25,11 @@
 		</div>
 	</div>
 </nav>
+<script type="text/javascript">
+	ajustarTamañoMenu(); 
+	function ajustarTamañoMenu(){
+		$(".div-icono-usuario").css("height",$(".div-icono-usuario").width());
+		$(".dropdown-content").css("top",$(".div-usuario").height()-7);
+		$(".dropdown-content").css("left",-($(".div-usuario").width()+130));
+	}
+</script>
