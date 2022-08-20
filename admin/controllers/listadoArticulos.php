@@ -59,5 +59,6 @@
 	include_once "../views/listadoArticulos.html";
 	?>
 	<script type="text/javascript" src="listadoArticulos.js"></script>
+	<script type="text/javascript" src="imagenes.js"></script>
 </body>
 </html>

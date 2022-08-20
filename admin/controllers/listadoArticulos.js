@@ -78,7 +78,7 @@ function mostrarArticulos(articulos){
 			)
 		}		
 	}
-	//ajustarTamañoImagenes();
+	ajustarTamañoImagenes();
 }
 
 function textoDisponibilidad(disponibilidad){

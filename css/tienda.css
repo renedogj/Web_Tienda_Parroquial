@@ -347,7 +347,6 @@
 	}
 }
 
-
 @media(max-width: 353px){
 	.articulosTienda{
 		grid-template-columns: 1fr;
