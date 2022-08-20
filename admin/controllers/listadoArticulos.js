@@ -54,7 +54,7 @@ function mostrarArticulos(articulos){
 				),
 				$("<div>").addClass("boton").append(
 					$("<button>").text("Editar articulo").click(() => {
-						window.location.assign("editarProducto.php?id="+articulos[i].id);
+						window.location.assign("editarArticulo.php?id="+articulos[i].id);
 					})
 				)
 			)
