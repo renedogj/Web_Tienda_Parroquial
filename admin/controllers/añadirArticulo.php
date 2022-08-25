@@ -19,38 +19,7 @@
 		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
-		<script type="text/javascript">
-			var firebaseConfig = {
-                apiKey: "AIzaSyD8INPLN05ja3GxHm-7r69zytBj_hQ75lM",
-			    authDomain: "pruebausuarios-81a47.firebaseapp.com",
-			    databaseURL: "https://pruebausuarios-81a47-default-rtdb.firebaseio.com",
-			    projectId: "pruebausuarios-81a47",
-			    storageBucket: "pruebausuarios-81a47.appspot.com",
-			    messagingSenderId: "928136037074",
-			    appId: "1:928136037074:web:a8ce760d154fa133daa30b",
-			    measurementId: "G-574YQRLJM6"
-            };
-            firebase.initializeApp(firebaseConfig);
-            
-            firebase.auth().onAuthStateChanged(function(user) {
-                if(user){
-                    var email = user.email;
-                    $(".div-icono-usuario i").empty();
-                    $(".div-icono-usuario i").html(email.substr(0,1).toUpperCase());
-                    $(".dropdown-content").empty();
-                    $(".dropdown-content").html("<div class='dropdown-contenedora'>"+
-	                    	"<a class='cambiar-pwd' onclick='cambiarContraseña'>Cambiar contraseña</a>"+
-                    		"<a class='logout' onclick='cerrarSesion()'>Cerrar Sesión</a>"+
-                    	"</div>");
-                }else{
-                	window.location.assign("iniciarSesion.php");
-                }
-            });
-
-            function cerrarSesion(){
-                firebase.auth().signOut();
-            }
-		</script>
+		<script type="text/javascript" src="../../db/firebaseConfig.js"></script>
 		<nav class="navbar">
 			<div class="container-fluid">
 				<div class="div-menu-izquierda">
