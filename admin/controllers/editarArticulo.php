@@ -15,6 +15,9 @@
 		<link rel="stylesheet" type="text/css" href="../../css/editar.css">
 	</head>
 	<body onresize="ajustarTamaño()">
+		<script type="text/javascript">
+			var idArticulo = <?php echo $_GET["id"]; ?>;
+		</script>
 		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
@@ -45,15 +48,12 @@
 				</div>
 			</div>
 		</nav>
+		
 		<!--<script type="text/javascript">
 			var fotosArticulo = new Array();
 			var idCategoriasArticulo = new Array();-->
 		<?php
-			include_once "../../db/db.php";
-			$idArticulo = $_GET['id'];
-			$sql="SELECT id,nombre,descripcion,precio,mostrar,disponibilidad from articulos where id = $idArticulo";
-			$result = obtenerArraySQL($conexion, $sql);
-			var_dump($result);
+			
 			/*if ($result->num_rows > 0) {
 				while($row = $result->fetch_assoc()){
 					$IDArticulo = $row["id"];
@@ -169,6 +169,7 @@
 						<label for="dispoUnidadesLimitadas">El articulo se muestra como disponible con unidades limitadas</label>
 					</div>
 				</div>
+				<!--seleccion de checkbox de las categorias-->
 				<div class="modificar-categorias-articulo">
 					<h3>Selecciona categoría(s)</h3>
 					<input type="hidden" name="numCategorias" id="numCategorias">
@@ -236,8 +237,9 @@
 				</div>
 			</form>
 		</div>
+		<script type="text/javascript" src="editarArticulo.js"></script>
 		<script type="text/javascript">
-			var contadorImagenesReales = contadorImagenes;
+			/*var contadorImagenesReales = contadorImagenes;
 			$("#hiddenContadorImagenes").val(contadorImagenesReales);
 			
 			function ajustarIDNombreImagen(num) {
@@ -295,7 +297,7 @@
 
 			function deshacer() {
 				document.location.reload();
-			}
+			}*/
 		</script>
 		<script type="text/javascript" src="rellenarDatosFormEditarProducto.js"></script>
 	</body>
