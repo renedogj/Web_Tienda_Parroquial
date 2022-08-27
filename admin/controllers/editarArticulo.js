@@ -39,6 +39,15 @@ $.ajax({
 				$("#dispoNomal").attr("checked","checked");
 				break;
 		}
+
+		for(let i in articulo.imagenes){
+			$("#select-imagen-id").append(
+				$("<option>").val(articulo.imagenes[i].id).text(articulo.imagenes[i].id)
+			);
+			$("#select-imagen-nombre").append(
+				$("<option>").val(articulo.imagenes[i].nombre_foto).text(articulo.imagenes[i].nombre_foto)
+			);
+		}
 	},
 	dataType: "json"
 });
@@ -47,11 +56,17 @@ $.ajax({
 	method: "POST",
 	url: "../../models/obtenerCategorias.php",
 	success: function(categorias){
-		/*for(let i in categorias){
-			$("#seleccionCategoria").append(
-				$("<option>").attr("value",categorias[i].Id).text(categorias[i].nombre_categoria)
-			);
-		}*/
+		console.log(categorias)
+		for(let i in categorias){
+			$(".modificar-categorias-articulo").append(	
+				$("<div>").addClass("div-input-categoria").append(
+					$("<input>").attr("type","checkbox").attr("id","input-categoria-"+i)
+						.attr("name","input-categoria-"+i).val(categorias[i].Id),
+					$("<label>").attr("for","input-categoria-"+i).text(categorias[i].nombre_categoria)
+				)
+			)
+		}
+		$("#numCategorias").val(categorias.length);
 	},
 	dataType: "json"
 });

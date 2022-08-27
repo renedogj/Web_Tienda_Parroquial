@@ -174,7 +174,7 @@
 					<h3>Selecciona categoría(s)</h3>
 					<input type="hidden" name="numCategorias" id="numCategorias">
 					<script type="text/javascript">
-						for(var i=0;i<categorias.length;i++){
+						/*for(var i=0;i<categorias.length;i++){
 							document.write('<div class="div-input-categoria">'+
 								'<input type="checkbox" id="input-categoria-'+i+'" name="input-categoria-'+i+'" value="'+categorias[i].idCategoria+'">'+
 							'<label for="input-categoria-'+i+'">'+categorias[i].nombreCategoria+'</label></div>');
@@ -182,7 +182,7 @@
 								$("#input-categoria-"+i).attr("checked","checked");
 							}
 						}
-						$("#numCategorias").val(categorias.length);
+						$("#numCategorias").val(categorias.length);*/
 					</script>
 				</div>
 				<div class="div-añadirImagen">
@@ -192,9 +192,9 @@
 	                    <select name="select-imagen-id" id="select-imagen-id" onchange="ajustarIDNombreImagen(this.value)">
 	                    	<option value="">--</option>
 	                    	<script type="text/javascript">
-	                    		for(var i=0; i<fotos.length;i++){
+	                    		/*for(var i=0; i<fotos.length;i++){
 	                    			document.write("<option value="+i+">"+fotos[i].idFoto+"</option>");
-								}
+								}*/
 	                        </script>         
 						</select>
 					</div>
@@ -203,9 +203,9 @@
 	                    <select name="select-imagen-nombre" id="select-imagen-nombre" onchange="ajustarIDNombreImagen(this.value)">
 	                    	<option value="">--</option>
 	                    	<script type="text/javascript">
-	                    		for(var i=0; i<fotos.length;i++){
+	                    		/*for(var i=0; i<fotos.length;i++){
 	                    			document.write("<option value="+i+">"+fotos[i].nombreFoto+"</option>");
-								}
+								}*/
 	                        </script>         
 						</select>
 					</div>	
