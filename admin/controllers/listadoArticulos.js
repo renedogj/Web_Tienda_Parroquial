@@ -41,7 +41,7 @@ function mostrarArticulos(articulos){
 				$("<div>").addClass("articulo").attr("id","articulo"+articulos[i].id).append(
 					$("<div>").addClass("slideshow-container"),
 					$("<div>").addClass("mySlides").addClass("fade").append(
-						$("<img>").attr("id","imagenesArticulo"+articulos[i].id).attr("src","../../imagenes/"+articulos[i].imagenes[0])
+						$("<img>").attr("id","imagenesArticulo"+articulos[i].id)
 					),
 					$("<div>").addClass("div_info_articulo").append(
 						$("<h1>").addClass("nombre_articulo").text(articulos[i].nombre),
@@ -59,24 +59,28 @@ function mostrarArticulos(articulos){
 				)
 			)
 		);
-		if(articulos[i].imagenes.length > 1 && articulos[i].disponibilidad != 2){
-			$("#articulo"+articulos[i].id).append(
-				$("<a>").addClass("prev").html("&#10094;").click(() => {
-					articulos[i].indexImagenesArticulo -= 1;
-					if(articulos[i].indexImagenesArticulo < 0){
-						articulos[i].indexImagenesArticulo = articulos[i].imagenes.length-1;
-					}
-					mostrarImagen(articulos[i]);
-				}),
-				$("<a>").addClass("next").html("&#10095;").click(() => {
-					articulos[i].indexImagenesArticulo += 1;
-					if(articulos[i].indexImagenesArticulo >= articulos[i].imagenes.length){
-						articulos[i].indexImagenesArticulo = 0;
-					}
-					mostrarImagen(articulos[i]);
-				})
-			)
-		}		
+		if(articulos[i].imagenes != null){
+			$("#imagenesArticulo"+articulos[i].id).attr("src","../../imagenes/"+articulos[i].imagenes[0]);
+
+			if(articulos[i].imagenes.length > 1 && articulos[i].disponibilidad != 2){
+				$("#articulo"+articulos[i].id).append(
+					$("<a>").addClass("prev").html("&#10094;").click(() => {
+						articulos[i].indexImagenesArticulo -= 1;
+						if(articulos[i].indexImagenesArticulo < 0){
+							articulos[i].indexImagenesArticulo = articulos[i].imagenes.length-1;
+						}
+						mostrarImagen(articulos[i]);
+					}),
+					$("<a>").addClass("next").html("&#10095;").click(() => {
+						articulos[i].indexImagenesArticulo += 1;
+						if(articulos[i].indexImagenesArticulo >= articulos[i].imagenes.length){
+							articulos[i].indexImagenesArticulo = 0;
+						}
+						mostrarImagen(articulos[i]);
+					})
+				)
+			}
+		}	
 	}
 	ajustarTamañoImagenes();
 }

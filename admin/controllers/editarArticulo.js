@@ -86,6 +86,18 @@ $.ajax({
 	dataType: "json"
 });
 
+$("#bttnDeshacer").click(() => {
+	document.location.reload();
+})
+
+/*$("#bttnEditar").click(() => {
+	let id = $("#idProducto").val();
+	let disponibilidad = $('input[name="disponibilidad"]:checked').val();
+	console.log(id)
+	console.log(disponibilidad)
+	return false;
+})*/
+
 function ajustarIDNombreImagen(id) {
 	$("#select-imagen-id").val(id);
 	$("#select-imagen-nombre").val(id);
@@ -130,8 +142,4 @@ function htmlImagen(id,nombreFoto) {
 			$("#contenedora-imagen-"+id).remove();
 		})
 	)
-}
-
-function deshacer() {
-	document.location.reload();
 }

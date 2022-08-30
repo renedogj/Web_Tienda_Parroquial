@@ -1,5 +1,5 @@
 <?php
-include_once "../../db/db.php";
+/*include_once "../../db/db.php";
 if(isset($_POST["idProducto"])){
 	$idProducto = $_POST["idProducto"];
 	$nombre = trim($_POST["nombre"]);
@@ -109,5 +109,5 @@ function cambiarAcute($string){
 	$string = str_replace("Ó", "&Oacute", $string);
 	$string = str_replace("Ú", "&Uacute", $string);
 	return $string;
-}
+}*/
 ?>
