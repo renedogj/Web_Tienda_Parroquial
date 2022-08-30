@@ -214,7 +214,8 @@
 				<div class="div-contenedora-imagenes-articulo">
 				<script type="text/javascript">
 					var contadorImagenes = 0;
-					for(var i=0;i<numFotos;i++){
+					//Add en el for de imagenes en editarArticulo
+					/*for(var i=0;i<numFotos;i++){
 						document.write('<div class="contenedora-imagen" id="contenedora-imagen-'+i+'">'+
 							'<div class="imagen">'+
 								'<img src="../imagenes/'+fotosArticulo[i].nombreFoto+'">'+
@@ -227,7 +228,7 @@
 						'</div>');
 						$("#input-imagen-"+i).val(fotosArticulo[i].idFoto);
 						contadorImagenes++;
-					}
+					}*/
 				</script>
 				</div>
 				<input type="hidden" name="hiddenContadorImagenes" id="hiddenContadorImagenes">
@@ -300,5 +301,6 @@
 			}*/
 		</script>
 		<script type="text/javascript" src="rellenarDatosFormEditarProducto.js"></script>
+		<script type="text/javascript" src="imagenes.js"></script>
 	</body>
 </html>

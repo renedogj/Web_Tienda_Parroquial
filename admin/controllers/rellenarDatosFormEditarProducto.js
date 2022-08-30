@@ -1,5 +1,3 @@
-
-
 function cambioMostrar() {
 	if($("#mostrar").prop("checked")){
 		$("[for='mostrar']").empty();

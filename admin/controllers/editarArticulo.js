@@ -41,13 +41,11 @@ $.ajax({
 		}
 
 		for(let i in articulo.imagenes){
-			$("#select-imagen-id").append(
-				$("<option>").val(articulo.imagenes[i].id).text(articulo.imagenes[i].id)
-			);
-			$("#select-imagen-nombre").append(
-				$("<option>").val(articulo.imagenes[i].nombre_foto).text(articulo.imagenes[i].nombre_foto)
-			);
+			let id = articulo.imagenes[i].id;
+			let nombreFoto = articulo.imagenes[i].nombre_foto;
+			$(".div-contenedora-imagenes-articulo").append(htmlImagen(id,nombreFoto));
 		}
+		ajustarTamañoImagenes();
 	},
 	dataType: "json"
 });
@@ -70,3 +68,70 @@ $.ajax({
 	},
 	dataType: "json"
 });
+
+$.ajax({
+	method: "POST",
+	url: "../models/obtenerImagenes.php",
+	success: function(imagenes){
+		console.log(imagenes)
+		for(let i in imagenes){
+			$("#select-imagen-id").append(
+				$("<option>").val(imagenes[i].id).text(imagenes[i].id)
+			);
+			$("#select-imagen-nombre").append(
+				$("<option>").val(imagenes[i].id).text(imagenes[i].nombre_foto)
+			);
+		}
+	},
+	dataType: "json"
+});
+
+function ajustarIDNombreImagen(id) {
+	$("#select-imagen-id").val(id);
+	$("#select-imagen-nombre").val(id);
+}
+
+function sumImagen(){
+	let id = $("#select-imagen-id").val();
+	let nombreFoto = $("#select-imagen-nombre [value="+id+"]").text();
+	/*$(".div-contenedora-imagenes-articulo").append(htmlImagen(contadorImagenes,fotos[index].idFoto,fotos[index].nombreFoto));
+	$("#input-imagen-"+contadorImagenes).val(fotos[index].idFoto);
+	contadorImagenes++;
+	contadorImagenesReales++;
+	$("#hiddenContadorImagenes").val(contadorImagenesReales);*/
+
+	$(".div-contenedora-imagenes-articulo").append(htmlImagen(id,nombreFoto));
+	ajustarTamañoImagenes();
+}
+
+function resImagen(id){
+	$("#contenedora-imagen-"+id).css("margin",0);
+	$("#contenedora-imagen-"+id).remove();
+	/*contadorImagenesReales--;
+	if(contadorImagenesReales==0){
+		contadorImagenes = 0;
+	}
+	$("#hiddenContadorImagenes").val(contadorImagenesReales);*/
+	ajustarTamañoImagenes();
+}
+
+function htmlImagen(id,nombreFoto) {
+	return $("<div>").addClass("contenedora-imagen").attr("id","contenedora-imagen-"+id).append(
+		$("<div>").addClass("imagen").append(
+			$("<img>").attr("src","../../imagenes/"+nombreFoto)
+		),
+		$("<div>").addClass("info-imagen").append(
+			$("<p>").html("<b>ID:</b>"+id+"</p>"),
+			$("<p>").html("<b>Nombre:</b>"+nombreFoto+"</p>"),
+		),
+		$("<input>").attr("type","hidden").attr("name","input-imagen").attr("id","input-imagen-"+id).val(id),
+		$("<span>").addClass("cerrar").html("&times;").click(() => {
+			$("#contenedora-imagen-"+id).css("margin",0);
+			$("#contenedora-imagen-"+id).remove();
+		})
+	)
+}
+
+function deshacer() {
+	document.location.reload();
+}

@@ -49,6 +49,7 @@ if(isset($_POST["idProducto"])){
 	}
 }
 
+//En caso de que no tenga id y si nombre se crea un nuevo articulo
 if(isset($_POST["nombreProducto"])){
 	$nombre = trim($_POST["nombreProducto"]);
 	$nombre = cambiarAcute(strtoupper($nombre));
@@ -65,7 +66,7 @@ if(isset($_POST["nombreProducto"])){
 	$conexion->exec($sql);
 	$idProducto = mysqli_insert_id($con);
 
-	            //Añadir Categorias
+	//Añadir Categorias
 	$numCategorias = $_POST["numCategorias"];
 	$categorias = array();
 	for($i=0;$i<=$numCategorias;$i++){
