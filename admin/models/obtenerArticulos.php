@@ -47,26 +47,12 @@ while($result = $stmt->fetch()){
 
 $sql="SELECT id,nombre,descripcion,precio,disponibilidad from articulos ".$categoriaSql.$ordenSql;
 
-/*$stmt = $conexion->prepare($sql);
-$stmt->execute();
-$stmt->setFetchMode(PDO::FETCH_ASSOC);
-
-$articulos = array();
-while($articulo = $stmt->fetch()){
-	//echo $imagenes[$articulo['id']] ."\n";
-	//$articulo["imagenes"] = $imagenes[$articulo['id']];
-	array_push($articulos, $articulo);
-}*/
-
 $articulos = obtenerArraySQL($conexion, $sql);
 foreach ($articulos as $i => $articulo) {
 	if(isset($imagenes[$articulo["id"]])){
 		$articulos[$i]["imagenes"] = $imagenes[$articulo["id"]];
 	}
 }
-	//echo $imagenes[$articulo['id']] ."\n";
-	//array_push($articulos, $articulo);
-//}
 
 echo json_encode($articulos);
 ?>

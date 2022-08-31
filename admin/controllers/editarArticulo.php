@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="../../css/listadoImagenes.css">
 	<link rel="stylesheet" type="text/css" href="../../css/editar.css">
 </head>
-<body onresize="ajustarTamaño()">
+<body>
 	<script type="text/javascript">
 		var idArticulo = <?php echo $_GET["id"]; ?>;
 	</script>

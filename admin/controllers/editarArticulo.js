@@ -1,5 +1,24 @@
 $.ajax({
 	method: "POST",
+	url: "../../models/obtenerCategorias.php",
+	success: function(categorias){
+		for(let i in categorias){
+			let id = categorias[i].Id;
+			$(".modificar-categorias-articulo").append(	
+				$("<div>").addClass("div-input-categoria").append(
+					$("<input>").attr("type","checkbox").attr("id","input-categoria-"+id)
+						.attr("name","input-categoria-"+id).val(id),
+					$("<label>").attr("for","input-categoria-"+id).text(categorias[i].nombre_categoria)
+				)
+			)
+		}
+		$("#numCategorias").val(categorias.length);
+	},
+	dataType: "json"
+});
+
+$.ajax({
+	method: "POST",
 	data: {"idArticulo": idArticulo},
 	url: "../models/obtenerArticulo.php",
 	success: function(articulo){
@@ -45,26 +64,11 @@ $.ajax({
 			let nombreFoto = articulo.imagenes[i].nombre_foto;
 			$(".div-contenedora-imagenes-articulo").append(htmlImagen(id,nombreFoto));
 		}
-		ajustarTamañoImagenes();
-	},
-	dataType: "json"
-});
 
-$.ajax({
-	method: "POST",
-	url: "../../models/obtenerCategorias.php",
-	success: function(categorias){
-		console.log(categorias)
-		for(let i in categorias){
-			$(".modificar-categorias-articulo").append(	
-				$("<div>").addClass("div-input-categoria").append(
-					$("<input>").attr("type","checkbox").attr("id","input-categoria-"+i)
-						.attr("name","input-categoria-"+i).val(categorias[i].Id),
-					$("<label>").attr("for","input-categoria-"+i).text(categorias[i].nombre_categoria)
-				)
-			)
+		for(let i in articulo.categorias){
+			$("#input-categoria-"+articulo.categorias[i].id).attr("checked","checked");
 		}
-		$("#numCategorias").val(categorias.length);
+		ajustarTamañoImagenes();
 	},
 	dataType: "json"
 });
@@ -73,7 +77,6 @@ $.ajax({
 	method: "POST",
 	url: "../models/obtenerImagenes.php",
 	success: function(imagenes){
-		console.log(imagenes)
 		for(let i in imagenes){
 			$("#select-imagen-id").append(
 				$("<option>").val(imagenes[i].id).text(imagenes[i].id)
@@ -90,13 +93,19 @@ $("#bttnDeshacer").click(() => {
 	document.location.reload();
 })
 
-/*$("#bttnEditar").click(() => {
-	let id = $("#idProducto").val();
+$("#bttnEditar").click(() => {
+	let articulo = {
+		id : $("#idProducto").val(),
+		disponibilidad : $("#disponibilidad").val(),
+		nombre : $("#nombre").val(),
+		descripcion : $("#descripcion").val(),
+		precio : $("#precio").val(),
+		mostrar : $("#mostrar").val()
+	}
 	let disponibilidad = $('input[name="disponibilidad"]:checked').val();
-	console.log(id)
-	console.log(disponibilidad)
+	console.log(articulo);
 	return false;
-})*/
+})
 
 function ajustarIDNombreImagen(id) {
 	$("#select-imagen-id").val(id);
