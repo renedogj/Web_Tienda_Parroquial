@@ -7,7 +7,7 @@ $.ajax({
 			$(".modificar-categorias-articulo").append(	
 				$("<div>").addClass("div-input-categoria").append(
 					$("<input>").attr("type","checkbox").attr("id","input-categoria-"+id)
-						.attr("name","input-categoria-"+id).val(id),
+						.attr("name","input-categoria").val(id),
 					$("<label>").attr("for","input-categoria-"+id).text(categorias[i].nombre_categoria)
 				)
 			)
@@ -90,21 +90,40 @@ $.ajax({
 });
 
 $("#bttnDeshacer").click(() => {
+	event.preventDefault();
 	document.location.reload();
 })
 
 $("#bttnEditar").click(() => {
+	event.preventDefault();
 	let articulo = {
 		id : $("#idProducto").val(),
-		disponibilidad : $("#disponibilidad").val(),
+		disponibilidad : $('input[name="disponibilidad"]:checked').val(),
 		nombre : $("#nombre").val(),
 		descripcion : $("#descripcion").val(),
 		precio : $("#precio").val(),
-		mostrar : $("#mostrar").val()
+		mostrar : $("#mostrar")[0].checked,
+		categorias : [],
+		imagenes : [],
 	}
-	let disponibilidad = $('input[name="disponibilidad"]:checked').val();
+	$('input[name="input-categoria"]:checked').each((index,element) => {
+		articulo.categorias.push(element.value)
+	});
+
+	$('input[name="input-imagen"]').each((index,element) => {
+		articulo.imagenes.push(element.value)
+	});
 	console.log(articulo);
-	return false;
+
+	$.ajax({
+		method: "POST",
+		data: articulo,
+		url: "../models/actualizarArticulo.php",
+		success: function(articulo){
+			console.log(articulo)
+		},
+		dataType: "text"
+	});
 })
 
 function ajustarIDNombreImagen(id) {
