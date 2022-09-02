@@ -22,7 +22,6 @@ $.ajax({
 	data: {"idArticulo": idArticulo},
 	url: "../models/obtenerArticulo.php",
 	success: function(articulo){
-		console.log(articulo)
 		$("#idProductoTxt").text("ID: "+articulo.id);
 		$("#idProducto").val(articulo.id);
 
@@ -95,7 +94,6 @@ $("#bttnDeshacer").click(() => {
 })
 
 $("#bttnEditar").click(() => {
-	event.preventDefault();
 	let articulo = {
 		id : $("#idProducto").val(),
 		disponibilidad : $('input[name="disponibilidad"]:checked').val(),
@@ -113,14 +111,13 @@ $("#bttnEditar").click(() => {
 	$('input[name="input-imagen"]').each((index,element) => {
 		articulo.imagenes.push(element.value)
 	});
-	console.log(articulo);
 
 	$.ajax({
 		method: "POST",
 		data: articulo,
-		url: "../models/actualizarArticulo.php",
-		success: function(articulo){
-			console.log(articulo)
+		url: "../models/editarArticulo.php",
+		success: function(result){
+			window.location.assign("listadoArticulos.php");
 		},
 		dataType: "text"
 	});
@@ -133,25 +130,20 @@ function ajustarIDNombreImagen(id) {
 
 function sumImagen(){
 	let id = $("#select-imagen-id").val();
-	let nombreFoto = $("#select-imagen-nombre [value="+id+"]").text();
-	/*$(".div-contenedora-imagenes-articulo").append(htmlImagen(contadorImagenes,fotos[index].idFoto,fotos[index].nombreFoto));
-	$("#input-imagen-"+contadorImagenes).val(fotos[index].idFoto);
-	contadorImagenes++;
-	contadorImagenesReales++;
-	$("#hiddenContadorImagenes").val(contadorImagenesReales);*/
-
-	$(".div-contenedora-imagenes-articulo").append(htmlImagen(id,nombreFoto));
-	ajustarTamañoImagenes();
+	if(id != null && id != ""){
+		let nombreFoto = $("#select-imagen-nombre [value="+id+"]").text();
+		if($("#input-imagen-"+id).length == 0){
+			$(".div-contenedora-imagenes-articulo").append(htmlImagen(id,nombreFoto));
+			ajustarTamañoImagenes();
+		}
+		$("#select-imagen-id")[0][0].selected = true;
+		$("#select-imagen-nombre")[0][0].selected = true;
+	}
 }
 
 function resImagen(id){
 	$("#contenedora-imagen-"+id).css("margin",0);
 	$("#contenedora-imagen-"+id).remove();
-	/*contadorImagenesReales--;
-	if(contadorImagenesReales==0){
-		contadorImagenes = 0;
-	}
-	$("#hiddenContadorImagenes").val(contadorImagenesReales);*/
 	ajustarTamañoImagenes();
 }
 

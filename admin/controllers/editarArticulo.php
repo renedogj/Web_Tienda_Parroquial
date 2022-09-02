@@ -1,3 +1,11 @@
+<?php
+if(isset($_GET["id"]) && $_GET["id"] != "" && $_GET["id"] != null){
+	$IdArticulo = $_GET["id"];
+}else{
+	header("Location: listadoArticulos.php");
+	die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +24,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-		var idArticulo = <?php echo $_GET["id"]; ?>;
+		var idArticulo = <?php echo $IdArticulo; ?>;
 	</script>
 	<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
@@ -52,12 +60,6 @@
 	include_once "../views/editarArticulo.html";
 	?>
 	<script type="text/javascript" src="editarArticulo.js"></script>
-	
-	<script type="text/javascript">
-		/*var contadorImagenesReales = contadorImagenes;
-		$("#hiddenContadorImagenes").val(contadorImagenesReales);
-		*/
-	</script>
 	<script type="text/javascript" src="rellenarDatosFormEditarProducto.js"></script>
 	<script type="text/javascript" src="imagenes.js"></script>
 </body>

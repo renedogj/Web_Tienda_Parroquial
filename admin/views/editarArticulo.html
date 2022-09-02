@@ -1,67 +1,65 @@
 <div class="articulo">
-	<form action="listadoArticulos.php" method="post">
-		<div class="div-contenedora-info-articulo">
-			<h3 id="idProductoTxt">ID: </h3>
-			<input type="hidden" name="idProducto" id="idProducto">
-			<div class="div-input div-text">
-				<label for="nombre">Nombre del producto: </label><br>
-				<input type="text" id="nombre" name="nombre"><br>
+	<div class="div-contenedora-info-articulo">
+		<h3 id="idProductoTxt">ID: </h3>
+		<input type="hidden" name="idProducto" id="idProducto">
+		<div class="div-input div-text">
+			<label for="nombre">Nombre del producto: </label><br>
+			<input type="text" id="nombre" name="nombre"><br>
+		</div>
+		<div class="div-input div-text">
+			<label for="descripcion">Descripción del producto: </label><br>
+			<input type="text" id="descripcion" name="descripcion"><br>
+		</div>
+		<div class="div-precio-check">
+			<div class="div-precio">
+				<label for="precio">Precio:</label>
+				<input type="number" min="0" step="0.01" id="precio" name="precio">€<br>
 			</div>
-			<div class="div-input div-text">
-				<label for="descripcion">Descripción del producto: </label><br>
-				<input type="text" id="descripcion" name="descripcion"><br>
-			</div>
-			<div class="div-precio-check">
-				<div class="div-precio">
-					<label for="precio">Precio:</label>
-					<input type="number" min="0" step="0.01" id="precio" name="precio">€<br>
-				</div>
-				<div class="div-check">
-					<input type="checkbox" id="mostrar" name="mostrar" onclick="cambioMostrar()" value="1">
-					<label for="mostrar">El articulo se muestra</label><br>
-				</div>
-			</div>
-			<!--input-radio disponibilidad-->
-			<div class="div-input-radio">
-				<input type="radio" id="dispoNomal" name="disponibilidad" value="1">
-				<label for="dispoNomal">El articulo se muestra normalmente</label><br>
-				<input type="radio" id="dispoAgotado" name="disponibilidad" value="2">
-				<label for="dispoAgotado">El articulo se muestra como agotado</label><br>
-				<input type="radio" id="dispoUnidadesLimitadas" name="disponibilidad" value="3">
-				<label for="dispoUnidadesLimitadas">El articulo se muestra como disponible con unidades limitadas</label>
+			<div class="div-check">
+				<input type="checkbox" id="mostrar" name="mostrar" onclick="cambioMostrar()" value="1">
+				<label for="mostrar">El articulo se muestra</label><br>
 			</div>
 		</div>
-		<!--seleccion de checkbox de las categorias-->
-		<div class="modificar-categorias-articulo">
-			<h3>Selecciona categoría(s)</h3>
-			<input type="hidden" name="numCategorias" id="numCategorias">
+		<!--input-radio disponibilidad-->
+		<div class="div-input-radio">
+			<input type="radio" id="dispoNomal" name="disponibilidad" value="1">
+			<label for="dispoNomal">El articulo se muestra normalmente</label><br>
+			<input type="radio" id="dispoAgotado" name="disponibilidad" value="2">
+			<label for="dispoAgotado">El articulo se muestra como agotado</label><br>
+			<input type="radio" id="dispoUnidadesLimitadas" name="disponibilidad" value="3">
+			<label for="dispoUnidadesLimitadas">El articulo se muestra como disponible con unidades limitadas</label>
 		</div>
-		<div class="div-añadirImagen">
-			<h3>Selecciona imágenes</h3>
-			<div class="div-añadirImagen-id">
-				<label class="label-select-imagen-id" for="select-imagen-id">Selecciona ID de imagen: </label>
-				<select name="select-imagen-id" id="select-imagen-id" onchange="ajustarIDNombreImagen(this.value)">
-					<option value="">--</option>
+	</div>
+	<!--seleccion de checkbox de las categorias-->
+	<div class="modificar-categorias-articulo">
+		<h3>Selecciona categoría(s)</h3>
+		<input type="hidden" name="numCategorias" id="numCategorias">
+	</div>
+	<div class="div-añadirImagen">
+		<h3>Selecciona imágenes</h3>
+		<div class="div-añadirImagen-id">
+			<label class="label-select-imagen-id" for="select-imagen-id">Selecciona ID de imagen: </label>
+			<select name="select-imagen-id" id="select-imagen-id" onchange="ajustarIDNombreImagen(this.value)">
+				<option value="">--</option>
 
-				</select>
-			</div>
-			<div class="div-añadirImagen-nombre">
-				<label class="label-select-imagen-nombre" for="select-imagen-nombre">Selecciona nombre de imagen: </label>
-				<select name="select-imagen-nombre" id="select-imagen-nombre" onchange="ajustarIDNombreImagen(this.value)">
-					<option value="">--</option>      
-				</select>
-			</div>	
-			<p onclick="sumImagen()"> Añadir foto</p>
+			</select>
 		</div>
-		<div class="div-contenedora-imagenes-articulo">
-			<script type="text/javascript">
-				var contadorImagenes = 0;
-			</script>
-		</div>
-		<input type="hidden" name="hiddenContadorImagenes" id="hiddenContadorImagenes">
-		<div class="div-boton">
-			<p id="bttnDeshacer"> Deshacer cambios</p>
-			<button id="bttnEditar">Editar</button>
-		</div>
-	</form>
+		<div class="div-añadirImagen-nombre">
+			<label class="label-select-imagen-nombre" for="select-imagen-nombre">Selecciona nombre de imagen: </label>
+			<select name="select-imagen-nombre" id="select-imagen-nombre" onchange="ajustarIDNombreImagen(this.value)">
+				<option value="">--</option>      
+			</select>
+		</div>	
+		<p onclick="sumImagen()"> Añadir foto</p>
+	</div>
+	<div class="div-contenedora-imagenes-articulo">
+		<script type="text/javascript">
+			var contadorImagenes = 0;
+		</script>
+	</div>
+	<input type="hidden" name="hiddenContadorImagenes" id="hiddenContadorImagenes">
+	<div class="div-boton">
+		<p id="bttnDeshacer"> Deshacer cambios</p>
+		<button id="bttnEditar">Editar</button>
+	</div>
 </div>

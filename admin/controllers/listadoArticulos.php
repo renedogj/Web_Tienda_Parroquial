@@ -22,7 +22,6 @@
 	<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
 	<script type="text/javascript" src="../../db/firebaseConfig.js"></script>
 	<?php
-	include "../models/actualizarArticulo.php";
 	include "../views/barraNavegacion.html";
 	include_once "../views/listadoArticulos.html";
 	?>
