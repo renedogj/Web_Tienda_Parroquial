@@ -1,3 +1,7 @@
+var numArticulosCargados;
+var totalArticulos;
+var articulos;
+
 $.ajax({
 	method: "POST",
 	url: "../../models/obtenerCategorias.php",
@@ -19,6 +23,14 @@ $.ajax({
 
 cargarArticulos();
 
+$(window).scroll(function(){
+	if($(window).scrollTop() + $(window).height() == $(document).height()){
+		if(numArticulosCargados < totalArticulos){
+			mostrarArticulos();
+		}
+	}
+});
+
 function cargarArticulos(){
 	$.ajax({
 		method: "POST",
@@ -27,14 +39,23 @@ function cargarArticulos(){
 			"seleccionCategoria": $("#seleccionCategoria").val(),
 			"seleccionOrden": $("#seleccionOrden").val()
 		},
-		success: mostrarArticulos,
+		success: function(resultArticulos){
+			$("#listadoArticulos").empty();
+			articulos = resultArticulos;
+			numArticulosCargados = 0;
+			totalArticulos = articulos.length;
+			mostrarArticulos();
+		},
 		dataType: "json"
 	});
 }
 
-function mostrarArticulos(articulos){
-	$("#listadoArticulos").empty();
-	for(let i in articulos){
+function mostrarArticulos(){
+	let numArticulosAcargar = 15;
+	if(numArticulosCargados + numArticulosAcargar > totalArticulos){
+		numArticulosAcargar = totalArticulos - numArticulosCargados;
+	}
+	for(let i = numArticulosCargados; i < numArticulosCargados + numArticulosAcargar; i++){
 		articulos[i].indexImagenesArticulo = 0;
 		$("#listadoArticulos").append(
 			$("<div>").addClass("contenedor-de-articulo").append(
@@ -82,6 +103,7 @@ function mostrarArticulos(articulos){
 			}
 		}	
 	}
+	numArticulosCargados += numArticulosAcargar;
 	ajustarTamañoImagenes();
 }
 

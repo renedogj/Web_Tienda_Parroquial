@@ -1,6 +1,7 @@
 var numImagenesCargadas = 0;
 var totalImagenes;
 var imagenes;
+
 $.ajax({
 	method: "POST",
 	url: "../models/obtenerImagenes.php",
