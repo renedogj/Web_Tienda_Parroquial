@@ -8,11 +8,11 @@
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-		<link rel="shortcut icon" type="png" href="../imagenes/parroquia_200x200.jpg">
+		<link rel="shortcut icon" type="png" href="../../imagenes/parroquia_200x200.jpg">
 		
-		<link rel="stylesheet" type="text/css" href="../css/body.css">
-		<link rel="stylesheet" type="text/css" href="../css/menuAdministracion.css">
-		<link rel="stylesheet" type="text/css" href="../css/listadoImagenes.css">
+		<link rel="stylesheet" type="text/css" href="../../css/body.css">
+		<link rel="stylesheet" type="text/css" href="../../css/menuAdministracion.css">
+		<link rel="stylesheet" type="text/css" href="../../css/listadoImagenes.css">
 	</head>
 	<body onresize="ajustarTamaño()">
 		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
@@ -51,55 +51,11 @@
 				<input type="submit" name="submit" id="submit" value="Añadir imagen"/>
 			</form>
 		</div>
-		<div class="imagenes">
-			<?php
-				include("conexion.php");
-				$con=mysqli_connect($servidor,$usuario,$contrasena);
-				$conectado=mysqli_select_db($con,$baseDeDatos);
-				if(!$conectado){
-					echo '<script>alert("ERROR");</script>';
-				}
-
-				$sql="SELECT id,nombre_foto from imagenes order by ID DESC";
-				$result = $con->query($sql);
-				if ($result->num_rows > 0) {
-					while($row = $result->fetch_assoc()){
-						$idFoto = $row["id"];
-						$nombreFoto = $row["nombre_foto"];
-						echo '
-						<div class="contenedora-imagen">
-					<div class="imagen">
-						<img src="../imagenes/'.$nombreFoto.'">
-					</div>
-					<div class="info-imagen">
-						<p><b>ID:</b> '.$idFoto.'</p>
-						<p><b>Nombre:</b> '.$nombreFoto.'</p>
-					</div>
-				</div>';
-					}
-				}
-			?>
-		</div>
+		<div class="imagenes" id="contenedoraImagenes"></div>
+		
+		<script type="text/javascript" src="listadoImagenes.js"></script>
+		<script type="text/javascript" src="imagenes.js"></script>
 		<script type="text/javascript">
-			ajustarTamaño();
-			function ajustarTamaño(){
-				$(".div-icono-usuario").css("height",$(".div-icono-usuario").width());
-				$(".dropdown-content").css("top",$(".div-usuario").height()-7);
-				$(".dropdown-content").css("left",-($(".div-usuario").width()+130));
-				$(".imagenes").css("margin-top",$("nav").height());
-				if($(".form-añadir-imagen").css("display") == "none"){
-					$(".form-añadir-imagen").css("margin-top",0);
-					$(".imagenes").css("margin-top",$("nav").height());
-				}else{
-					$(".form-añadir-imagen").css("margin-top",$("nav").height());
-					$(".imagenes").css("margin-top",0);
-				}
-
-				anchoImagen = $(".imagen").width();
-				alturaImagen = anchoImagen*1.5;
-				$(".imagen").css("height",alturaImagen);
-			}
-
 			function mostrarAñadirImagen(){
 				if($(".form-añadir-imagen").css("display") == "none"){
 					$(".imagenes").css("margin-top",0);
