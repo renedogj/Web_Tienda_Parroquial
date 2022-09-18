@@ -40,7 +40,7 @@ function cargarArticulos(){
 			"seleccionOrden": $("#seleccionOrden").val()
 		},
 		success: function(resultArticulos){
-			$("#listadoArticulos").empty();
+			$("#divListadoArticulos").empty();
 			articulos = resultArticulos;
 			numArticulosCargados = 0;
 			totalArticulos = articulos.length;
@@ -57,7 +57,7 @@ function mostrarArticulos(){
 	}
 	for(let i = numArticulosCargados; i < numArticulosCargados + numArticulosAcargar; i++){
 		articulos[i].indexImagenesArticulo = 0;
-		$("#listadoArticulos").append(
+		$("#divListadoArticulos").append(
 			$("<div>").addClass("contenedor-de-articulo").append(
 				$("<div>").addClass("articulo").attr("id","articulo"+articulos[i].id).append(
 					$("<div>").addClass("slideshow-container"),

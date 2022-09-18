@@ -22,10 +22,10 @@
 	<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
 	<script type="text/javascript" src="../../db/firebaseConfig.js"></script>
 	<?php
-	include "../views/barraNavegacion.html";
+	include "../views/barraNavegacion.php";
 	include_once "../views/listadoArticulos.html";
 	?>
 	<script type="text/javascript" src="listadoArticulos.js"></script>
-	<script type="text/javascript" src="imagenes.js"></script>
+	<script type="text/javascript" src="ajustarTamaños.js"></script>
 </body>
 </html>
