@@ -34,13 +34,13 @@ $.ajax({
 		$("#precio").val(articulo.precio);
 
 		if(articulo.mostrar==1){
-			$("#mostrar").attr("checked","checked");
-			$("[for='mostrar']").empty();
-			$("[for='mostrar']").text("El articulo se muestra");
+			$("#inputMostrar").attr("checked","checked");
+			$("[for='inputMostrar']").empty();
+			$("[for='inputMostrar']").text("El articulo se muestra");
 		}else{
-			$("#mostrar").removeAttr("checked");
-			$("[for='mostrar']").empty();
-			$("[for='mostrar']").text("El articulo no se muestra");
+			$("#inputMostrar").removeAttr("checked");
+			$("[for='inputMostrar']").empty();
+			$("[for='inputMostrar']").text("El articulo no se muestra");
 		}
 
 		switch(articulo.disponibilidad) {
@@ -88,10 +88,20 @@ $.ajax({
 	dataType: "json"
 });
 
+$("#inputMostrar").change(() => {
+	if($("#inputMostrar").prop("checked")){
+		$("[for='inputMostrar']").empty();
+		$("[for='inputMostrar']").text("El articulo se muestra");
+	}else{
+		$("[for='inputMostrar']").empty();
+		$("[for='inputMostrar']").text("El articulo no se muestra");
+	}
+});
+
 $("#bttnDeshacer").click(() => {
 	event.preventDefault();
 	document.location.reload();
-})
+});
 
 $("#bttnEditar").click(() => {
 	let articulo = {
@@ -100,7 +110,7 @@ $("#bttnEditar").click(() => {
 		nombre : $("#nombre").val(),
 		descripcion : $("#descripcion").val(),
 		precio : $("#precio").val(),
-		mostrar : $("#mostrar")[0].checked,
+		mostrar : $("#inputMostrar")[0].checked,
 		categorias : [],
 		imagenes : [],
 	}
@@ -121,7 +131,7 @@ $("#bttnEditar").click(() => {
 		},
 		dataType: "text"
 	});
-})
+});
 
 function ajustarIDNombreImagen(id) {
 	$("#select-imagen-id").val(id);
@@ -162,4 +172,13 @@ function htmlImagen(id,nombreFoto) {
 			$("#contenedora-imagen-"+id).remove();
 		})
 	)
+}
+
+function cambiarATilde(string) {
+	string = string.replace("&aacute","á");
+	string = string.replace("&eacute","é");
+	string = string.replace("&iacute","í");
+	string = string.replace("&oacute","ó");
+	string = string.replace("&uacute","ú");
+	return string;
 }

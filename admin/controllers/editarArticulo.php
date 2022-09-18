@@ -60,7 +60,6 @@ if(isset($_GET["id"]) && $_GET["id"] != "" && $_GET["id"] != null){
 	include_once "../views/editarArticulo.html";
 	?>
 	<script type="text/javascript" src="editarArticulo.js"></script>
-	<script type="text/javascript" src="rellenarDatosFormEditarProducto.js"></script>
 	<script type="text/javascript" src="imagenes.js"></script>
 </body>
 </html>
