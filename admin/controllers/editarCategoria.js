@@ -39,19 +39,22 @@ $("#bttnDeshacer").click(() => {
 });
 
 $("#bttnEditar").click(() => {
-	$.ajax({
-		method: "POST",
-		data: {
-			idCategoria : IdCategoria,
-			nombre : $("#nombre").val(),
-			mostrar : $("#inputMostrar")[0].checked
-		},
-		url: "../models/editarArticulo.php",
-		success: function(result){
-			window.location.assign("listadoArticulos.php");
-		},
-		dataType: "text"
-	});
+	var nombre = $("#nombre").val().trim();
+	if(nombre != null && nombre != ""){	
+		$.ajax({
+			method: "POST",
+			data: {
+				idCategoria : IdCategoria,
+				nombre : nombre,
+				mostrar : $("#inputMostrar")[0].checked
+			},
+			url: "../models/editarCategoria.php",
+			success: function(result){
+				window.location.assign("listadoCategorias.php");
+			},
+			dataType: "text"
+		});
+	}
 });
 
 function cambiarATilde(string) {
@@ -61,13 +64,4 @@ function cambiarATilde(string) {
 	string = string.replace("&oacute","ó");
 	string = string.replace("&uacute","ú");
 	return string;
-}
-
-/*Ajustar tamaño barra*/
-ajustarTamaño();
-function ajustarTamaño(){
-	$(".div-icono-usuario").css("height",$(".div-icono-usuario").width());
-	$(".dropdown-content").css("top",$(".div-usuario").height()-7);
-	$(".dropdown-content").css("left",-($(".div-usuario").width()+130));
-	$(".categoria").css("margin-top",$("nav").height());
 }

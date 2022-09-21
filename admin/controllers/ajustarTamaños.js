@@ -17,4 +17,5 @@ function ajustarTamañoMenu(){
 	$(".div-icono-usuario").css("height",$(".div-icono-usuario").width());
 	$(".dropdown-content").css("top",$(".div-usuario").height()-7);
 	$(".dropdown-content").css("left",-($(".div-usuario").width()+130));
+	//$(".categoria").css("margin-top",$("nav").height());
 }

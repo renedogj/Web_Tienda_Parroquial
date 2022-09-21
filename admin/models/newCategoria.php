@@ -1,13 +1,13 @@
 <?php
 include_once "../../db/db.php";
 
-if(isset($_POST["nombreCategoria"])){
-	$nombre = trim($_POST["nombreCategoria"]);
+if(isset($_POST["nombre"])){
+	$nombre = trim($_POST["nombre"]);
 	$nombre = cambiarAcute(ucfirst(strtolower($nombre)));
 	$mostrar = $_POST["mostrar"];
-	if($mostrar == ""){
-		$mostrar = "0";
-	}
+
+	$mostrar ? $mostrar = 1 : $mostrar = 0;
+
 	$sql = "INSERT into categorias (nombre_categoria, mostrar_categoria) values ('$nombre','$mostrar')";
 	$conexion->exec($sql);
 }

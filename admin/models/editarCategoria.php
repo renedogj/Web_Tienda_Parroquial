@@ -6,14 +6,13 @@ if(isset($_POST["idCategoria"])){
 	$nombre = trim($_POST["nombre"]);
 	$nombre = cambiarAcute(ucfirst(strtolower($nombre)));
 	$mostrar = $_POST["mostrar"];
-	if($mostrar == ""){
-		$mostrar = "0";
-	}
+
+	$mostrar ? $mostrar = 1 : $mostrar = 0;
 
 	$sql = "UPDATE categorias set nombre_categoria='$nombre', mostrar_categoria='$mostrar' where ID=$idCategoria";
 	$conexion->exec($sql);
 
-	$sql = "UPDATE productos set mostrar=$mostrar where ID in (select ID_producto from relacion_producto_categoria where ID_categoria=$idCategoria)";
+	$sql = "UPDATE articulos set mostrar=$mostrar where ID in (select ID_producto from relacion_producto_categoria where ID_categoria=$idCategoria)";
 	$conexion->exec($sql);
 }
 

@@ -30,7 +30,7 @@ if(isset($_GET["id"]) && $_GET["id"] != "" && $_GET["id"] != null){
 	<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
 	<script type="text/javascript" src="../../db/firebaseConfig.js"></script>
 	<?php
-	include "../views/barraNavegacion.php";
+	include_once "../views/barraNavegacion.php";
 	include_once "../views/editarCategoria.html";
 	?>
 	<script type="text/javascript" src="editarCategoria.js"></script>
