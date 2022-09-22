@@ -16,6 +16,8 @@ if(isset($_GET["id"]) && $_GET["id"] != "" && $_GET["id"] != null){
 	<link rel="shortcut icon" type="png" href="../../imagenes/parroquia_200x200.jpg">
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
 
 	<link rel="stylesheet" type="text/css" href="../../css/body.css">
 	<link rel="stylesheet" type="text/css" href="../../css/menuAdministracion.css">
@@ -35,6 +37,7 @@ if(isset($_GET["id"]) && $_GET["id"] != "" && $_GET["id"] != null){
 	include_once "../views/editarArticulo.html";
 	?>
 	<script type="text/javascript" src="editarArticulo.js"></script>
+	<script type="text/javascript" src="validarFormularios.js"></script>
 	<script type="text/javascript" src="ajustarTamaños.js"></script>
 </body>
 </html>

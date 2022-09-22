@@ -1,7 +1,8 @@
 <div class="articulo">
+	<form method="post" id="formularioEditarArticulo">
 	<div class="div-contenedora-info-articulo">
-		<h3 id="idProductoTxt">ID: </h3>
-		<input type="hidden" name="idProducto" id="idProducto">
+		<h3 id="idArticuloTxt">ID: </h3>
+		<input type="hidden" name="idArticulo" id="idArticulo">
 		<div class="div-input div-text">
 			<label for="nombre">Nombre del producto: </label><br>
 			<input type="text" id="nombre" name="nombre"><br>
@@ -58,7 +59,9 @@
 	</div>
 	<input type="hidden" name="hiddenContadorImagenes" id="hiddenContadorImagenes">
 	<div class="div-boton">
-		<button id="bttnDeshacer"> Deshacer cambios</button>
-		<button id="bttnEditar">Editar</button>
+		<button id="bttnDeshacer" type="reset">Deshacer cambios</button>
+		<button id="bttnEliminar" type="button">Eliminar Articulo</button>
+		<button id="bttnEditar" type="submit">Editar Articulo</button>
 	</div>
+	</form>
 </div>

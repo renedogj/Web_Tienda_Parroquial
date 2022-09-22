@@ -22,8 +22,8 @@ $.ajax({
 	data: {"idArticulo": idArticulo},
 	url: "../models/obtenerArticulo.php",
 	success: function(articulo){
-		$("#idProductoTxt").text("ID: "+articulo.id);
-		$("#idProducto").val(articulo.id);
+		$("#idArticuloTxt").text("ID: "+articulo.id);
+		$("#idArticulo").val(articulo.id);
 
 		articulo.nombre = cambiarATilde(articulo.nombre);
 		$("#nombre").val(articulo.nombre);
@@ -103,34 +103,49 @@ $("#bttnDeshacer").click(() => {
 	document.location.reload();
 });
 
-$("#bttnEditar").click(() => {
-	let articulo = {
-		id : $("#idProducto").val(),
-		disponibilidad : $('input[name="disponibilidad"]:checked').val(),
-		nombre : $("#nombre").val(),
-		descripcion : $("#descripcion").val(),
-		precio : $("#precio").val(),
-		mostrar : $("#inputMostrar")[0].checked,
-		categorias : [],
-		imagenes : [],
-	}
-	$('input[name="input-categoria"]:checked').each((index,element) => {
-		articulo.categorias.push(element.value)
-	});
-
-	$('input[name="input-imagen"]').each((index,element) => {
-		articulo.imagenes.push(element.value)
-	});
-
+$("#bttnEliminar").click(() => {
 	$.ajax({
 		method: "POST",
-		data: articulo,
-		url: "../models/editarArticulo.php",
-		success: function(result){
+		data: {"id": $("#idArticulo").val()},
+		url: "../models/eliminarArticulo.php",
+		success: function(articulo){
 			window.location.assign("listadoArticulos.php");
 		},
 		dataType: "text"
-	});
+	})
+});
+
+$("#formularioEditarArticulo").submit(() => {
+	if($("#formularioEditarArticulo").valid()){
+		let articulo = {
+			id : $("#idArticulo").val(),
+			disponibilidad : $('input[name="disponibilidad"]:checked').val(),
+			nombre : $("#nombre").val(),
+			descripcion : $("#descripcion").val(),
+			precio : $("#precio").val(),
+			mostrar : $("#inputMostrar")[0].checked,
+			categorias : [],
+			imagenes : [],
+		}
+		$('input[name="input-categoria"]:checked').each((index,element) => {
+			articulo.categorias.push(element.value)
+		});
+
+		$('input[name="input-imagen"]').each((index,element) => {
+			articulo.imagenes.push(element.value)
+		});
+
+		$.ajax({
+			method: "POST",
+			data: articulo,
+			url: "../models/editarArticulo.php",
+			success: function(result){
+				window.location.assign("listadoArticulos.php");
+			},
+			dataType: "text"
+		});
+	}
+	return false;
 });
 
 function ajustarIDNombreImagen(id) {
