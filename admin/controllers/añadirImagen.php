@@ -22,29 +22,15 @@
 	<?php
 	include "../views/barraNavegacion.php";
 	?>
-	<!--<div class="form-añadir-imagen">
-		<form action="procesarAñadirImagen.php" method="post" enctype="multipart/form-data">
-			<p>Añadir una imagen nueva:</p>
-			<input type="file" name="foto" id="foto" required />
-			<input type="submit" name="submit" id="submit" value="Añadir imagen"/>
-		</form>
-	</div>-->
-	<div class="imagenes" id="contenedoraImagenes"></div>
-
-	<script type="text/javascript" src="listadoImagenes.js"></script>
-	<!--<script type="text/javascript">
-		function mostrarAñadirImagen(){
-			if($(".form-añadir-imagen").css("display") == "none"){
-				$(".imagenes").css("margin-top",0);
-				$(".form-añadir-imagen").css("margin-top",$("nav").height());
-				$(".form-añadir-imagen").css("display","block");
-			}else{
-				$(".imagenes").css("margin-top",$("nav").height());
-				$(".form-añadir-imagen").css("margin-top",0);
-				$(".form-añadir-imagen").css("display","none");
-			}
-		}
-	</script>-->
+	<div class="form-añadir-imagen">
+		<p>Añadir una imagen nueva:</p>
+		<input type="file" name="inputFoto" id="inputFoto" required />
+		<button id="bttnSubirImagen">Añdir Imagen</button>
+		<div class="div-contenedora-imagen"></div>
+		<input type="text" name="inputNombreFoto" id="inputNombreFoto"/>
+		<label id="inputNombreFoto-error" class="error" for="inputNombreFoto"></label>
+	</div>
+	<script type="text/javascript" src="añadirImagen.js"></script>
 	<script type="text/javascript" src="ajustarTamaños.js"></script>
 </body>
 </html>
