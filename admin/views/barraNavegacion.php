@@ -48,7 +48,7 @@
 		var aEnlace = $("<a>").attr("href","añadirCategoria.php").text("Añadir Categoria");
 		break;
 		case "listadoImagenes":
-		var aEnlace = $("<a>").attr("href","listadoImagenes.php").text("Añadir Imagen");
+		var aEnlace = $("<a>").attr("href","añadirImagen.php").text("Añadir Imagen");
 		break;
 	}
 	$("#div-contenedor-añadir").append(aEnlace);
