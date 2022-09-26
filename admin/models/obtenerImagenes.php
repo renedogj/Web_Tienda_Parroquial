@@ -1,6 +1,6 @@
 <?php
 include_once "../../db/db.php";
-$sql = "SELECT id,nombre_foto FROM imagenes";
+$sql = "SELECT id,nombre_foto FROM imagenes order by ID DESC";
 
 $imagenes = obtenerArraySQL($conexion, $sql);
 
