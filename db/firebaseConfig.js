@@ -21,7 +21,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 				)
 			);
 	}else{
-		window.location.assign("iniciarSesion.php");
+		window.location.assign("../index.php");
 	}
 });
 

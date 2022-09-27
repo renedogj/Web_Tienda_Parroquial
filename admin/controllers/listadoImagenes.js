@@ -37,7 +37,6 @@ function cargarImagenes(){
 					$("<p>").html("<b>Nombre:</b> "+imagenes[i].nombre_foto)
 				),
 				$("<span>").addClass("cerrar").html("&times;").click(() => {
-					//alert(imagenes[i].id + " => " + imagenes[i].nombre_foto);
 					$("#bIdImagen").text(imagenes[i].id);
 					$("#bNombreImagen").text(imagenes[i].nombre_foto);
 					$("#imgDialog").attr("src","../../imagenes/" + imagenes[i].nombre_foto);
