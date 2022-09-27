@@ -3,6 +3,7 @@ $result = [];
 if(!file_exists("../../temp")){
 	mkdir("../../temp");
 }
+
 $check = getimagesize($_FILES["foto"]["tmp_name"]);
 if($check !== false) {
 	if (($_FILES["foto"]["type"] == "image/pjpeg")
@@ -28,13 +29,13 @@ if($check !== false) {
 			}
 			$result["error"] = null;
 		} else {
-			echo $result["error"] = 0;
+			$result["error"] = 0;
 		}	
 	} else {
-		echo $result["error"] = 0;
+		$result["error"] = 0;
 	}
 } else {
-	echo $result["error"] = 0;
+	$result["error"] = 0;
 }
 echo json_encode($result);
 ?>

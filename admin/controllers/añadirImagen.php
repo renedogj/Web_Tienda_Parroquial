@@ -25,11 +25,18 @@
 	<div class="form-añadir-imagen">
 		<p>Añadir una imagen nueva:</p>
 		<input type="file" name="inputFoto" id="inputFoto" required />
-		<button id="bttnSubirImagen">Añdir Imagen</button>
-		<div class="div-contenedora-imagen"></div>
+		<button id="bttnSubirImagen">Añadir Imagen</button>
+		<div class="div-contenedora-imagen" id="div-contenedora-imagen">
+			<div class="contenedora-imagen">
+				<div class="imagen">
+					<img id="imgTemporal">
+				</div>
+			</div>
+		</div>
 		<input type="text" name="inputNombreFoto" id="inputNombreFoto"/>
 		<label id="inputNombreFoto-error" class="error" for="inputNombreFoto"></label>
 	</div>
+	<div id="result"></div>
 	<script type="text/javascript" src="añadirImagen.js"></script>
 	<script type="text/javascript" src="ajustarTamaños.js"></script>
 </body>

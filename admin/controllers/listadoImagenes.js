@@ -43,7 +43,7 @@ function cargarImagenes(){
 					$("#imgDialog").attr("src","../../imagenes/" + imagenes[i].nombre_foto);
 					$("#dialog-eliminarImagen").css("display","grid");		
 				})
-			)
+			).attr("id","idImagen-"+imagenes[i].id)
 		)
 	}
 	numImagenesCargadas += numImagenesAcargar;
@@ -55,6 +55,22 @@ $("#bttnCancelarEliminar").click(() => {
 })
 
 $("#bttnEliminar").click(() => {
-	var nombre = $("#bNombreImagen").text();
-	alert(nombre);
+	var id = $("#bIdImagen").text();
+	$.ajax({
+		method: "POST",
+		data:{ 
+			id: id,
+			nombre: $("#bNombreImagen").text()
+		},
+		url: "../models/eliminarImagen.php",
+		success: function(result){
+			if(!result.error){
+				$("#dialog-eliminarImagen").hide();
+				$("#idImagen-"+id).remove();
+			}else{
+				alert("No se ha podido elimiar la imagen");
+			}
+		},
+		dataType: "json"
+	});
 })
