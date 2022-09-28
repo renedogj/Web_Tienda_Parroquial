@@ -1,7 +1,7 @@
 $.ajax({
 	method: "POST",
 	url: "../../models/obtenerCategorias.php",
-	success: function(categorias){
+	success: (categorias) => {
 		for(let i in categorias){
 			let id = categorias[i].Id;
 			$(".modificar-categorias-articulo").append(	
@@ -21,7 +21,7 @@ $.ajax({
 	method: "POST",
 	data: {"idArticulo": idArticulo},
 	url: "../models/obtenerArticulo.php",
-	success: function(articulo){
+	success: (articulo) => {
 		$("#idArticuloTxt").text("ID: "+articulo.id);
 		$("#idArticulo").val(articulo.id);
 
@@ -75,7 +75,7 @@ $.ajax({
 $.ajax({
 	method: "POST",
 	url: "../models/obtenerImagenes.php",
-	success: function(imagenes){
+	success: (imagenes) => {
 		for(let i in imagenes){
 			$("#select-imagen-id").append(
 				$("<option>").val(imagenes[i].id).text(imagenes[i].id)
@@ -104,15 +104,23 @@ $("#bttnDeshacer").click(() => {
 });
 
 $("#bttnEliminar").click(() => {
+	$("#dialog-eliminarArticulo").css("display","grid");	
+});
+
+$("#bttnCancelarEliminar").click(() => {
+	$("#dialog-eliminarArticulo").hide();	
+})
+
+$("#bttnconfirmarEliminar").click(() => {
 	$.ajax({
 		method: "POST",
 		data: {"id": $("#idArticulo").val()},
 		url: "../models/eliminarArticulo.php",
-		success: function(articulo){
+		success: (articulo) => {
 			window.location.assign("listadoArticulos.php");
 		},
 		dataType: "text"
-	})
+	});
 });
 
 $("#formularioEditarArticulo").submit(() => {
@@ -127,10 +135,11 @@ $("#formularioEditarArticulo").submit(() => {
 			categorias : [],
 			imagenes : [],
 		}
+		//Recorremos los inputs de categorias y guardamos el id en el array categorias
 		$('input[name="input-categoria"]:checked').each((index,element) => {
 			articulo.categorias.push(element.value)
 		});
-
+		//Recorremos los input hidden de las imagenes y guardamos el id en el array imagenes
 		$('input[name="input-imagen"]').each((index,element) => {
 			articulo.imagenes.push(element.value)
 		});
@@ -139,9 +148,12 @@ $("#formularioEditarArticulo").submit(() => {
 			method: "POST",
 			data: articulo,
 			url: "../models/editarArticulo.php",
-			success: function(result){
+			success: (result) => {
 				window.location.assign("listadoArticulos.php");
 			},
+			error: (xhr,status,error) => {
+				alert("Se ha producido un error al editar el articulo, vuelva a intentarlo más tarde.");
+			}
 			dataType: "text"
 		});
 	}

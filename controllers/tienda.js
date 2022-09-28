@@ -4,7 +4,7 @@ $.ajax({
 	success: function(categorias){
 		for(let i in categorias){
 			$("#seleccionCategoria").append(
-				$("<option>").attr("value",categorias[i].ID).text(categorias[i].nombre_categoria)
+				$("<option>").attr("value",categorias[i].Id).text(categorias[i].nombre_categoria)
 			);
 		}
 		$("#seleccionCategoria").change(() => {
@@ -33,6 +33,7 @@ function cargarArticulos(){
 }
 
 function mostrarArticulos(articulos){
+	console.log(articulos);
 	$("#articulosTienda").empty();
 	for(let i in articulos){
 		articulos[i].indexImagenesArticulo = 0;

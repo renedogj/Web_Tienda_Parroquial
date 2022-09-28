@@ -207,23 +207,6 @@ input[type=number] {
 	float: left;
 }
 
-/*.cerrar {
-	position: absolute;
-	top: -5px;
-	right: 5px;
-	color: #1C1C1C;
-	font-size: 40px;
-	font-weight: bold;
-	transition: 0.3s;
-}
-
-.cerrar:hover,
-.cerrar:focus {
-  color: #6E6E6E;
-  text-decoration: none;
-  cursor: pointer;
-}*/
-
 .div-boton{
 	position: relative;
 	width: 80%;
@@ -258,4 +241,40 @@ input[type=number] {
 	box-shadow: 1px 1px 1px 1px #2E2E2E;
 	cursor: pointer;
 	margin: 0.5% 29% 0.5% 1%;
+}
+
+.dialog-eliminarArticulo{
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	grid-template-columns: 40%;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+	display: none;
+}
+
+.div-dialog-eliminarArticulo{
+	background-color: #F2F2F2;
+	width: 100%;
+	border-radius: 15px;
+	padding: 4%;
+}
+
+.div-dialog-eliminarArticulo h2,
+.div-dialog-eliminarArticulo h4{
+	text-align: center;
+}
+
+.div-confirmacionEliminar{
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.div-confirmacionEliminar button{
+	width: 20%;
+	padding: 1% 2%;
+	border-radius: 5px;
 }
