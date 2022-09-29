@@ -33,7 +33,6 @@ function cargarArticulos(){
 }
 
 function mostrarArticulos(articulos){
-	console.log(articulos);
 	$("#articulosTienda").empty();
 	for(let i in articulos){
 		articulos[i].indexImagenesArticulo = 0;

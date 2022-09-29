@@ -12,7 +12,7 @@ $("#inputFoto").change(() => {
 			success: function(result){
 				if(result.error == null){
 					$("#imgTemporal").attr("src","../../temp/"+result.nombre_foto);
-					//$("#div-contenedora-imagen").show();
+					//$("#contenedora-imagen").show();
 					$("#inputNombreFoto").val(result.nombre_sinExtension);
 				}else if(result.error == 1){
 					$("#inputNombreFoto-error").text("Ya existe una foto con ese mismo nombre");
@@ -25,8 +25,9 @@ $("#inputFoto").change(() => {
 	}else{
 		alert("No se puede subir la imagen " + $("#inputFoto")[0].files[0].name + ", es muy pesada");
 		$("#imgTemporal").attr("src","");
-		//$("#div-contenedora-imagen").hide();
+		//$("#contenedora-imagen").hide();
 		$("#inputNombreFoto").val("");
+		$("#inputFoto").val("");
 	}
 });
 

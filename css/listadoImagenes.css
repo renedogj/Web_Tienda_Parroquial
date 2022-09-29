@@ -1,29 +1,3 @@
-/*.form-añadir-imagen{
-	position: relative;
-	width: 80%;
-	margin: 0 10%;
-	padding: 1%;
-	/*display: none;*
-}
-
-.form-añadir-imagen p{
-	font-size: 1.2em;
-	font-weight: bold;
-	padding: 0.5%;
-}
-
-.form-añadir-imagen #foto{
-	width: 40%;
-	font-size: 1em;
-	padding: 0.5%;
-}
-
-.form-añadir-imagen #submit{
-	width: 15%;
-	font-size: 1.1em;
-	padding: 0.5%;
-}*/
-
 .imagenes{
 	width: 100%;
 	position: relative;

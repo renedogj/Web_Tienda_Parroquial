@@ -1,0 +1,56 @@
+.contenedora-form-addimagen{
+	/*background-color: red;*/
+	position: relative;
+	width: 85%;
+	margin: 1% 7.5%;
+	display: grid;
+	grid-template-columns: 40% 60%;
+	/*grid-template-columns: 1fr 1fr;*/
+	grid-template-rows: auto;
+}
+
+.contenedora-form-addimagen h1{
+	/*background-color: orange;*/
+	text-align: center;
+	grid-column-start:1;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.contenedora-imgTemporal{
+	/*background-color: blue;*/
+	position: relative;
+	width: 80%;
+	margin: 2% 10%;
+}
+
+.div-imgTemporal{
+	background-color: black;
+	position: relative;
+	z-index: 20;
+}
+
+.div-imgTemporal img{
+	position: relative;
+	z-index: 1;
+}
+
+.form-addImagen{
+	/*background-color: green;*/
+	width: 100%;
+	padding: 1%;
+}
+
+.form-addImagen input{
+	width: 100%;
+	padding: 1%;
+	height: 30px;
+}
+
+.form-addImagen button{
+	width: 20%;
+	margin: 1% 40%;
+	padding: 1%;
+	font-size: 16px;
+}

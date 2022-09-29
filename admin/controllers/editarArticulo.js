@@ -153,7 +153,7 @@ $("#formularioEditarArticulo").submit(() => {
 			},
 			error: (xhr,status,error) => {
 				alert("Se ha producido un error al editar el articulo, vuelva a intentarlo más tarde.");
-			}
+			},
 			dataType: "text"
 		});
 	}

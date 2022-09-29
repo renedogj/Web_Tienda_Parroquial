@@ -57,7 +57,7 @@
 	padding: 1%;
 }
 
-.div-precio label, .div-check label{
+.div-precio-check label{
 	padding: 0 1%;
 	font-size: 1.1em;
 }
@@ -100,6 +100,7 @@ input::-webkit-inner-spin-button {
 input[type=number] {
 	-moz-appearance: textfield;
 }
+
 .modificar-categorias-articulo{
 	position: relative;
 	width: 80%;
@@ -171,27 +172,10 @@ input[type=number] {
 	min-width: 230px;
 }
 
-.div-añadirImagen p{
-	background-color: rgba(215,215,215,1);
+.div-añadirImagen button{
 	width: 10%;
-	position: relative;
-	/*top: 0;*/
 	padding: 0.6% 1%;
-	text-align: center;
-	font-size: 1.1em;
-	border-radius: 5px;
-	border: solid 1px;
-	box-shadow: 1px 1px 1px 1px #2E2E2E;
-	cursor: pointer;
-}
-
-.div-añadirImagen p:hover{
-	background-color: rgba(150,150,150,0.5);
-}
-
-.div-añadirImagen p:active{
-	top: 2px;
-	box-shadow: 0 0 0 0 #585858;
+	font-size: 1em;
 }
 
 .div-contenedora-imagenes-articulo{
@@ -213,34 +197,12 @@ input[type=number] {
 	margin: 1% 10%;
 	padding: 0.5%;
 	display: flex;
-}
-
-.div-boton p{
-	background-color: rgba(215,215,215,1);
-	width: 20%;
-	position: relative;
-	padding: 0.5% 1%;
-	text-align: center;
-	font-size: 1.1em;
-	border-radius: 5px;
-	border: solid 1px;
-	box-shadow: 1px 1px 1px 1px #2E2E2E;
-	cursor: pointer;
-	margin: 0.5% 1% 0.5% 29%;
+	justify-content: space-around;
 }
 
 .div-boton button{
-	background-color: rgba(215,215,215,1);
 	width: 20%;
-	position: relative;
-	padding: 0.5% 1%;
-	text-align: center;
-	font-size: 1.1em;
-	border-radius: 5px;
-	border: solid 1px;
-	box-shadow: 1px 1px 1px 1px #2E2E2E;
-	cursor: pointer;
-	margin: 0.5% 29% 0.5% 1%;
+	font-size: 1em;
 }
 
 .dialog-eliminarArticulo{
@@ -276,5 +238,4 @@ input[type=number] {
 .div-confirmacionEliminar button{
 	width: 20%;
 	padding: 1% 2%;
-	border-radius: 5px;
 }

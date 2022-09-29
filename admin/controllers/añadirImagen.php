@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="../../css/body.css">
 	<link rel="stylesheet" type="text/css" href="../../css/menuAdministracion.css">
 	<link rel="stylesheet" type="text/css" href="../../css/listadoImagenes.css">
+	<link rel="stylesheet" type="text/css" href="../../css/addImagenes.css">
 </head>
 <body>
 	<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
@@ -22,19 +23,21 @@
 	<?php
 	include "../views/barraNavegacion.php";
 	?>
-	<div class="form-añadir-imagen">
-		<p>Añadir una imagen nueva:</p>
-		<input type="file" name="inputFoto" id="inputFoto" required />
-		<button id="bttnSubirImagen">Añadir Imagen</button>
-		<div class="div-contenedora-imagen" id="div-contenedora-imagen">
-			<div class="contenedora-imagen">
-				<div class="imagen">
-					<img id="imgTemporal">
-				</div>
+	<div class="contenedora-form-addimagen">
+		<h1>Añadir una imagen nueva:</h1>
+		<div class="contenedora-imagen contenedora-imgTemporal" id="contenedora-imagen">
+			<div class="imagen div-imgTemporal">
+				<img id="imgTemporal" src="../../imagenes/20210307_190652.jpg">
 			</div>
 		</div>
-		<input type="text" name="inputNombreFoto" id="inputNombreFoto"/>
-		<label id="inputNombreFoto-error" class="error" for="inputNombreFoto"></label>
+		<div class="form-addImagen">
+			<input type="file" name="inputFoto" id="inputFoto" required />
+			<br>
+			<input type="text" name="inputNombreFoto" id="inputNombreFoto"/>
+			<br>
+			<label id="inputNombreFoto-error" class="error" for="inputNombreFoto"></label>
+			<button id="bttnSubirImagen" class="button">Añadir Imagen</button>
+		</div>
 	</div>
 	<div id="result"></div>
 	<script type="text/javascript" src="añadirImagen.js"></script>

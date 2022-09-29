@@ -3,8 +3,8 @@
 		<h2>¿Quieres eliminar este articulo definitivamente?</h2>
 		<h4>¡Esta accion no se puede deshacer!</h4>
 		<div class="div-confirmacionEliminar">
-			<button id="bttnCancelarEliminar">Cancelar</button>
-			<button id="bttnconfirmarEliminar">Eliminar</button>
+			<button id="bttnCancelarEliminar" class="button">Cancelar</button>
+			<button id="bttnconfirmarEliminar" class="button">Eliminar</button>
 		</div>
 	</div>
 </dialog>
@@ -60,7 +60,7 @@
 				<option value="">--</option>      
 			</select>
 		</div>	
-		<p onclick="sumImagen()"> Añadir foto</p>
+		<button class="button" onclick="sumImagen()">Añadir foto</button>
 	</div>
 	<div class="div-contenedora-imagenes-articulo">
 		<script type="text/javascript">
@@ -69,9 +69,9 @@
 	</div>
 	<input type="hidden" name="hiddenContadorImagenes" id="hiddenContadorImagenes">
 	<div class="div-boton">
-		<button id="bttnDeshacer" type="reset">Deshacer cambios</button>
-		<button id="bttnEliminar" type="button">Eliminar Articulo</button>
-		<button id="bttnEditar" type="submit">Editar Articulo</button>
+		<button id="bttnDeshacer" class="button" type="reset">Deshacer cambios</button>
+		<button id="bttnEliminar" class="button" type="button">Eliminar Articulo</button>
+		<button id="bttnEditar" class="button" type="submit">Editar Articulo</button>
 	</div>
 	</form>
 </div>

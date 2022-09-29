@@ -73,11 +73,9 @@ function mostrarArticulos(){
 				$("<div>").addClass("disponibilidad").append(
 					$("<p>").text(textoDisponibilidad(articulos[i].disponibilidad))
 				),
-				$("<div>").addClass("boton").append(
-					$("<button>").text("Editar articulo").click(() => {
-						window.location.assign("editarArticulo.php?id="+articulos[i].id);
-					})
-				)
+				$("<button>").addClass("button").text("Editar articulo").click(() => {
+					window.location.assign("editarArticulo.php?id="+articulos[i].id);
+				})
 			)
 		);
 		if(articulos[i].imagenes != null){
@@ -109,13 +107,13 @@ function mostrarArticulos(){
 
 function textoDisponibilidad(disponibilidad){
 	switch (disponibilidad) {
-		case 0:
+		case "0":
 		return "El articulo no se muestra";
-		case 1:
+		case "1":
 		return "El articulo se muestra normalmente";
-		case 2:
+		case "2":
 		return "El articulo se muestra como agotado";
-		case 3:
+		case "3":
 		return "El articulo se muestra como unidades limitadas";
 		default:
 		return "El articulo se muestra normalmente";

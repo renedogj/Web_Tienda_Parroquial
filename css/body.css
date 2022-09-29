@@ -16,3 +16,25 @@
 body{
     background-color: #FAFAFA;
 }
+
+.button{
+	background-color: rgba(215,215,215,1);
+	position: relative;
+	text-align: center;
+	border: solid 1px;
+	border-radius: 5px;
+	box-shadow: 1px 1px 1px 1px #2e2e2e;
+	padding: 1%;
+	font-size: 0.9em;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.button:hover{
+	background-color: rgba(150,150,150,0.5);
+}
+
+.button:active{
+	top: 2px;
+	box-shadow: rgb(88, 88, 88) 0px 0px 0px 0px;
+}
