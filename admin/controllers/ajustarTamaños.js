@@ -1,3 +1,8 @@
+$(document).ready(() => {
+	ajustarTamañoImagenes();
+	ajustarTamañoMenu(); 
+});
+
 $(window).resize(() => {
 	ajustarTamañoImagenes();
 	ajustarTamañoMenu(); 

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
-	<title>Listado Imagenes</title>
+	<title>Añadir Imagen</title>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
@@ -25,18 +25,16 @@
 	?>
 	<div class="contenedora-form-addimagen">
 		<h1>Añadir una imagen nueva:</h1>
-		<div class="contenedora-imagen contenedora-imgTemporal" id="contenedora-imagen">
-			<div class="imagen div-imgTemporal">
-				<img id="imgTemporal" src="../../imagenes/20210307_190652.jpg">
-			</div>
-		</div>
 		<div class="form-addImagen">
 			<input type="file" name="inputFoto" id="inputFoto" required />
-			<br>
 			<input type="text" name="inputNombreFoto" id="inputNombreFoto"/>
-			<br>
 			<label id="inputNombreFoto-error" class="error" for="inputNombreFoto"></label>
 			<button id="bttnSubirImagen" class="button">Añadir Imagen</button>
+		</div>
+		<div class="contenedora-imagen contenedora-imgTemporal" id="contenedora-imagen">
+			<div class="imagen div-imgTemporal">
+				<img id="imgTemporal" >
+			</div>
 		</div>
 	</div>
 	<div id="result"></div>

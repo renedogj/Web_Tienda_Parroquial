@@ -1,56 +1,70 @@
 .contenedora-form-addimagen{
-	/*background-color: red;*/
 	position: relative;
 	width: 85%;
 	margin: 1% 7.5%;
 	display: grid;
-	grid-template-columns: 40% 60%;
-	/*grid-template-columns: 1fr 1fr;*/
-	grid-template-rows: auto;
+	grid-template-columns: 60% 40%;
 }
 
 .contenedora-form-addimagen h1{
-	/*background-color: orange;*/
 	text-align: center;
-	grid-column-start:1;
-	grid-column-end: 3;
-	grid-row-start: 1;
-	grid-row-end: 2;
+	grid-area: 1 / 1 / 2 / 3;
+	margin: 2%;
 }
 
 .contenedora-imgTemporal{
-	/*background-color: blue;*/
 	position: relative;
 	width: 80%;
 	margin: 2% 10%;
 }
 
 .div-imgTemporal{
-	background-color: black;
 	position: relative;
-	z-index: 20;
 }
 
 .div-imgTemporal img{
 	position: relative;
-	z-index: 1;
 }
 
 .form-addImagen{
-	/*background-color: green;*/
 	width: 100%;
 	padding: 1%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 .form-addImagen input{
-	width: 100%;
+	width: 98%;
 	padding: 1%;
+	margin: 1%;
 	height: 30px;
 }
 
+.form-addImagen label{
+	width: 96%;
+}
+
 .form-addImagen button{
-	width: 20%;
-	margin: 1% 40%;
-	padding: 1%;
+	margin: 1% 0;
+	padding: 1% 1.5%;
 	font-size: 16px;
+}
+
+@media(max-width: 700px){
+	.contenedora-form-addimagen{
+		width: 90%;
+		margin: 1% 5%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	.form-addImagen button{
+		margin: 1.5% 0;
+		padding: 1% 2%;	
+		font-size: 14px;
+	}
 }

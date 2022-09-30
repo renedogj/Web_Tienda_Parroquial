@@ -38,3 +38,7 @@ body{
 	top: 2px;
 	box-shadow: rgb(88, 88, 88) 0px 0px 0px 0px;
 }
+
+.error{
+	color: #DE0006;
+}
