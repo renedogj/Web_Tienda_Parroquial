@@ -1,5 +1,7 @@
 * {
-	box-sizing:border-box
+	box-sizing:border-box;
+	margin: 0;
+	padding: 0;
 }
 
 /*Fuente personalizada*/
@@ -14,7 +16,7 @@
 }
 
 body{
-    background-color: #FAFAFA;
+	background-color: #FAFAFA;
 }
 
 .button{

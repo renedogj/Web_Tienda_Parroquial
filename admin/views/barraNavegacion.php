@@ -2,7 +2,7 @@
 	<div class="container-fluid">
 		<div class="div-menu-izquierda">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="../index.php">Mercadillo Parroquial</a>
+				<a class="navbar-brand" href="../../index.php">Mercadillo Parroquial</a>
 			</div>
 			<ul class="ul-navbar">
 				<li id="listadoArticulos">
