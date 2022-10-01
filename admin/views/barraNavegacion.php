@@ -1,32 +1,29 @@
 <nav class="navbar">
-	<div class="container-fluid">
-		<div class="div-menu-izquierda">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="../../index.php">Mercadillo Parroquial</a>
-			</div>
-			<ul class="ul-navbar">
-				<li id="listadoArticulos">
-					<a href="listadoArticulos.php">Articulos</a>
-				</li>
-				<li id="listadoCategorias">
-					<a href="listadoCategorias.php">Categorias</a>
-				</li>
-				<li id="listadoImagenes">
-					<a href="listadoImagenes.php">Imagenes</a>
-				</li>
-			</ul>
+	<div class="contenedora-hamburguesa" id="menuHamburguesa">
+		<div class="hamburger-lines">
+			<span class="line line1"></span>
+			<span class="line line2"></span>
+			<span class="line line3"></span>
 		</div>
-		<div class="div-menu-derecha">
-			<div class="div-añadir">
-				<div class="div-contenedor-añadir" id="div-contenedor-añadir"></div>
-			</div>
-			<div class="div-usuario dropdown">
-				<div class="div-icono-usuario">
-					<i></i>
-					<div class="dropdown-content"></div>
-				</div>
-			</div>
+	</div>
+	<a class="navbar-titulo" href="../../index.php">Mercadillo Parroquial</a>
+	<ul class="ul-navbar">
+		<li id="listadoArticulos">
+			<a href="listadoArticulos.php">Articulos</a>
+		</li>
+		<li id="listadoCategorias">
+			<a href="listadoCategorias.php">Categorias</a>
+		</li>
+		<li id="listadoImagenes">
+			<a href="listadoImagenes.php">Imagenes</a>
+		</li>
+	</ul>
+	<div class="div-añadir" id="div-añadir"></div>
+	<div class="div-usuario">
+		<div class="div-icono-usuario">
+			<i></i>
 		</div>
+		<div class="dropdown-content" id="dropdown-content"></div>
 	</div>
 </nav>
 <script type="text/javascript">
@@ -51,5 +48,13 @@
 		var aEnlace = $("<a>").attr("href","añadirImagen.php").text("Añadir Imagen");
 		break;
 	}
-	$("#div-contenedor-añadir").append(aEnlace);
+	$("#div-añadir").append(aEnlace);
+
+	$("#menuHamburguesa").click(() => {
+		if($(".ul-navbar").css("display") == "none"){
+			$(".ul-navbar").css("display","flex");
+		}else{
+			$(".ul-navbar").css("display","none");
+		}
+	});
 </script>

@@ -2,7 +2,7 @@ $.ajax({
 	method: "POST",
 	url: "../../models/obtenerCategorias.php",
 	success: function(categorias){
-		console.log(categorias);
+		//console.log(categorias);
 		let textoMostrarCategoria;
 		for(let i in categorias){
 			if(categorias[i].mostrar_categoria != 0){
@@ -26,12 +26,3 @@ $.ajax({
 	},
 	dataType: "json"
 });
-
-/*Ajustar tamaño barra*/
-ajustarTamaño();
-function ajustarTamaño(){
-	$(".div-icono-usuario").css("height",$(".div-icono-usuario").width());
-	$(".dropdown-content").css("top",$(".div-usuario").height()-7);
-	$(".dropdown-content").css("left",-($(".div-usuario").width()+130));
-	$(".categorias").css("margin-top",$("nav").height());
-}

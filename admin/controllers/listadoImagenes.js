@@ -14,7 +14,7 @@ $.ajax({
 });
 
 $(window).scroll(function(){
-	if($(window).scrollTop() + $(window).height() == $(document).height()){
+	if($(window).scrollTop() + $(window).height() + 100 >= $(document).height()){
 		if(numImagenesCargadas < totalImagenes){
 			cargarImagenes();
 		}
