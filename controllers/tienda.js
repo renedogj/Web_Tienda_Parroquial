@@ -49,7 +49,16 @@ function mostrarArticulos(articulos){
 				)
 			)
 		);
-		if(articulos[i].imagenes.length > 1 && articulos[i].disponibilidad != 2){
+		if(articulos[i].disponibilidad == 2){
+			$("#articulo"+articulos[i].id).append(
+				$("<div>").addClass("agotado").append(
+					$("<div>").addClass("banda_agotado").append(
+						$("<h1>").text("PRODUCTO AGOTADO")
+					)
+				)
+			);
+		}
+		if(articulos[i].imagenes.length > 1){
 			$("#articulo"+articulos[i].id).append(
 				$("<a>").addClass("prev").html("&#10094;").click(() => {
 					articulos[i].indexImagenesArticulo -= 1;
@@ -66,7 +75,7 @@ function mostrarArticulos(articulos){
 					mostrarImagen(articulos[i]);
 				})
 			)
-		}		
+		}
 	}
 	ajustarTamañoImagenes();
 }

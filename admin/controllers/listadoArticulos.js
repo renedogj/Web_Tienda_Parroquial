@@ -60,7 +60,6 @@ function mostrarArticulos(){
 		$("#divListadoArticulos").append(
 			$("<div>").addClass("contenedor-de-articulo").append(
 				$("<div>").addClass("articulo").attr("id","articulo"+articulos[i].id).append(
-					$("<div>").addClass("slideshow-container"),
 					$("<div>").addClass("mySlides").addClass("fade").append(
 						$("<img>").attr("id","imagenesArticulo"+articulos[i].id)
 					),
@@ -78,11 +77,21 @@ function mostrarArticulos(){
 				})
 			)
 		);
+		//Si el articulo.disponibilidad es 2 se muestra como agotado
+		if(articulos[i].disponibilidad == 2){
+			$("#articulo"+articulos[i].id).append(
+				$("<div>").addClass("agotado").append(
+					$("<div>").addClass("banda_agotado").append(
+						$("<h1>").text("PRODUCTO AGOTADO")
+					)
+				)
+			);
+		}
 		//Si el articulo tiene imagenes asociadas se las agregamos y mostramos la primera
 		if(articulos[i].imagenes != null){
 			$("#imagenesArticulo"+articulos[i].id).attr("src","../../imagenes/"+articulos[i].imagenes[0]);
 			//Si tiene más de una imagen asociada creamos las flechas y al pulsarlas se mostrará la siguiente o la anterior imagen
-			if(articulos[i].imagenes.length > 1 /*&& articulos[i].disponibilidad != 2*/){
+			if(articulos[i].imagenes.length > 1){
 				$("#articulo"+articulos[i].id).append(
 					$("<a>").addClass("prev").html("&#10094;").click(() => {
 						articulos[i].indexImagenesArticulo -= 1;

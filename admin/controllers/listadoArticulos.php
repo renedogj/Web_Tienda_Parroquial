@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="../../css/body.css">
 	<link rel="stylesheet" type="text/css" href="../../css/menuAdministracion.css">
 	<link rel="stylesheet" type="text/css" href="../../css/tienda.css">
+	<link rel="stylesheet" type="text/css" href="../../css/disponibilidad.css">
 	<link rel="stylesheet" type="text/css" href="../../css/animacionImagenes.css">
 	<link rel="stylesheet" type="text/css" href="../../css/listadoArticulos.css">
 </head>
