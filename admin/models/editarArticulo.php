@@ -8,7 +8,7 @@ $descripcion = trim($_POST["descripcion"]);
 $descripcion = cambiarAcute(ucfirst($descripcion));
 $precio = trim($_POST["precio"]);
 $mostrar = $_POST["mostrar"];
-($mostrar) ? $mostrar = 1 : $mostrar = 0;
+$mostrar = ($mostrar == "true") ? 1 : 0;
 $disponibilidad = trim($_POST["disponibilidad"]);
 
 $sql = "UPDATE articulos set nombre='$nombre', Descripcion='$descripcion', Precio=$precio, mostrar='$mostrar', disponibilidad='$disponibilidad' where ID=$id";

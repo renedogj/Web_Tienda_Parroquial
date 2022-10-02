@@ -71,17 +71,18 @@ function mostrarArticulos(){
 					)
 				),
 				$("<div>").addClass("disponibilidad").append(
-					$("<p>").text(textoDisponibilidad(articulos[i].disponibilidad))
+					$("<p>").text(textoDisponibilidad(articulos[i]))
 				),
 				$("<button>").addClass("button").text("Editar articulo").click(() => {
 					window.location.assign("editarArticulo.php?id="+articulos[i].id);
 				})
 			)
 		);
+		//Si el articulo tiene imagenes asociadas se las agregamos y mostramos la primera
 		if(articulos[i].imagenes != null){
 			$("#imagenesArticulo"+articulos[i].id).attr("src","../../imagenes/"+articulos[i].imagenes[0]);
-
-			if(articulos[i].imagenes.length > 1 && articulos[i].disponibilidad != 2){
+			//Si tiene más de una imagen asociada creamos las flechas y al pulsarlas se mostrará la siguiente o la anterior imagen
+			if(articulos[i].imagenes.length > 1 /*&& articulos[i].disponibilidad != 2*/){
 				$("#articulo"+articulos[i].id).append(
 					$("<a>").addClass("prev").html("&#10094;").click(() => {
 						articulos[i].indexImagenesArticulo -= 1;
@@ -105,19 +106,20 @@ function mostrarArticulos(){
 	ajustarTamañoImagenes();
 }
 
-function textoDisponibilidad(disponibilidad){
-	switch (disponibilidad) {
-		case "0":
+function textoDisponibilidad(articulo){
+	if(articulo.mostrar == 0){
 		return "El articulo no se muestra";
-		case "1":
-		return "El articulo se muestra normalmente";
-		case "2":
-		return "El articulo se muestra como agotado";
-		case "3":
-		return "El articulo se muestra como unidades limitadas";
-		default:
-		return "El articulo se muestra normalmente";
-
+	}else{
+		switch (articulo.disponibilidad) {
+			case "1":
+			return "El articulo se muestra normalmente";
+			case "2":
+			return "El articulo se muestra como agotado";
+			case "3":
+			return "El articulo se muestra como unidades limitadas";
+			default:
+			return "El articulo se muestra normalmente";
+		}
 	}
 }
 

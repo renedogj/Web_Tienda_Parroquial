@@ -45,7 +45,7 @@ while($result = $stmt->fetch()){
     array_push($imagenes[$result['id']],$result["nombre_foto"]);
 }
 
-$sql="SELECT id,nombre,descripcion,precio,disponibilidad from articulos ".$categoriaSql.$ordenSql;
+$sql="SELECT id,nombre,descripcion,precio,mostrar,disponibilidad from articulos ".$categoriaSql.$ordenSql;
 
 $articulos = obtenerArraySQL($conexion, $sql);
 foreach ($articulos as $i => $articulo) {
