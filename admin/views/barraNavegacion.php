@@ -33,28 +33,34 @@
 	echo '"' . basename($nombreArchivo,".php") . '"';
 	?>;
 
-	$("#"+nombreArchivo).addClass("selecionado");
+	if(nombreArchivo == "index"){
+		$("#menuHamburguesa").hide();
+		$(".ul-navbar").hide();
+		$(".div-usuario").hide();
+	}else{
+		$("#"+nombreArchivo).addClass("selecionado");
 
-	switch(nombreArchivo){
-		case "listadoArticulos":
-		case "editarArticulo":
-		var aEnlace = $("<a>").attr("href","añadirArticulo.php").text("Añadir Articulo");
-		break;
-		case "listadoCategorias":
-		case "editarCategoria":
-		var aEnlace = $("<a>").attr("href","añadirCategoria.php").text("Añadir Categoria");
-		break;
-		case "listadoImagenes":
-		var aEnlace = $("<a>").attr("href","añadirImagen.php").text("Añadir Imagen");
-		break;
-	}
-	$("#div-añadir").append(aEnlace);
-
-	$("#menuHamburguesa").click(() => {
-		if($(".ul-navbar").css("display") == "none"){
-			$(".ul-navbar").css("display","flex");
-		}else{
-			$(".ul-navbar").css("display","none");
+		switch(nombreArchivo){
+			case "listadoArticulos":
+			case "editarArticulo":
+			var aEnlace = $("<a>").attr("href","añadirArticulo.php").text("Añadir Articulo");
+			break;
+			case "listadoCategorias":
+			case "editarCategoria":
+			var aEnlace = $("<a>").attr("href","añadirCategoria.php").text("Añadir Categoria");
+			break;
+			case "listadoImagenes":
+			var aEnlace = $("<a>").attr("href","añadirImagen.php").text("Añadir Imagen");
+			break;
 		}
-	});
+		$("#div-añadir").append(aEnlace);
+
+		$("#menuHamburguesa").click(() => {
+			if($(".ul-navbar").css("display") == "none"){
+				$(".ul-navbar").css("display","flex");
+			}else{
+				$(".ul-navbar").css("display","none");
+			}
+		});
+	}
 </script>

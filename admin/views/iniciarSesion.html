@@ -1,33 +1,15 @@
-		<nav id="barraNavegacion" class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container-fluid">
-				<div class="navbar-header">
-			    	<div class="div-contenedora-logoMenu">
-						<a target="iframe" href="principal.html" id="logoA" class="logo">TIENDA PARROQUIAL</a>
-						<a target="iframe" href="principal.html" id="logoB" class="logo">TIENDA PARROQUIAL</a>
-					</div>
-			    </div>
-			</div>
-		</nav>
 		<div class="contenedora">
-			<div class="div-contenedora-iniciosesion">
-				<div class="iniciosesion">
-					<form method="post" id="formularioAcceder">
-					<div class="form-inicio-sesion">
-						<h1>Iniciar Sesión</h1>
-						<div class="div-contenedora-labelinput">
-							<label for="correo">Correo electronico:</label>
-							<input id="correo" type="email" size="50" maxlength="25" placeholder=" Correo electronico"/>
-						</div>
-						<div class="div-contenedora-labelinput">
-							<label for="password">Contraseña:</label>
-							<input id="password" type="password" size="50" maxlength="25" placeholder=" Contraseña"/>
-						</div>
-						<div class="div-fallo-inicio">
-							<p id="p-fallo-inicio"></p>
-						</div>
-						<button class="boton-iniciarsesion" id="bttnAcceder" type="submit">Iniciar Sesión</button>
-					</div>
-					<form>
+			<div class="inicioSesion">
+				<h1>Iniciar Sesión</h1>
+				<div class="div-contenedora-labelinput">
+					<label for="correo">Correo electrónico:</label>
+					<input id="correo" type="email" size="50" maxlength="25" placeholder=" Correo electronico"/>
 				</div>
+				<div class="div-contenedora-labelinput">
+					<label for="password">Contraseña:</label>
+					<input id="password" type="password" size="50" maxlength="25" placeholder=" Contraseña"/>
+				</div>
+				<p id="p-fallo-inicio" class="p-fallo-inicio error"></p>
+				<button class="boton-iniciarsesion button" id="bttnAcceder" type="submit">Iniciar Sesión</button>
 			</div>
 		</div>
