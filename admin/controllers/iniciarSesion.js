@@ -19,7 +19,7 @@ function cerrarSesion(){
 }
 
 $(document).ready(() => {
-	$("#bttnAcceder").click(() => {
+	$("#formularioAcceder").submit(() => {
 		var email = $("#correo").val();
 		var password = $("#password").val();
 
