@@ -6,7 +6,7 @@
 			<span class="line line3"></span>
 		</div>
 	</div>
-	<a class="navbar-titulo" href="../../index.php">Mercadillo Parroquial</a>
+	<a class="navbar-titulo" href="../../">Mercadillo Parroquial</a>
 	<ul class="ul-navbar">
 		<li id="listadoArticulos">
 			<a href="listadoArticulos.php">Articulos</a>
@@ -34,6 +34,7 @@
 	?>;
 
 	if(nombreArchivo == "index"){
+		$(".navbar-titulo").attr("href","../");
 		$("#menuHamburguesa").hide();
 		$(".ul-navbar").hide();
 		$(".div-usuario").hide();

@@ -1,45 +1,30 @@
 	<div class="contactar" id="formulario-comprar">
-		<div class="como-comprar" id="comprar">
-			<div class="instrucciones" id="instrucciones">
-				<h1>COMO HACER TU PEDIDO</h1>
-				<p><span class="intro-instrucciones">Ponte en contacto con nosotros por uno de estos medios:</span><br>
-					<ul>
-						<li>Envía un <b>WhatsApp</b> al número <b>609 64 30 36</b> indicando tu nombre, qué artículo te interesa y la cantidad.</li>
-						<li>O a través del formulario que aparece a continuación.</li>
-					</ul>
-				</p>
-			</div>
+		<div class="instrucciones" id="instrucciones">
+			<h1>COMO HACER TU PEDIDO</h1>
+			<p class="intro-instrucciones">Ponte en contacto con nosotros por uno de estos medios:</p>
+			<ul>
+				<li>Envía un <b>WhatsApp</b> al número <b>609 64 30 36</b> indicando tu nombre, qué artículo te interesa y la cantidad.</li>
+				<li>O a través del formulario que aparece a continuación.</li>
+			</ul>
 		</div>
-		<div class="como-contactar">
-			<div class="correo">
-				<h2>PEDIR UN ARTICULO POR CORREO</h2>
-				<form id="formularioPedirArticulos" action="controllers/correo.php" method="post">
-					<div class="label">
-						<label for="nombre">
-							Nombre: <span class="obligatorio">*</span><br>
-							<input type="text" name="nombre" id="nombre"><br>
-						</label>
-					</div>
-					<div class="label">
-						<label for="apellido">
-							Apellidos: <span class="obligatorio">*</span><br>
-							<input type="text" name="apellido" id="apellido"><br>
-						</label>
-					</div>
-					<div class="label">
-						<label for=correoElectronico>
-							Correo: <span class="obligatorio">*</span><br>
-							<input type="email" name="correoElectronico" id="correoElectronico"><br>
-						</label>
-					</div>
-					<div class="label">
-						<label for="articulosPedidos">
-							Código y nombre de los articulos (en caso de ser varios, por favor, sepáralos con comas): <span class="obligatorio">*</span><br>
-							<input type="text" name="articulosPedidos" id="articulosPedidos">
-						</label>
-					</div>
-					<button class="boton-solicitar-pedido" onclick="enviarcorreo()">Hacer Pedido</button>
-				</form>
+		<form class="correo" id="formularioPedirArticulos" action="controllers/correo.php" method="post">
+			<h2>PEDIR UN ARTICULO POR CORREO</h2>
+			<div class="div-contenedora-labelinput">
+				<label for="nombre">Nombre: <span>*</span></label>
+				<input type="text" name="nombre" id="nombre">
 			</div>
-		</div>
+			<div class="div-contenedora-labelinput">
+				<label for="apellido">Apellidos: <span>*</span></label>
+				<input type="text" name="apellido" id="apellido">
+			</div>
+			<div class="div-contenedora-labelinput">
+				<label for="correoElectronico">Correo: <span>*</span></label>
+				<input type="email" name="correoElectronico" id="correoElectronico">
+			</div>
+			<div class="div-contenedora-labelinput">
+				<label for="articulosPedidos">Código y nombre de los articulos (en caso de ser varios, por favor, sepáralos con comas): <span>*</span></label>
+				<input type="text" name="articulosPedidos" id="articulosPedidos">
+			</div>
+			<button class="boton-solicitar-pedido button" onclick="enviarcorreo()">Hacer Pedido</button>
+		</form>
 	</div>

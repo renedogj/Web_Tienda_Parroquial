@@ -19,6 +19,13 @@ body{
 	background-color: #FAFAFA;
 }
 
+.div-contenedora-labelinput{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	gap: 10px;
+}
+
 .button{
 	background-color: rgba(215,215,215,1);
 	position: relative;

@@ -28,15 +28,9 @@
 	text-align: center;
 }
 
-.div-contenedora-labelinput{
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	gap: 10px;
-}
-
 .inicioSesion label{
 	font-size: 1.3em;
+	font-weight: bold;
 }
 
 .inicioSesion input{
@@ -50,10 +44,6 @@
 
 .boton-iniciarsesion{
 	width: 45%;
-}
-
-.iniciosesion label{
-	font-weight:bold;
 }
 
 .p-fallo-inicio{
