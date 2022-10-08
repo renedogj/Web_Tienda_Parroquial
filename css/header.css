@@ -6,156 +6,78 @@ header{
 	border-color: #3F888F;
 }
 
-.header-imagen-superior{
-	/*background-color: rgba(255, 255, 250, 0.8);*/
-	/*position: relative;*/
-}
-
 .div-background{
 	background-image: url("../imagenes/Visita_Pastoral_Jesus_Vidal_10.jpg");
-	/*background-image: url("http://www.parroquiasanleandro.es/wp-content/uploads/2019/11/Visita_Pastoral_Jesus_Vidal_10.jpg");*/
 	background-position: 0px -129px;
 	background-size: 100% auto;
-	opacity: 0.13;
-	transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+	position: absolute;
 	width: 100%;
 	height: 100%;
-	position: absolute;
 	top: 0;
 	left: 0;
-}
-
-.div-contenedora-header{
-	/*background-color: orange;*/
-	/*max-width: 1200px;*/
-	/*-webkit-box-align: center;*/
-	/*align-items: center;*/
-	/*display: flex;*/
-	/*margin-right: auto;*/
-	/*margin-left: auto;*/
-	/*position: relative;*/
-	/*height: auto;*/
-	/*z-index: 2;*/
+	opacity: 0.13;
+	transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
 }
 
 .div-contenedor{
 	position: relative;
-	background-color: rgba(0, 0, 0, 0.1);
-	/*background-color: red;*/
-	/*width: 100%;*/
-	/*width: 100%;*/
-	/*min-height:100px;*/
-	/*max-height: 200px;*/
-	/*font-size: 1rem;*/
-	/*font-weight: 400;*/
-	/*line-height: 1.5;*/
-	/*color: #333;*/
-	/*height: auto;*/
-	padding: 0.5%;
+	padding: 1%;
 	display: flex;
 	flex-direction: row;
-	/*flex-wrap: nowrap;*/
 	justify-content: space-around;
 	align-items: center;
-	gap: 10px;
-	/*z-index: 5;*/
-}
-
-.a-imagen-logo{
-	/*background-color: green;*/
-	/*width: 100%;*/
-	/*height: auto;*/
-	/*flex-grow: 1;*/
 }
 
 .a-imagen-logo img{
-	/*width: 100%;*/
-	/*height: 100%;*/
-	/*max-width: 100%;*/
 	width: 187px;
-	/*vertical-align: middle;*/
-	/*display: inline-block;*/
-	/*position: relative;*/
 }
 
 
 .div-letras-San-Leandro{
-	/*background-color: blue;*/
-	/*background: */
-	/*min-height: 1px;*/
-	/*width: 85%;*/
-	/*height: auto;*/
-	/*max-height: 195px;*/
-	/*max-height: 100px;*/
-	/*flex-grow: 2;*/
-	/*transition: background .3s,border .3s,border-radius .3s,box-shadow .3s,-webkit-border-radius .3s,-webkit-box-shadow .3s;*/
+	width: min-content;
 }
 
-.div-letras-San-Leandro a{
-	width: 100%;
+.a-letras-San-Leandro{
 	color: #3F888F;
 	font-family: "Marcellus SC", Sans-serif;
-	font-size: 3em;
 	font-size: 49px;
-	/*line-height: 1em;*/
-	/*letter-spacing: 0px;*/
-	/*text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.27);*/
-	/*margin-block-start: 0.67em;*/
-	/*margin-block-end: 0.67em;*/
-	/*margin-inline-start: 0px;*/
-	/*margin-inline-end: 0px;*/
 	text-align: center;
-/*}
-
-.div-letras-San-Leandro h1 a{*/
-	/*color: inherit;*/
-	/*font-size: 120%;*/
 	text-decoration: none;
-	/*letter-spacing: 0px;*/
-	/*text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.27);*/
 	text-shadow: 1px 1px 2px rgb(0 0 0 / 27%);
-	/*font-weight: 500;*/
 	font-weight: bold;
 }
 
-.redes{
-	/*position: relative;*/
-	/*width: 15%;*/
-	/*height: auto;*/
-	/*flex-grow: 1;*/
-
-}
-
 .div-redes-sociales{
-	background-color: yellow;
-	/*position: relative;*/	
-	/*padding: 1%;*/
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	/*width: 100%;*/
-	/*height: auto;*/
-	/*min-height: 1px;*/
-	/*max-height: 150px;*/
 }
 
 .div-facebook, .div-twitter, .div-youtube, .div-instagram{
-	/*position: relative;*/
-	/*width: 25%;*/
-	/*height: 25%;*/
-	/*margin-top: 27%;*/
-	/*margin-left: 2%;*/
-	padding: 2%;
+	padding: 3%;
 }
-/*twitter #1da1f2*/
+
+.a-facebook{
+	background-image: url("../imagenes/iconfinder_facebook_circle_color_107175.png");
+}
+
+.a-twitter{
+	background-image: url("../imagenes/Twitter_Social_Icon_Circle_Color.png");
+}
+
+.a-youtube{
+	background-image: url("../imagenes/iconfinder_youtube_circle_294712.png");
+}
+
+.a-instagram{
+	background-image: url("../imagenes/iconfinder_instagram_2142569.png");
+}
 
 .a-facebook, .a-twitter, .a-youtube, .a-instagram{
-	/*--icon-padding: 1em;*/
-	/*--icon-size: 10px;*/
+	background-repeat: no-repeat;
 	font-size: 10px;
 	padding: 1em;
 	border-radius: 50%;
-	/*margin: 0;*/
 	box-shadow: none;
 	text-decoration: none;
 	background-color: #3b5998;
@@ -163,10 +85,6 @@ header{
 	cursor: pointer;
 	display: inline-block;
 	line-height: 1;
-	/*font-size: var(--icon-size,25px);*/
-    /*line-height: var(--icon-size,25px);*/
-    /*width: calc(var(--icon-size, 25px) + (2 * var(--icon-padding, .5em)));*/
-    /*height: calc(var(--icon-size, 25px) + (2 * var(--icon-padding, .5em)));*/
 }
 
 .span-facebook, .span-twitter, .span-youtube, .span-instagram{
@@ -187,76 +105,50 @@ header{
 	word-break: break-word;
 }
 
-.a-facebook{
-	background-image: url("../imagenes/iconfinder_facebook_circle_color_107175.png");
-	background-repeat: no-repeat;
-}
-
-.a-twitter{
-	background-image: url("../imagenes/Twitter_Social_Icon_Circle_Color.png");
-	background-repeat: no-repeat;
-}
-
-.a-youtube{
-	background-image: url("../imagenes/iconfinder_youtube_circle_294712.png");
-	background-repeat: no-repeat;
-}
-
-.a-instagram{
-	background-image: url("../imagenes/iconfinder_instagram_2142569.png");
-	background-repeat: no-repeat;
-}
-
-
 @media(max-width: 1150px){
 	.div-redes-sociales{
 		flex-direction: column;
 	}
-	.div-facebook, .div-twitter, .div-youtube, .div-instagram{
-		/*margin-top: 0;*/
-		/*margin-left: 20%;*/
-	}
 }
 
 @media(max-width: 1112px){
-	.div-letras-San-Leandro h1{
+	.a-letras-San-Leandro{
 		font-size: 45px;
 	}
 }
 
+@media(max-width: 850px){
+	.a-letras-San-Leandro{
+		width: 100%;
+	}
+	.div-redes-sociales{
+		width: 20%;
+	}
+}
+
+@media(max-width: 750px){
+	.div-redes-sociales{
+		width: 50%;
+	}
+}
+
 @media(max-width: 600px){
-	.div-facebook, .div-twitter, .div-youtube, .div-instagram{
-		/*margin-left: 20%;*/
+	.div-redes-sociales{
+		width: 50%;
 	}
-	.div-letras-San-Leandro{
-		/*width: 90%;*/
-	}
-	.div-letras-San-Leandro h1{
+	.a-letras-San-Leandro{
 		font-size: 40px;
 	}
 }
 
 @media(max-width: 500px){
-	.div-facebook, .div-twitter, .div-youtube, .div-instagram{
-		/*margin-left: 10%;*/
-	}
-	.div-letras-San-Leandro{
-		/*width: 85%;*/
-	}
-	.div-letras-San-Leandro h1{
+	.a-letras-San-Leandro{
 		font-size: 35px;
 	}
 }
 
 @media(max-width: 400px){
-	.div-facebook, .div-twitter, .div-youtube, .div-instagram{
-		/*margin-left: 5%;*/
-	}
-	.div-letras-San-Leandro{
-		/*width: 80%;*/
-		/*margin-top: 2%;*/
-	}
-	.div-letras-San-Leandro h1{
+	.a-letras-San-Leandro{
 		font-size: 30px;
 	}
 	.a-imagen-logo img{
@@ -265,14 +157,7 @@ header{
 }
 
 @media(max-width: 300px){
-	.div-facebook, .div-twitter, .div-youtube, .div-instagram{
-		/*margin-left: 1%;*/
-	}
-	.div-letras-San-Leandro{
-		/*width: 75%;*/
-		/*margin-top: 2%;*/
-	}
-	.div-letras-San-Leandro h1{
+	.a-letras-San-Leandro{
 		font-size: 25px;
 	}
 	.a-imagen-logo img{
@@ -281,12 +166,8 @@ header{
 }
 
 @media(max-width: 250px){
-	.div-letras-San-Leandro{
-		/*width: 75%;*/
-		/*margin-top: 2%;*/
-	}
-	.div-letras-San-Leandro h1{
-		font-size: 23px;
+	.a-letras-San-Leandro{
+		font-size: 20px;
 	}
 	.a-imagen-logo img{
 		width: 80px;
