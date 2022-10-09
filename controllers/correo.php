@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Mercadillo Solidario &#8211; Parroquia De San Leandro</title>
+		<link rel="shortcut icon" type="png" href="imagenes/general/parroquia_200x200.jpg">
 	</head>
 	<body>
 		<?php

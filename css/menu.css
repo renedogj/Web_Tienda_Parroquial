@@ -21,7 +21,6 @@
     font-size: 30px;
 }
 
-
 .div-menu{
     position: relative;
     width: 35%;
@@ -76,11 +75,13 @@
         width: 40%;
     } 
 }
+
 @media(max-width: 725px){
     .ulA{
         padding-inline-start: 30px;
     }
 }
+
 @media(max-width: 710px){
     .div-mercadillo-letras{
         width: 55%;
@@ -100,6 +101,7 @@
         width: 45%;
     } 
 }
+
 @media(max-width: 625px){
     .menu .div-mercadillo-letras h1{
         font-size: 22px;
@@ -115,6 +117,7 @@
         padding-inline-start: 25px;
     }
 }
+
 @media(max-width: 545px){
     .menu .div-mercadillo-letras h1{
         font-size: 20px;

@@ -7,7 +7,7 @@ header{
 }
 
 .div-background{
-	background-image: url("../imagenes/Visita_Pastoral_Jesus_Vidal_10.jpg");
+	background-image: url("../imagenes/general/Visita_Pastoral_Jesus_Vidal_10.jpg");
 	background-position: 0px -129px;
 	background-size: 100% auto;
 	position: absolute;
@@ -31,7 +31,6 @@ header{
 .a-imagen-logo img{
 	width: 187px;
 }
-
 
 .div-letras-San-Leandro{
 	width: min-content;
@@ -58,19 +57,19 @@ header{
 }
 
 .a-facebook{
-	background-image: url("../imagenes/iconfinder_facebook_circle_color_107175.png");
+	background-image: url("../imagenes/social/iconfinder_facebook_circle_color_107175.png");
 }
 
 .a-twitter{
-	background-image: url("../imagenes/Twitter_Social_Icon_Circle_Color.png");
+	background-image: url("../imagenes/social/Twitter_Social_Icon_Circle_Color.png");
 }
 
 .a-youtube{
-	background-image: url("../imagenes/iconfinder_youtube_circle_294712.png");
+	background-image: url("../imagenes/social/iconfinder_youtube_circle_294712.png");
 }
 
 .a-instagram{
-	background-image: url("../imagenes/iconfinder_instagram_2142569.png");
+	background-image: url("../imagenes/social/iconfinder_instagram_2142569.png");
 }
 
 .a-facebook, .a-twitter, .a-youtube, .a-instagram{

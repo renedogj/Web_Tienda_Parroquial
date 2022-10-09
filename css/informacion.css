@@ -89,7 +89,7 @@
 	display: flex;
 }
 
-.info-fotos-proyecto,.info-fotos-talleres{
+.proyectoTalleres{
 	position: relative;
 	display: flex;
 	width: 48%;
@@ -97,7 +97,7 @@
 	height:500px;
 }
 
-.info-fotos-talleres img,.info-fotos-proyecto img{
+.proyectoTalleres img{
 	position: relative;
 	margin:0;
 	width: 100%;
