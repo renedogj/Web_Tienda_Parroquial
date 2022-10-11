@@ -1,29 +1,22 @@
 .info{
-	position: relative;
 	width: 100%;
-	margin-top: 2px;
-	margin-bottom: 2px;
+	margin: 2px 0;
 	min-height: 300px;
 	height: auto;
 }
 
 .info-contenedora{
-	position: relative;
 	width: 80%;
-	margin: 10px;
-	margin-left: 10%;
-	margin-right: 10%;
+	margin: 10px 10%;
 	text-align: center;
 	font-family: Raleway;
 	min-height: 250px;
-	height: auto;
 }
 
 .info-contenedora h1{
-	margin: 0;
 	line-height: 2em;
 	width: 80%;
-    margin: auto;
+	margin: auto;
 }
 
 .info-contenedora ul{
@@ -37,52 +30,40 @@
 
 .boton-Haz-tu-pedido {
 	-moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
-	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #378de5) );
-	background:-moz-linear-gradient( center top, #79bbff 5%, #378de5 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5');
+	-webkit-box-shadow: inset 0px 1px 0px 0px #bbdaf7;
+	box-shadow: inset 0px 1px 0px 0px #bbdaf7;
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #378de5) );
+	background: -moz-linear-gradient( center top, #79bbff 5%, #378de5 100% );
 	background-color:#79bbff;
-	-webkit-border-top-left-radius:20px;
-	-moz-border-radius-topleft:20px;
-	border-top-left-radius:20px;
-	-webkit-border-top-right-radius:20px;
-	-moz-border-radius-topright:20px;
-	border-top-right-radius:20px;
-	-webkit-border-bottom-right-radius:20px;
-	-moz-border-radius-bottomright:20px;
-	border-bottom-right-radius:20px;
-	-webkit-border-bottom-left-radius:20px;
-	-moz-border-radius-bottomleft:20px;
-	border-bottom-left-radius:20px;
-	text-indent:0;
-	border:1px solid #84bbf3;
-	display:inline-block;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	font-style:normal;
-	height:45px;
-	line-height:45px;
-	width:170px;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:1px 1px 0px #528ecc;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	text-indent: 0;
+	border: 1px solid #84bbf3;
+	display: inline-block;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	font-style: normal;
+	height: 45px;
+	line-height: 45px;
+	width: 170px;
+	text-decoration: none;
+	text-align: center;
+	text-shadow: 1px 1px 0px #528ecc;
 }
 .boton-Haz-tu-pedido:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #378de5), color-stop(1, #79bbff) );
 	background:-moz-linear-gradient( center top, #378de5 5%, #79bbff 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff');
 	background-color:#378de5;
 }
 .boton-Haz-tu-pedido:active {
-	position:relative;
-	top:2px;
+	position: relative;
+	top: 2px;
 }
 
 .info-fotos{
-	position: relative;
 	width: 97%;
 	margin: 10px 1.5%;
 	height: auto;
@@ -90,31 +71,25 @@
 }
 
 .proyectoTalleres{
-	position: relative;
 	display: flex;
 	width: 48%;
 	margin: 10px 1%;
-	height:500px;
+	height: 500px;
 }
 
 .proyectoTalleres img{
-	position: relative;
-	margin:0;
 	width: 100%;
 	height: 100%;
 }
 
 @media(max-width: 1144px){
 	.info-contenedora{
-		margin: 7px;
 		width: 85%;
-		margin-left: 7.5%;
-		margin-right: 7.5%;
+		margin: 7px 7.5%;
 	}
 	.info-contenedora h1{
 		font-size: 30px;
 	}
-
 	.info-contenedora p,.info-contenedora ul{
 		font-size: 17px;
 	}
@@ -124,7 +99,6 @@
 	.info-contenedora h1{
 		font-size: 28px;
 	}
-
 	.info-contenedora p,.info-contenedora ul{
 		font-size: 16px;
 	}
@@ -133,13 +107,11 @@
 @media(max-width: 881px){
 	.info-contenedora{
 		width: 88%;
-		margin-left: 6%;
-		margin-right: 6%;
+		margin: 7px 6%;
 	}
 	.info-contenedora h1{
 		font-size: 26px;
 	}
-
 	.info-contenedora p,.info-contenedora ul{
 		font-size: 15px;
 	}
@@ -148,13 +120,11 @@
 @media(max-width: 600px){
 	.info-contenedora{
 		width: 90%;
-		margin-left: 5%;
-		margin-right: 5%;
+		margin: 7px 5%;
 	}
 	.info-contenedora h1{
 		font-size: 24px;
 	}
-
 	.info-contenedora p,.info-contenedora ul{
 		font-size: 14px;
 	}
@@ -168,13 +138,11 @@
 @media(max-width: 430px){
 	.info-contenedora{
 		width: 94%;
-		margin-left: 3%;
-		margin-right: 3%;
+		margin: 7px 3%;
 	}
 	.info-contenedora h1{
 		font-size: 22px;
 	}
-
 	.info-contenedora p,.info-contenedora ul{
 		font-size: 13px;
 	}
@@ -183,7 +151,6 @@
 		margin: 10px 2.5%;
 		display: inline;
 	}
-
 	.info-fotos-proyecto,.info-fotos-talleres{
 		width: 95%;
 		margin: 5px 2.5%;
@@ -193,20 +160,18 @@
 @media(max-width: 360px){
 	.info-contenedora{
 		width: 96%;
-		margin-left: 2%;
-		margin-right: 2%;
+		margin: 7px 2%;
 	}
 	.info-contenedora h1{
 		font-size: 19px;
 	}
-
 	.info-contenedora p,.info-contenedora ul{
 		font-size: 12px;
 	}
 	.boton-Haz-tu-pedido {
-		font-size: 13px;
-		height: 30px;
-		line-height: 30px;
 		width: 170px;
+		height: 30px;
+		font-size: 13px;
+		line-height: 30px;
 	}
 }

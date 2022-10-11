@@ -1,17 +1,8 @@
-.tienda{
-	position: relative;
-	width: 100%;
-	height: auto;
-}
-
 .titulo-tienda{
 	background-color: rgba(50, 120, 190, 0.7);
-	position: relative;
 	width: 84%;
-	margin-left: 8%;
-	margin-right: 8%;
 	padding: 1px;
-	margin-bottom: 20px;
+	margin: 0 8% 20px;
 	text-align: center;
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
@@ -19,28 +10,23 @@
 }
 
 .titulo-tienda h1{
-	position: relative;
 	font-size: 40px;
 	margin: 15px;
 	color: white;
 }
 
 .formulario-filtrar{
-	position: relative;
 	width: 95%;
 	margin: 5px 2.5%;
-	height: auto;
 }
 
 .formulario-filtrar form{
-	position: relative;
 	width: 98%;
 	margin: 0 1%;
 	display: flex;
 }
 
 .formulario-filtrar form .select{
-	position: relative;
 	margin: 7px 0 7px 15px;
 	min-width: 140px;
 	width: 20%;
@@ -48,22 +34,19 @@
 }
 
 .formulario-filtrar form .select select{
-	position: relative;
 	width: 100%;
 	height: 100%;
 	font-size: 17px;
 }
 
 .formulario-filtrar .enviar-filtrar{
-	position: relative;
 	margin: 7px 0 7px 15px;
-	min-width: 60px;
 	height: 30px;
+	min-width: 60px;
 	max-width: 80px;
 }
 
 .formulario-filtrar .enviar-filtrar input{
-	position: relative;
 	width: 100%;
 	height: 100%;
 	font-size: 18px;
@@ -71,7 +54,6 @@
 }
 
 .articulosTienda{
-	position: relative;
 	width: 92%;
 	margin: 0 4% 50px 4%;
 	height: auto;
@@ -107,7 +89,6 @@
 
 .div_info_articulo h1{
 	color: #e6e6e6;
-	position: relative;
 	margin: 10px 2px 0 2px;
 	font-family: Marcellus SC;
 	font-size: 29px;
@@ -116,7 +97,6 @@
 
 .div_info_articulo p{
 	color: #e6e6e6;
-	position: relative;
 	line-height: 0;
 	font-size: 16px;
 	visibility: hidden;
@@ -235,7 +215,6 @@
 	.div_info_articulo h1{
 		font-size: 21px;
 	}
-
 	.div_info_articulo p{
 		font-size: 12px;
 	}
