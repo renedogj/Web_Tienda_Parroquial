@@ -1,6 +1,6 @@
 $.ajax({
 	method: "POST",
-	url: "../../models/obtenerCategorias.php",
+	url: "	../models/obtenerCategorias.php",
 	success: function(categorias){
 		let textoMostrarCategoria;
 		for(let i in categorias){
