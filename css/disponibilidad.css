@@ -78,19 +78,19 @@
 
 @media(max-width: 860px){
 	.banda_agotado h1{
-		font-size: 32px;
+		font-size: 26px;
 	}
 }
 
-@media(max-width: 810px){
+/*@media(max-width: 810px){
 	.banda_agotado h1{
 		font-size: 30px;
 	}
-}
+}*/
 
 @media(max-width: 790px){
 	.banda_agotado h1{
-		font-size: 32px;
+		font-size: 20px;
 	}
 }
 
@@ -102,29 +102,29 @@
 
 @media(max-width: 600px){
 	.banda_agotado h1{
+		font-size: 22px;
+	}
+}
+
+@media(max-width: 520px){
+    .banda_agotado h1{
+		font-size: 18px;
+	}
+}
+
+/*@media(max-width: 500px){
+    .banda_agotado h1{
 		font-size: 25px;
 	}
-}
+}*/
 
-@media(max-width: 540px){
+@media(max-width: 450px){
     .banda_agotado h1{
-		font-size: 26px;
+		font-size: 16px;
 	}
 }
 
-@media(max-width: 500px){
-    .banda_agotado h1{
-		font-size: 25px;
-	}
-}
-
-@media(max-width: 480px){
-    .banda_agotado h1{
-		font-size: 33px;
-	}
-}
-
-@media(max-width: 390px){
+/*@media(max-width: 390px){
 	.banda_agotado h1{
 		font-size: 28px;
 	}
@@ -134,18 +134,19 @@
     .banda_agotado h1{
 		font-size: 27px;
 	}
-}
+}*/
 
-@media(max-width: 330px){
+@media(max-width: 355px){
 	.banda_agotado h1{
-		font-size: 26px;
+		padding: 5%;
+		font-size: 22px;
 	}
 }
 
 
 @media(max-width: 280px){
     .banda_agotado h1{
-		font-size: 25px;
+		font-size: 18px;
 	}
 }
 

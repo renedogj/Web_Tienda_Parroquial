@@ -51,3 +51,23 @@ body{
 .error{
 	color: #DE0006;
 }
+
+@media(max-width: 860px){
+	.button{
+		font-size: 0.7em;
+	}
+}
+
+@media(max-width: 500px){
+	.button{
+		/*padding: 1.5% 2%;*/
+		font-size: 0.6em;
+	}
+}
+
+@media(max-width: 300px){
+	.button{
+		/*padding: 1.5% 3%;*/
+		font-size: 0.5em;
+	}
+}

@@ -253,7 +253,7 @@
 	}
 }
 
-@media(max-width: 353px){
+@media(max-width: 355px){
 	.listadoArticulos{
 		grid-template-columns: 1fr;
 	}

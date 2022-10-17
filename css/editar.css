@@ -195,14 +195,10 @@ input[type=number] {
 	position: relative;
 	width: 80%;
 	margin: 1% 10%;
-	padding: 0.5%;
+	padding: 2.5% 0.5% 5%;
 	display: flex;
 	justify-content: space-around;
-}
-
-.div-boton button{
-	width: 20%;
-	font-size: 1em;
+	gap: 10px;
 }
 
 .dialog-eliminarArticulo{
