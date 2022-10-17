@@ -4,7 +4,6 @@
 	position: fixed;
 	width: 100%;
 	height: 100vh;
-	/*display: grid;*/
 	grid-template-columns: 40%;
 	justify-content: center;
 	align-items: center;
@@ -12,13 +11,11 @@
 	display: none;
 }
 
-
 .div-dialog-eliminarImagen{
 	background-color: #F2F2F2;
 	width: 100%;
 	border-radius: 15px;
 	padding: 4%;
-	/*align-self: start;*/
 	display: grid;
 	grid-template-columns: 35% 65%;
 	grid-template-areas: 
@@ -68,4 +65,3 @@
 .div-confirmacionEliminar #bttnEliminar{
 	grid-area: bttnEliminar;
 }
-

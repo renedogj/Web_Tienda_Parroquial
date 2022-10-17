@@ -71,7 +71,8 @@
 @media(max-width: 550px){
 	.imagenes{
 		grid-template-columns: repeat(3, 1fr);
-	}}
+	}
+}
 
 @media(max-width: 400px){
 	.imagenes{
