@@ -1,6 +1,6 @@
 $.ajax({
 	method: "POST",
-	url: "../../models/obtenerCategorias.php",
+	url: "../models/obtenerCategorias.php",
 	success: (categorias) => {
 		for(let i in categorias){
 			let id = categorias[i].Id;
