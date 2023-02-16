@@ -19,4 +19,14 @@ function obtenerArraySQL($conexion, $sql){
 	//return new RecursiveArrayIterator($stmt->fetchAll());
 	return $stmt->fetchAll();
 }
+
+function simplificarArray($conexion, $sql, $columna){
+	$arrayComplejo = obtenerArraySQL($conexion, $sql);
+
+	$array = [];
+	foreach($arrayComplejo as $i){
+		array_push($array,$i[$columna]);
+	}
+	return $array;
+}
 ?>
